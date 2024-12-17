@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Admin));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnHome = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnListStudent = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnTeacher = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnLogout = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv_List = new System.Windows.Forms.DataGridView();
@@ -81,66 +82,80 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton1});
+            this.toolStrip_btnHome,
+            this.toolStrip_btnListStudent,
+            this.toolStrip_btnTeacher,
+            this.toolStripButton5,
+            this.toolStrip_btnLogout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(171, 757);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton2
+            // toolStrip_btnHome
             // 
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.AutoToolTip = false;
-            this.toolStripButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(175, 50);
-            this.toolStripButton2.Text = "Home";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStrip_btnHome.AutoSize = false;
+            this.toolStrip_btnHome.AutoToolTip = false;
+            this.toolStrip_btnHome.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnHome.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnHome.Image")));
+            this.toolStrip_btnHome.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnHome.Name = "toolStrip_btnHome";
+            this.toolStrip_btnHome.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnHome.Text = "Home";
+            this.toolStrip_btnHome.Click += new System.EventHandler(this.toolStrip_btnHome_Click);
             // 
-            // toolStripButton3
+            // toolStrip_btnListStudent
             // 
-            this.toolStripButton3.AutoSize = false;
-            this.toolStripButton3.AutoToolTip = false;
-            this.toolStripButton3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(175, 50);
-            this.toolStripButton3.Text = "DS Sinh Viên";
-            this.toolStripButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.toolStrip_btnListStudent.AutoSize = false;
+            this.toolStrip_btnListStudent.AutoToolTip = false;
+            this.toolStrip_btnListStudent.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnListStudent.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnListStudent.Image")));
+            this.toolStrip_btnListStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnListStudent.Name = "toolStrip_btnListStudent";
+            this.toolStrip_btnListStudent.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnListStudent.Text = "DS Sinh Viên";
+            this.toolStrip_btnListStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStrip_btnListStudent.Click += new System.EventHandler(this.toolStrip_btnListStudent_Click);
             // 
-            // toolStripButton4
+            // toolStrip_btnTeacher
             // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.AutoToolTip = false;
-            this.toolStripButton4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(175, 50);
-            this.toolStripButton4.Text = "DS Giảng Viên";
-            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.toolStrip_btnTeacher.AutoSize = false;
+            this.toolStrip_btnTeacher.AutoToolTip = false;
+            this.toolStrip_btnTeacher.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnTeacher.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnTeacher.Image")));
+            this.toolStrip_btnTeacher.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnTeacher.Name = "toolStrip_btnTeacher";
+            this.toolStrip_btnTeacher.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnTeacher.Text = "DS Giảng Viên";
+            this.toolStrip_btnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStrip_btnTeacher.Click += new System.EventHandler(this.toolStrip_btnTeacher_Click);
             // 
-            // toolStripButton1
+            // toolStripButton5
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.AutoToolTip = false;
-            this.toolStripButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(175, 50);
-            this.toolStripButton1.Text = "Thống Kê Điểm";
+            this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.AutoToolTip = false;
+            this.toolStripButton5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(175, 50);
+            this.toolStripButton5.Text = "Thống Kê Điểm";
+            // 
+            // toolStrip_btnLogout
+            // 
+            this.toolStrip_btnLogout.AutoSize = false;
+            this.toolStrip_btnLogout.AutoToolTip = false;
+            this.toolStrip_btnLogout.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnLogout.Image")));
+            this.toolStrip_btnLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnLogout.Name = "toolStrip_btnLogout";
+            this.toolStrip_btnLogout.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnLogout.Text = "Đăng Xuất";
+            this.toolStrip_btnLogout.Click += new System.EventHandler(this.toolStrip_btnLogout_Click);
             // 
             // label1
             // 
@@ -504,6 +519,7 @@
             this.Name = "Frm_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Admin_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).EndInit();
@@ -517,10 +533,10 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnHome;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnListStudent;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnTeacher;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgv_List;
@@ -556,5 +572,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }       
 }

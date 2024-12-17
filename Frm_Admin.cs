@@ -458,7 +458,7 @@ namespace RunningFromTheDayLight
             ClearData();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void toolStrip_btnListStudent_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgv_List.Rows)
             {
@@ -478,7 +478,7 @@ namespace RunningFromTheDayLight
             }
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
+        private void toolStrip_btnTeacher_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgv_List.Rows)
             {
@@ -496,7 +496,7 @@ namespace RunningFromTheDayLight
             }
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void toolStrip_btnHome_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dgv_List.Rows)
             {
@@ -504,6 +504,30 @@ namespace RunningFromTheDayLight
                 {
                     row.Visible = true;
                 }
+            }
+        }
+
+        private void toolStrip_btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Login loginForm = new Login();
+                loginForm.Show();
+            }
+        }
+
+        private void Frm_Admin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
