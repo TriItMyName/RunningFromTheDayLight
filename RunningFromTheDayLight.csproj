@@ -164,12 +164,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpLoardUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpLoardUser.Designer.cs">
-      <DependentUpon>UpLoardUser.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Add_Fix_Del_Qestions.resx">
       <DependentUpon>Add_Fix_Del_Qestions.cs</DependentUpon>
     </EmbeddedResource>
