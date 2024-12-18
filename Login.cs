@@ -59,13 +59,13 @@ namespace RunningFromTheDayLight
                         //    giangVienForm.Show();
                         //    this.Hide();
                         //}
-                        //else if (loaiUser == "SinhVien")
-                        //{
-                        //    // Mở form sinh viên
-                        //    Frm_SinhVien sinhVienForm = new Frm_SinhVien();
-                        //    sinhVienForm.Show();
-                        //    this.Hide();
-                        //}
+                        else if (loaiUser == "SinhVien")
+                        {
+                            // Mở form sinh viên
+                            Confirm_F sinhVienForm = new Confirm_F();
+                            sinhVienForm.Show();
+                            this.Hide();
+                        }
                         else
                         {
                             MessageBox.Show("Bạn không có quyền truy cập vào hệ thống.");

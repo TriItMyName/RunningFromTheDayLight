@@ -50,13 +50,13 @@ namespace RunningFromTheDayLight
                     // Tìm lịch thi dựa trên khoảng thời gian bắt đầu và kết thúc
                     var examInfo = Context.LichThi
                         .Where(ct => ct.MaSV == SinhVienInfo.MaSV
-                            //&& ct.ThoiGianBatDau > thoiGianBatDau
+                           //&& ct.ThoiGianBatDau > thoiGianBatDau
                            && DbFunctions.DiffMinutes(ct.ThoiGianBatDau, thoiGianBatDau) >= 0
                             && DbFunctions.DiffMinutes(ct.ThoiGianBatDau, thoiGianBatDau) <= ct.ThoiGianThi
                             )
                         .OrderBy(ct => ct.ThoiGianBatDau)
                         .FirstOrDefault();
-                 
+
                     if (examInfo != null)
                     {
                         rdbMonThi.Text = $"{examInfo.Mon.TenMon}";
@@ -87,9 +87,21 @@ namespace RunningFromTheDayLight
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Application.Run(new DoExams(SubjectCode));
-            DoExams kk = new DoExams(SubjectCode,StudentName,StudentCode,TGBD,RoomID);
-            kk.Show();
+            DoExams exam = new DoExams(SubjectCode, StudentName, StudentCode, TGBD, RoomID);
+            exam.Show();
+        }
+
+        private void Confirm_F_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
