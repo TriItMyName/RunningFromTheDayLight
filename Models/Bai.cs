@@ -12,7 +12,7 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bai()
         {
-            TracNghiem = new HashSet<TracNghiem>();
+            TracNghiems = new HashSet<TracNghiem>();
         }
 
         [Key]
@@ -28,6 +28,6 @@ namespace RunningFromTheDayLight.Models
         public virtual Mon Mon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TracNghiem> TracNghiem { get; set; }
+        public virtual ICollection<TracNghiem> TracNghiems { get; set; }
     }
 }

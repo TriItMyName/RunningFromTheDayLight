@@ -5,25 +5,25 @@ using System.Linq;
 
 namespace RunningFromTheDayLight.Models
 {
-    public partial class DatabaseSroce : DbContext
+    public partial class Model_ThiTracNghiem : DbContext
     {
-        public DatabaseSroce()
-            : base("name=DatabaseSroce")
+        public Model_ThiTracNghiem()
+            : base("name=Model_ThiTracNghiem")
         {
         }
 
-        public virtual DbSet<Bai> Bai { get; set; }
-        public virtual DbSet<CuocThi> CuocThi { get; set; }
-        public virtual DbSet<DeThiNgauNhien> DeThiNgauNhien { get; set; }
-        public virtual DbSet<GiangVien> GiangVien { get; set; }
-        public virtual DbSet<KetQuaThi> KetQuaThi { get; set; }
-        public virtual DbSet<LichThi> LichThi { get; set; }
-        public virtual DbSet<Mon> Mon { get; set; }
-        public virtual DbSet<PhongThi> PhongThi { get; set; }
-        public virtual DbSet<QuanLy> QuanLy { get; set; }
-        public virtual DbSet<SinhVien> SinhVien { get; set; }
-        public virtual DbSet<TracNghiem> TracNghiem { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Bai> Bais { get; set; }
+        public virtual DbSet<CuocThi> CuocThis { get; set; }
+        public virtual DbSet<DeThiNgauNhien> DeThiNgauNhiens { get; set; }
+        public virtual DbSet<GiangVien> GiangViens { get; set; }
+        public virtual DbSet<KetQuaThi> KetQuaThis { get; set; }
+        public virtual DbSet<LichThi> LichThis { get; set; }
+        public virtual DbSet<Mon> Mons { get; set; }
+        public virtual DbSet<PhongThi> PhongThis { get; set; }
+        public virtual DbSet<QuanLy> QuanLies { get; set; }
+        public virtual DbSet<SinhVien> SinhViens { get; set; }
+        public virtual DbSet<TracNghiem> TracNghiems { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,17 +48,17 @@ namespace RunningFromTheDayLight.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Mon>()
-                .HasMany(e => e.CuocThi)
+                .HasMany(e => e.CuocThis)
                 .WithRequired(e => e.Mon)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Mon>()
-                .HasMany(e => e.LichThi)
+                .HasMany(e => e.LichThis)
                 .WithRequired(e => e.Mon)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhongThi>()
-                .HasMany(e => e.LichThi)
+                .HasMany(e => e.LichThis)
                 .WithRequired(e => e.PhongThi)
                 .WillCascadeOnDelete(false);
 
@@ -83,7 +83,7 @@ namespace RunningFromTheDayLight.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<SinhVien>()
-                .HasMany(e => e.LichThi)
+                .HasMany(e => e.LichThis)
                 .WithRequired(e => e.SinhVien)
                 .WillCascadeOnDelete(false);
 

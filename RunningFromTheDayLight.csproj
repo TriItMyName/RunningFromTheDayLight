@@ -139,11 +139,11 @@
     </Compile>
     <Compile Include="Models\Bai.cs" />
     <Compile Include="Models\CuocThi.cs" />
-    <Compile Include="Models\DatabaseSroce.cs" />
     <Compile Include="Models\DeThiNgauNhien.cs" />
     <Compile Include="Models\GiangVien.cs" />
     <Compile Include="Models\KetQuaThi.cs" />
     <Compile Include="Models\LichThi.cs" />
+    <Compile Include="Models\Model_ThiTracNghiem.cs" />
     <Compile Include="Models\Mon.cs" />
     <Compile Include="Models\PhongThi.cs" />
     <Compile Include="Models\QuanLy.cs" />

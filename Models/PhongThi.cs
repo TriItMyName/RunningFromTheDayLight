@@ -12,7 +12,7 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PhongThi()
         {
-            LichThi = new HashSet<LichThi>();
+            LichThis = new HashSet<LichThi>();
         }
 
         [Key]
@@ -26,6 +26,6 @@ namespace RunningFromTheDayLight.Models
         public int SucChua { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichThi> LichThi { get; set; }
+        public virtual ICollection<LichThi> LichThis { get; set; }
     }
 }

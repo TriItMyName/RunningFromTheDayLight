@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using RunningFromTheDayLight.Models;
 
 namespace RunningFromTheDayLight
 {
@@ -30,38 +30,27 @@ namespace RunningFromTheDayLight
                 return;
             }
 
-            string connectionString = "Data Source=DESKTOP-4RVSMBB;Initial Catalog=ThiTracNghiem;Integrated Security=True;TrustServerCertificate=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                string query = "SELECT LoaiUser FROM [User] WHERE UserName = @username AND _Password = @password";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-
-                try
+                using (var dbContext = new Model_ThiTracNghiem())
                 {
-                    connection.Open();
-                    var result = command.ExecuteScalar();
 
-                    if (result != null)
+                    var user = dbContext.Users
+                        .FirstOrDefault(u => u.UserName == username && u._Password == password);
+
+                    if (user != null)
                     {
-                        string loaiUser = result.ToString();
+
+                        string loaiUser = user.LoaiUser;
+
                         if (loaiUser == "Admin")
                         {
                             Frm_Admin adminForm = new Frm_Admin();
                             adminForm.Show();
                             this.Hide();
                         }
-                        //else if (loaiUser == "GiangVien")
-                        //{
-                        //    // Mở form giảng viên
-                        //    Frm_GiangVien giangVienForm = new Frm_GiangVien();
-                        //    giangVienForm.Show();
-                        //    this.Hide();
-                        //}
                         else if (loaiUser == "SinhVien")
                         {
-                            // Mở form sinh viên
                             Confirm_F sinhVienForm = new Confirm_F();
                             sinhVienForm.Show();
                             this.Hide();
@@ -76,10 +65,10 @@ namespace RunningFromTheDayLight
                         MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi kết nối cơ sở dữ liệu: " + ex.Message + "\n" + ex.StackTrace);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
 

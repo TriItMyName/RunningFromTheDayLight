@@ -12,8 +12,8 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SinhVien()
         {
-            KetQuaThi = new HashSet<KetQuaThi>();
-            LichThi = new HashSet<LichThi>();
+            KetQuaThis = new HashSet<KetQuaThi>();
+            LichThis = new HashSet<LichThi>();
         }
 
         [Key]
@@ -31,10 +31,10 @@ namespace RunningFromTheDayLight.Models
         public string UserID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KetQuaThi> KetQuaThi { get; set; }
+        public virtual ICollection<KetQuaThi> KetQuaThis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichThi> LichThi { get; set; }
+        public virtual ICollection<LichThi> LichThis { get; set; }
 
         public virtual User User { get; set; }
     }

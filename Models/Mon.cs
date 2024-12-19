@@ -12,9 +12,9 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Mon()
         {
-            Bai = new HashSet<Bai>();
-            CuocThi = new HashSet<CuocThi>();
-            LichThi = new HashSet<LichThi>();
+            Bais = new HashSet<Bai>();
+            CuocThis = new HashSet<CuocThi>();
+            LichThis = new HashSet<LichThi>();
         }
 
         [Key]
@@ -26,12 +26,12 @@ namespace RunningFromTheDayLight.Models
         public string TenMon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bai> Bai { get; set; }
+        public virtual ICollection<Bai> Bais { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CuocThi> CuocThi { get; set; }
+        public virtual ICollection<CuocThi> CuocThis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichThi> LichThi { get; set; }
+        public virtual ICollection<LichThi> LichThis { get; set; }
     }
 }

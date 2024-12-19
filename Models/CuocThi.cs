@@ -12,7 +12,7 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CuocThi()
         {
-            KetQuaThi = new HashSet<KetQuaThi>();
+            KetQuaThis = new HashSet<KetQuaThi>();
         }
 
         [Key]
@@ -32,6 +32,6 @@ namespace RunningFromTheDayLight.Models
         public virtual Mon Mon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KetQuaThi> KetQuaThi { get; set; }
+        public virtual ICollection<KetQuaThi> KetQuaThis { get; set; }
     }
 }

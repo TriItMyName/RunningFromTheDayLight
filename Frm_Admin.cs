@@ -523,12 +523,17 @@ namespace RunningFromTheDayLight
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Application.Exit();
             }
             else
             {
                 e.Cancel = true;
             }
+        }
+
+        private void toolStrip_btnData_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

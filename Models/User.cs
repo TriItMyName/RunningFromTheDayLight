@@ -12,9 +12,9 @@ namespace RunningFromTheDayLight.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            GiangVien = new HashSet<GiangVien>();
-            QuanLy = new HashSet<QuanLy>();
-            SinhVien = new HashSet<SinhVien>();
+            GiangViens = new HashSet<GiangVien>();
+            QuanLies = new HashSet<QuanLy>();
+            SinhViens = new HashSet<SinhVien>();
         }
 
         [StringLength(10)]
@@ -27,7 +27,7 @@ namespace RunningFromTheDayLight.Models
         [Column("_Password")]
         [Required]
         [StringLength(256)]
-        public string C_Password { get; set; }
+        public string _Password { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -44,12 +44,12 @@ namespace RunningFromTheDayLight.Models
         public string LoaiUser { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiangVien> GiangVien { get; set; }
+        public virtual ICollection<GiangVien> GiangViens { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanLy> QuanLy { get; set; }
+        public virtual ICollection<QuanLy> QuanLies { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SinhVien> SinhVien { get; set; }
+        public virtual ICollection<SinhVien> SinhViens { get; set; }
     }
 }
