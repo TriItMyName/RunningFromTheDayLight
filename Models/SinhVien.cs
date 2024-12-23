@@ -20,18 +20,20 @@ namespace RunningFromTheDayLight.Models
         [StringLength(10)]
         public string MaSV { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Lop { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string NganhHoc { get; set; }
 
         [StringLength(10)]
         public string UserID { get; set; }
 
+        [StringLength(10)]
+        public string MaKhoa { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KetQuaThi> KetQuaThis { get; set; }
+
+        public virtual Khoa Khoa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichThi> LichThis { get; set; }

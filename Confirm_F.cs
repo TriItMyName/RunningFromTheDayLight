@@ -15,14 +15,14 @@ namespace RunningFromTheDayLight
         private string StudentName;
         //private string MaMon;
         private DateTime TGBD;
-        private readonly DatabaseSroce Context;
+        private readonly Model_ThiTracNghiem Context;
         private bool Flag = false;
         private string RoomID;
 
         public Confirm_F()
         {
             InitializeComponent();
-            Context = new DatabaseSroce();
+            Context = new Model_ThiTracNghiem();
         }
 
         private void Confirm_F_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace RunningFromTheDayLight
             rdbMonThi.Checked = false;
             btnThi.Enabled = false;
 
-            var student = Context.User
+            var student = Context.Users
                 .FirstOrDefault(u => u.UserName == username && u.C_Password == password);
 
             if (student != null)
@@ -38,7 +38,7 @@ namespace RunningFromTheDayLight
                 lbStudentName.Text = student.HoTen;
                 StudentName = student.HoTen.ToString();
                 var MSSV = student.UserID;
-                var SinhVienInfo = Context.SinhVien
+                var SinhVienInfo = Context.SinhViens
                     .FirstOrDefault(sv => sv.UserID == MSSV);
 
                 if (SinhVienInfo != null)
@@ -48,7 +48,7 @@ namespace RunningFromTheDayLight
                     var thoiGianBatDau = DateTime.Now;
                     TGBD = thoiGianBatDau;
                     // Tìm lịch thi dựa trên khoảng thời gian bắt đầu và kết thúc
-                    var examInfo = Context.LichThi
+                    var examInfo = Context.LichThis
                         .Where(ct => ct.MaSV == SinhVienInfo.MaSV
                            //&& ct.ThoiGianBatDau > thoiGianBatDau
                            && DbFunctions.DiffMinutes(ct.ThoiGianBatDau, thoiGianBatDau) >= 0

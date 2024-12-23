@@ -6,11 +6,11 @@ namespace RunningFromTheDayLight
 {
     public partial class AddSubjecc : Form
     {
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
 
         public AddSubjecc()
         {
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             InitializeComponent();
         }
 
@@ -33,7 +33,7 @@ namespace RunningFromTheDayLight
                     TenMon = tenMon
                 };
 
-                context.Mon.Add(monHoc);
+                context.Mons.Add(monHoc);
                 context.SaveChanges();
 
                 MessageBox.Show("Thêm môn học thành công!");

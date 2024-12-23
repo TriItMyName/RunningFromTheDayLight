@@ -14,14 +14,14 @@ namespace RunningFromTheDayLight
 {
     public partial class QuestionForm3 : Form
     {
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
 
         public string SubjectCode { get; private set; }
 
         public QuestionForm3(string subjectCode)
         {
             InitializeComponent();
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             SubjectCode = subjectCode; 
         }
 
@@ -31,7 +31,7 @@ namespace RunningFromTheDayLight
         {
             if (!string.IsNullOrEmpty(SubjectCode))
             {
-                var baiList = context.Bai
+                var baiList = context.Bais
                     .Where(b => b.MaMon == SubjectCode)
                     .Select(b => new { b.MaBai, b.TenBai })
                     .ToList();
@@ -92,7 +92,7 @@ namespace RunningFromTheDayLight
 
                 if (questionsToSave.Count > 0)
                 {
-                    context.TracNghiem.AddRange(questionsToSave);
+                    context.TracNghiems.AddRange(questionsToSave);
                     context.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công!");
                 }
@@ -162,7 +162,7 @@ namespace RunningFromTheDayLight
  
                     string tenBai = cmbBai.Text; 
 
-                    var existingBai = context.Bai.FirstOrDefault(b => b.TenBai.Equals(tenBai, StringComparison.OrdinalIgnoreCase) && b.MaMon == SubjectCode);
+                    var existingBai = context.Bais.FirstOrDefault(b => b.TenBai.Equals(tenBai, StringComparison.OrdinalIgnoreCase) && b.MaMon == SubjectCode);
                     if (existingBai != null)
                     {
                         maBai = existingBai.MaBai; 
@@ -176,7 +176,7 @@ namespace RunningFromTheDayLight
                             MaMon = SubjectCode 
                         };
 
-                        context.Bai.Add(newBai);
+                        context.Bais.Add(newBai);
                         context.SaveChanges(); 
                         maBai = newBai.MaBai; 
                     }
@@ -205,7 +205,7 @@ namespace RunningFromTheDayLight
 
                 if (questionsToSave.Count > 0)
                 {
-                    context.TracNghiem.AddRange(questionsToSave);
+                    context.TracNghiems.AddRange(questionsToSave);
                     context.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công!");
                 }

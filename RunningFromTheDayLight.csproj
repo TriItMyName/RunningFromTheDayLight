@@ -142,6 +142,7 @@
     <Compile Include="Models\DeThiNgauNhien.cs" />
     <Compile Include="Models\GiangVien.cs" />
     <Compile Include="Models\KetQuaThi.cs" />
+    <Compile Include="Models\Khoa.cs" />
     <Compile Include="Models\LichThi.cs" />
     <Compile Include="Models\Model_ThiTracNghiem.cs" />
     <Compile Include="Models\Mon.cs" />

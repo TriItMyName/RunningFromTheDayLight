@@ -36,7 +36,7 @@ namespace RunningFromTheDayLight
                 {
 
                     var user = dbContext.Users
-                        .FirstOrDefault(u => u.UserName == username && u._Password == password);
+                        .FirstOrDefault(u => u.UserName == username && u.C_Password == password);
 
                     if (user != null)
                     {

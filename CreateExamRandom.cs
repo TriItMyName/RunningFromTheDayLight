@@ -10,14 +10,14 @@ namespace RunningFromTheDayLight
     public partial class CreateExamRandom : Form
     {
         private string maMon;
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
 
         public CreateExamRandom(string maMon)
         {
             InitializeComponent();
             this.maMon = maMon;
 
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             LoadBaiHoc();
 
             HideDeleteButtons();
@@ -27,7 +27,7 @@ namespace RunningFromTheDayLight
         {
             try
             {
-                var baiHocs = context.Bai
+                var baiHocs = context.Bais
                     .Where(b => b.MaMon == maMon)
                     .Select(b => b.TenBai)
                     .ToList();
@@ -90,7 +90,7 @@ namespace RunningFromTheDayLight
 
             string tenBaiHoc = cmbPhan.SelectedItem.ToString();
 
-            var questionCounts = context.TracNghiem
+            var questionCounts = context.TracNghiems
                 .Where(q => q.Bai.TenBai == tenBaiHoc && q.Bai.MaMon == maMon)
                 .GroupBy(q => q.LoaiCauHoi)
                 .Select(g => new { LoaiCauHoi = g.Key, Count = g.Count() })
@@ -334,7 +334,7 @@ namespace RunningFromTheDayLight
                         int soLuongVanDung = LayGiaTriComboBox(cmbVanDung.Name);
                         int soLuongVanDungCao = LayGiaTriComboBox(cmbVanDungCao.Name);
 
-                        var dsCauHoi = context.TracNghiem
+                        var dsCauHoi = context.TracNghiems
                             .Where(q => q.Bai.TenBai == tenBaiHoc && q.Bai.MaMon == maMon)
                             .ToList();
 
@@ -365,7 +365,7 @@ namespace RunningFromTheDayLight
                         ThoiGianThi = thoiGianLamBai 
                     };
 
-                    context.DeThiNgauNhien.Add(deThi);
+                    context.DeThiNgauNhiens.Add(deThi);
                 }
 
                 context.SaveChanges(); 

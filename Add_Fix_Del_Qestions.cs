@@ -8,7 +8,7 @@ namespace RunningFromTheDayLight
 {
     public partial class Add_Fix_Del_Qestions : Form
     {
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
         private int selectedExamID;
         private string selectedSubjectID;
         private TracNghiem selectedQuestion;
@@ -16,7 +16,7 @@ namespace RunningFromTheDayLight
         public Add_Fix_Del_Qestions(int examID, string subjectID)
         {
             InitializeComponent();
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             selectedExamID = examID;
             selectedSubjectID = subjectID;
             LoadQuestions();
@@ -37,7 +37,7 @@ namespace RunningFromTheDayLight
 
         private void LoadQuestions()
         {
-            var exam = context.DeThiNgauNhien
+            var exam = context.DeThiNgauNhiens
                 .Where(de => de.MaDeNgauNhien == selectedExamID && de.MaMon == selectedSubjectID)
                 .Select(de => de.CacCauHoi)
                 .FirstOrDefault();
@@ -49,7 +49,7 @@ namespace RunningFromTheDayLight
             }
 
             var questionIds = exam.Split(',').Select(id => id.Trim()).ToList();
-            var questions = context.TracNghiem
+            var questions = context.TracNghiems
                 .Where(q => questionIds.Contains(q.ID.ToString()))
                 .ToList();
 
@@ -155,12 +155,12 @@ namespace RunningFromTheDayLight
                 DapAnDung = cboCorrectAnswer.SelectedItem.ToString()
             };
 
-            context.TracNghiem.Add(newQuestion);
+            context.TracNghiems.Add(newQuestion);
             context.SaveChanges();
 
             int newQuestionID = newQuestion.ID;
 
-            var exam = context.DeThiNgauNhien.FirstOrDefault(de => de.MaDeNgauNhien == selectedExamID && de.MaMon == selectedSubjectID);
+            var exam = context.DeThiNgauNhiens.FirstOrDefault(de => de.MaDeNgauNhien == selectedExamID && de.MaMon == selectedSubjectID);
 
             if (exam != null)
             {
@@ -215,7 +215,7 @@ namespace RunningFromTheDayLight
         {
             if (selectedQuestion != null)
             {
-                context.TracNghiem.Remove(selectedQuestion);
+                context.TracNghiems.Remove(selectedQuestion);
                 context.SaveChanges();
                 LoadQuestions();
                 ClearFields();

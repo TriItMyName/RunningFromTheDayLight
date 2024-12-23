@@ -15,12 +15,12 @@ namespace WinFormApp
     {
         private int selectedQuestionId;
 
-        private readonly DatabaseSroce context; 
+        private readonly Model_ThiTracNghiem context; 
         private bool isInitializing = true; 
 
         public Readfile()
         {
-            context = new DatabaseSroce(); 
+            context = new Model_ThiTracNghiem(); 
             InitializeComponent();
             LoadMonHocToComboBox(); 
             LoadDataGrid(); 
@@ -31,7 +31,7 @@ namespace WinFormApp
         {
             try
             {
-                var monHocs = context.Mon.Select(m => new { m.MaMon, m.TenMon }).ToList();
+                var monHocs = context.Mons.Select(m => new { m.MaMon, m.TenMon }).ToList();
                 cmbTenMonHoc.DataSource = monHocs;
                 cmbTenMonHoc.DisplayMember = "TenMon"; 
                 cmbTenMonHoc.ValueMember = "MaMon";  
@@ -55,8 +55,8 @@ namespace WinFormApp
 
                 string maMon = cmbTenMonHoc.SelectedValue.ToString();
 
-                var questions = context.TracNghiem
-                    .Join(context.Bai,
+                var questions = context.TracNghiems
+                    .Join(context.Bais,
                           t => t.MaBai,
                           b => b.MaBai, 
                           (t, b) => new { t, b }) 
@@ -244,11 +244,11 @@ namespace WinFormApp
                         continue;
                     }
 
-                    Bai baiHoc = context.Bai.FirstOrDefault(b => b.TenBai == bai && b.MaMon == maMon);
+                    Bai baiHoc = context.Bais.FirstOrDefault(b => b.TenBai == bai && b.MaMon == maMon);
                     if (baiHoc == null)
                     {
                         baiHoc = new Bai { TenBai = bai, MaMon = maMon };
-                        context.Bai.Add(baiHoc);
+                        context.Bais.Add(baiHoc);
                         context.SaveChanges();
                     }
 
@@ -277,7 +277,7 @@ namespace WinFormApp
 
                 if (questionsToSave.Count > 0)
                 {
-                    context.TracNghiem.AddRange(questionsToSave);
+                    context.TracNghiems.AddRange(questionsToSave);
                     context.SaveChanges();
                     MessageBox.Show("Lưu dữ liệu thành công!");
                 }
@@ -385,8 +385,8 @@ namespace WinFormApp
                 }
 
                 string maMon = cmbTenMonHoc.SelectedValue.ToString();
-                var filteredQuestions = context.TracNghiem
-                    .Join(context.Bai,
+                var filteredQuestions = context.TracNghiems
+                    .Join(context.Bais,
                           t => t.MaBai,
                           b => b.MaBai,
                           (t, b) => new { t, b })
@@ -441,7 +441,7 @@ namespace WinFormApp
                 string questionContent = dgvCauHoi.Rows[e.RowIndex].Cells[2].Value?.ToString();
 
 
-                var question = context.TracNghiem.FirstOrDefault(q => q.NoiDung == questionContent);
+                var question = context.TracNghiems.FirstOrDefault(q => q.NoiDung == questionContent);
                 if (question != null)
                 {
                     selectedQuestionId = question.ID;
@@ -463,10 +463,10 @@ namespace WinFormApp
             {
                 try
                 {
-                    var questionToDelete = context.TracNghiem.FirstOrDefault(q => q.ID == selectedQuestionId);
+                    var questionToDelete = context.TracNghiems.FirstOrDefault(q => q.ID == selectedQuestionId);
                     if (questionToDelete != null)
                     {
-                        context.TracNghiem.Remove(questionToDelete);
+                        context.TracNghiems.Remove(questionToDelete);
                         context.SaveChanges();
 
                         LoadQuestionsFromDatabase();

@@ -17,6 +17,7 @@ namespace RunningFromTheDayLight.Models
         public virtual DbSet<DeThiNgauNhien> DeThiNgauNhiens { get; set; }
         public virtual DbSet<GiangVien> GiangViens { get; set; }
         public virtual DbSet<KetQuaThi> KetQuaThis { get; set; }
+        public virtual DbSet<Khoa> Khoas { get; set; }
         public virtual DbSet<LichThi> LichThis { get; set; }
         public virtual DbSet<Mon> Mons { get; set; }
         public virtual DbSet<PhongThi> PhongThis { get; set; }
@@ -37,8 +38,18 @@ namespace RunningFromTheDayLight.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<GiangVien>()
+                .Property(e => e.MaKhoa)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<KetQuaThi>()
                 .Property(e => e.MaSV)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Khoa>()
+                .Property(e => e.MaKhoa)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -79,6 +90,11 @@ namespace RunningFromTheDayLight.Models
 
             modelBuilder.Entity<SinhVien>()
                 .Property(e => e.UserID)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SinhVien>()
+                .Property(e => e.MaKhoa)
                 .IsFixedLength()
                 .IsUnicode(false);
 

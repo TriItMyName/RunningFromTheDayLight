@@ -9,7 +9,7 @@ namespace RunningFromTheDayLight
 {
     public partial class DoExams : Form
     {
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
         private List<Question> loadedQuestions;
         private System.Windows.Forms.Timer countdownTimer; // Timer đếm ngược
         private int remainingTime; // Thời gian còn lại (tính bằng giây)
@@ -21,7 +21,7 @@ namespace RunningFromTheDayLight
         private String RoomID;
         public DoExams(string Subjectcode, string StudentName, string StudentCode, DateTime TGBD, string roomID)
         {
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             InitializeComponent();
             this.Subjectcode = Subjectcode;
             LoadRandomExam();
@@ -52,7 +52,7 @@ namespace RunningFromTheDayLight
 
 
             lbStudentCode.Text = StudentCode; lbStudentName.Text = StudentName;
-            var deThiNgauNhien = context.DeThiNgauNhien
+            var deThiNgauNhien = context.DeThiNgauNhiens
                 .Where(d => d.MaMon == Subjectcode)
                 .OrderBy(r => Guid.NewGuid())
                 .FirstOrDefault();
@@ -69,7 +69,7 @@ namespace RunningFromTheDayLight
 
             // Lấy danh sách câu hỏi từ đề thi đã chọn
             var questionIds = deThiNgauNhien.CacCauHoi.Split(',').Select(int.Parse).ToList();
-            loadedQuestions = context.TracNghiem
+            loadedQuestions = context.TracNghiems
                 .Where(q => questionIds.Contains(q.ID))
                 .Select(q => new Question
                 {
@@ -196,6 +196,12 @@ namespace RunningFromTheDayLight
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
             float score = SubmitExam();
+            if (float.IsNaN(score) || float.IsInfinity(score))
+            {
+                MessageBox.Show("Invalid score value.");
+                return;
+            }
+
             int ThoiGianLamBai = timeDoExam - remainingTime;
             savetodb(score, ThoiGianLamBai);
         }
@@ -204,7 +210,7 @@ namespace RunningFromTheDayLight
         {
             Console.WriteLine($"Subjectcode: {Subjectcode}, TGBD: {TGBD}");
 
-            var temp = context.CuocThi
+            var temp = context.CuocThis
                 .FirstOrDefault(a => a.MaMon == Subjectcode && a.ThoiGianBatDau <= TGBD);
 
             if (temp == null)
@@ -222,7 +228,7 @@ namespace RunningFromTheDayLight
                 NgayThi = DateTime.Now
             };
 
-            context.KetQuaThi.Add(ketquathi);
+            context.KetQuaThis.Add(ketquathi);
             context.SaveChanges();
 
             MessageBox.Show("Lưu kết quả thi thành công!");

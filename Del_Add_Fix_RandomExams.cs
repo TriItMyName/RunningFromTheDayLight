@@ -8,11 +8,11 @@ namespace RunningFromTheDayLight
 {
     public partial class Del_Add_Fix_RandomExams : Form
     {
-        private readonly DatabaseSroce context;
+        private readonly Model_ThiTracNghiem context;
 
         public Del_Add_Fix_RandomExams()
         {
-            context = new DatabaseSroce();
+            context = new Model_ThiTracNghiem();
             InitializeComponent();
             LoadSubjects(); 
             InitializeDataGridView(); 
@@ -20,7 +20,7 @@ namespace RunningFromTheDayLight
 
         private void LoadSubjects()
         {
-            var subjects = context.Mon.ToList(); 
+            var subjects = context.Mons.ToList(); 
             cmbSubject.DataSource = subjects;
             cmbSubject.DisplayMember = "TenMon"; 
             cmbSubject.ValueMember = "MaMon";
@@ -42,7 +42,7 @@ namespace RunningFromTheDayLight
 
             if (!string.IsNullOrEmpty(selectedSubject))
             {
-                var randomExams = context.DeThiNgauNhien
+                var randomExams = context.DeThiNgauNhiens
                     .Where(de => de.MaMon == selectedSubject) 
                     .ToList()
                     .Select(de => new
@@ -52,7 +52,7 @@ namespace RunningFromTheDayLight
                         CreationDate = de.NgayTao,
                         CountQuestions = de.CacCauHoi.Split(',') 
                             .Select(int.Parse) 
-                            .Count(id => context.TracNghiem.Any(t => t.ID == id)), 
+                            .Count(id => context.TracNghiems.Any(t => t.ID == id)), 
                         ExamDuration = de.ThoiGianThi 
                     })
                     .ToList(); 
@@ -110,12 +110,12 @@ namespace RunningFromTheDayLight
             if (SelectedExamID != -1)
             {
   
-                var examToDelete = context.DeThiNgauNhien.FirstOrDefault(de => de.MaDeNgauNhien == SelectedExamID);
+                var examToDelete = context.DeThiNgauNhiens.FirstOrDefault(de => de.MaDeNgauNhien == SelectedExamID);
 
                 if (examToDelete != null)
                 {
 
-                    context.DeThiNgauNhien.Remove(examToDelete);
+                    context.DeThiNgauNhiens.Remove(examToDelete);
                     context.SaveChanges();
 
                     LoadRandomExams();
@@ -151,7 +151,7 @@ namespace RunningFromTheDayLight
             if (SelectedExamID != -1)
             {
                 // Tìm đề thi ngẫu nhiên cần sửa theo ID
-                var examToUpdate = context.DeThiNgauNhien.FirstOrDefault(de => de.MaDeNgauNhien == SelectedExamID);
+                var examToUpdate = context.DeThiNgauNhiens.FirstOrDefault(de => de.MaDeNgauNhien == SelectedExamID);
 
                 if (examToUpdate != null)
                 {
@@ -196,7 +196,7 @@ namespace RunningFromTheDayLight
             if (!string.IsNullOrEmpty(selectedSubject))
             {
                 // Lọc danh sách đề thi ngẫu nhiên dựa trên từ khóa tìm kiếm
-                var filteredExams = context.DeThiNgauNhien
+                var filteredExams = context.DeThiNgauNhiens
                     .Where(de => de.MaMon == selectedSubject && de.TenDe.ToLower().Contains(searchQuery)) // Lọc theo mã môn và tên đề
                     .ToList()
                     .Select(de => new
@@ -206,7 +206,7 @@ namespace RunningFromTheDayLight
                         CreationDate = de.NgayTao,
                         CountQuestions = de.CacCauHoi.Split(',')
                             .Select(int.Parse)
-                            .Count(id => context.TracNghiem.Any(t => t.ID == id)),
+                            .Count(id => context.TracNghiems.Any(t => t.ID == id)),
                         ExamDuration = de.ThoiGianThi
                     })
                     .ToList();
