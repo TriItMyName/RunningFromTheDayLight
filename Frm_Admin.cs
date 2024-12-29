@@ -12,6 +12,8 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Slicer.Style;
 using LicenseContext = OfficeOpenXml.LicenseContext;
+using System.Data.Entity;
+using RunningFromTheDayLight.Models;
 
 namespace RunningFromTheDayLight
 {
@@ -19,11 +21,13 @@ namespace RunningFromTheDayLight
     {
         private string DefaultSearchText = "Tìm kiếm tên/id";
         private string currentFilePath;
+        private Model_ThiTracNghiem context;
 
         public Frm_Admin()
         {
             InitializeComponent();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            context = new Model_ThiTracNghiem();
         }
 
         private int GetSelectedRow(string Username)
@@ -39,6 +43,57 @@ namespace RunningFromTheDayLight
             return -1;
         }
 
+        private void Frm_Admin_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                List<User> users = context.Users.ToList();
+                List<SinhVien> sinhViens = context.SinhViens.ToList();
+                List<GiangVien> giangViens = context.GiangViens.ToList();
+                List<Khoa> khoas = context.Khoas.ToList();
+                FillFalcultyCombobox(khoas);
+                BindGrid(users);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void FillFalcultyCombobox(List<Khoa> listFacultys)
+        {
+            listFacultys.Insert(0, new Khoa());
+            this.cmbFaculty.DataSource = listFacultys;
+            this.cmbFaculty.DisplayMember = "TenKhoa";
+            this.cmbFaculty.ValueMember = "MaKhoa";
+        }
+
+        private void BindGrid(List<User> users)
+        {
+            dgv_List.Rows.Clear();
+            foreach (var user in context.Users)
+            {
+                if (user.LoaiUser == "Admin")
+                {
+                    continue;
+                }
+                int index = dgv_List.Rows.Add();
+                dgv_List.Rows[index].Cells[0].Value = user.UserID;
+                dgv_List.Rows[index].Cells[1].Value = user.UserName;
+                dgv_List.Rows[index].Cells[2].Value = user.C_Password;
+                dgv_List.Rows[index].Cells[3].Value = user.HoTen;
+                dgv_List.Rows[index].Cells[4].Value = user.GioiTinh;
+                dgv_List.Rows[index].Cells[5].Value = user.NgaySinh;
+                var sinhVien = context.SinhViens.FirstOrDefault(sv => sv.UserID == user.UserID);
+                var giangVien = context.GiangViens.FirstOrDefault(gv => gv.UserID == user.UserID);
+                string facultyName = sinhVien?.Khoa?.TenKhoa ?? giangVien?.Khoa?.TenKhoa ?? "N/A";
+
+                dgv_List.Rows[index].Cells[6].Value = facultyName;
+                dgv_List.Rows[index].Cells[7].Value = user.LoaiUser;
+            }
+        }
+
         private void ClearData()
         {
             txtID.Text = string.Empty;
@@ -47,7 +102,7 @@ namespace RunningFromTheDayLight
             txtName.Text = string.Empty;
             dtpDate.Value = DateTime.Now;
             rbMale.Checked = true;
-            txtFaculty.Text = string.Empty;
+            cmbFaculty.SelectedIndex = -1;
             cmbDecntralization.SelectedIndex = -1;
         }
 
@@ -64,7 +119,88 @@ namespace RunningFromTheDayLight
                 try
                 {
                     currentFilePath = openFileDialog.FileName;
-                    LoadDataFromFile(currentFilePath);
+                    DataTable dt = ReadExcelFile(currentFilePath);
+
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string userID = row["UserID"].ToString();
+                            string username = row["Username"].ToString();
+                            string password = row["Password"].ToString();
+                            string name = row["Họ tên"].ToString();
+                            DateTime dateOfBirth = DateTime.Parse(row["Ngày sinh"].ToString());
+                            string gender = row["Giới tính"].ToString();
+                            string faculty = row["Khoa"].ToString();
+                            string decentralization = row["Phân quyền"].ToString();
+
+                            var user = context.Users.FirstOrDefault(u => u.UserID == userID);
+
+                            if (user != null)
+                            {
+                                user.UserName = username;
+                                user.C_Password = password;
+                                user.HoTen = name;
+                                user.NgaySinh = dateOfBirth;
+                                user.GioiTinh = gender;
+                                user.LoaiUser = decentralization;
+
+                                var sinhVien = context.SinhViens.FirstOrDefault(sv => sv.UserID == userID);
+                                var giangVien = context.GiangViens.FirstOrDefault(gv => gv.UserID == userID);
+
+                                if (sinhVien != null)
+                                {
+                                    sinhVien.Khoa = context.Khoas.FirstOrDefault(k => k.TenKhoa == faculty);
+                                }
+                                else if (giangVien != null)
+                                {
+                                    giangVien.Khoa = context.Khoas.FirstOrDefault(k => k.TenKhoa == faculty);
+                                }
+                            }
+                            else
+                            {
+
+                                user = new User
+                                {
+                                    UserID = userID,
+                                    UserName = username,
+                                    C_Password = password,
+                                    HoTen = name,
+                                    NgaySinh = dateOfBirth,
+                                    GioiTinh = gender,
+                                    LoaiUser = decentralization
+                                };
+                                context.Users.Add(user);
+
+                                if (decentralization == "SinhVien")
+                                {
+                                    var sinhVien = new SinhVien
+                                    {
+                                        UserID = userID,
+                                        Khoa = context.Khoas.FirstOrDefault(k => k.TenKhoa == faculty)
+                                    };
+                                    context.SinhViens.Add(sinhVien);
+                                }
+                                else if (decentralization == "GiangVien")
+                                {
+                                    var giangVien = new GiangVien
+                                    {
+                                        UserID = userID,
+                                        Khoa = context.Khoas.FirstOrDefault(k => k.TenKhoa == faculty)
+                                    };
+                                    context.GiangViens.Add(giangVien);
+                                }
+                            }
+                        }
+
+                        context.SaveChanges();
+                        MessageBox.Show("Dữ liệu đã được cập nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BindGrid(context.Users.ToList());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể đọc dữ liệu từ file.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -179,7 +315,7 @@ namespace RunningFromTheDayLight
                 }
                 if (dgv_List.Columns.Contains("Khoa"))
                 {
-                    txtFaculty.Text = row.Cells[dgv_List.Columns["Khoa"].Index].Value?.ToString() ?? string.Empty;
+                    cmbFaculty.Text = row.Cells[dgv_List.Columns["Khoa"].Index].Value?.ToString() ?? string.Empty;
                 }
                 if (dgv_List.Columns.Contains("Phân quyền"))
                 {
@@ -239,7 +375,7 @@ namespace RunningFromTheDayLight
                 string name = txtName.Text;
                 string dateOfBirth = dtpDate.Value.ToString("yyyy-MM-dd");
                 string gender = rbMale.Checked ? "Nam" : "Nữ";
-                string faculty = txtFaculty.Text;
+                string faculty = cmbFaculty.Text;
                 string decentralization = cmbDecntralization.SelectedItem != null ? cmbDecntralization.SelectedItem.ToString() : string.Empty;
 
                 if (string.IsNullOrWhiteSpace(ID) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(faculty) ||
@@ -309,7 +445,7 @@ namespace RunningFromTheDayLight
                 string name = txtName.Text;
                 string dateOfBirth = dtpDate.Value.ToString("yyyy-MM-dd");
                 string gender = rbMale.Checked ? "Nam" : "Nữ";
-                string faculty = txtFaculty.Text;
+                string faculty = cmbFaculty.Text;
                 string decentralization = cmbDecntralization.SelectedItem != null ? cmbDecntralization.SelectedItem.ToString() : string.Empty;
 
                 if (string.IsNullOrWhiteSpace(ID) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) ||
@@ -485,7 +621,7 @@ namespace RunningFromTheDayLight
                 if (row.IsNewRow)
                     continue;
 
-                if (row.Cells["Phân quyền"].Value !=null && row.Cells["Phân quyền"].Value.ToString() == "GiangVien")
+                if (row.Cells["6"].Value !=null && row.Cells["6"].Value.ToString() == "GiangVien")
                 {
                     row.Visible = true;
                 }
@@ -507,33 +643,11 @@ namespace RunningFromTheDayLight
             }
         }
 
-        private void toolStrip_btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                Login loginForm = new Login();
-                loginForm.Show();
-            }
-        }
-
-        private void Frm_Admin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
         private void toolStrip_btnData_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

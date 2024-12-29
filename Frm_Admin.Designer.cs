@@ -34,7 +34,6 @@
             this.toolStrip_btnListStudent = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnTeacher = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_btnLogout = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv_List = new System.Windows.Forms.DataGridView();
@@ -51,7 +50,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbDecntralization = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtFaculty = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,6 +68,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.cmbFaculty = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -85,8 +84,7 @@
             this.toolStrip_btnHome,
             this.toolStrip_btnListStudent,
             this.toolStrip_btnTeacher,
-            this.toolStripButton5,
-            this.toolStrip_btnLogout});
+            this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(171, 757);
@@ -143,19 +141,6 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(175, 50);
             this.toolStripButton5.Text = "Thống Kê Điểm";
-            // 
-            // toolStrip_btnLogout
-            // 
-            this.toolStrip_btnLogout.AutoSize = false;
-            this.toolStrip_btnLogout.AutoToolTip = false;
-            this.toolStrip_btnLogout.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStrip_btnLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnLogout.Image")));
-            this.toolStrip_btnLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_btnLogout.Name = "toolStrip_btnLogout";
-            this.toolStrip_btnLogout.Size = new System.Drawing.Size(175, 50);
-            this.toolStrip_btnLogout.Text = "Đăng Xuất";
-            this.toolStrip_btnLogout.Click += new System.EventHandler(this.toolStrip_btnLogout_Click);
             // 
             // label1
             // 
@@ -280,9 +265,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.cmbFaculty);
             this.groupBox1.Controls.Add(this.cmbDecntralization);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtFaculty);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.dtpDate);
             this.groupBox1.Controls.Add(this.label7);
@@ -324,13 +309,6 @@
             this.label9.Size = new System.Drawing.Size(85, 18);
             this.label9.TabIndex = 15;
             this.label9.Text = "Phân quyền";
-            // 
-            // txtFaculty
-            // 
-            this.txtFaculty.Location = new System.Drawing.Point(473, 168);
-            this.txtFaculty.Name = "txtFaculty";
-            this.txtFaculty.Size = new System.Drawing.Size(240, 22);
-            this.txtFaculty.TabIndex = 14;
             // 
             // label8
             // 
@@ -500,6 +478,14 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // cmbFaculty
+            // 
+            this.cmbFaculty.FormattingEnabled = true;
+            this.cmbFaculty.Location = new System.Drawing.Point(473, 168);
+            this.cmbFaculty.Name = "cmbFaculty";
+            this.cmbFaculty.Size = new System.Drawing.Size(240, 24);
+            this.cmbFaculty.TabIndex = 17;
+            // 
             // Frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -519,7 +505,7 @@
             this.Name = "Frm_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Admin_FormClosing);
+            this.Load += new System.EventHandler(this.Frm_Admin_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).EndInit();
@@ -536,7 +522,6 @@
         private System.Windows.Forms.ToolStripButton toolStrip_btnHome;
         private System.Windows.Forms.ToolStripButton toolStrip_btnListStudent;
         private System.Windows.Forms.ToolStripButton toolStrip_btnTeacher;
-        private System.Windows.Forms.ToolStripButton toolStrip_btnLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgv_List;
@@ -552,7 +537,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtFaculty;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label7;
@@ -573,5 +557,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.ComboBox cmbFaculty;
     }       
 }

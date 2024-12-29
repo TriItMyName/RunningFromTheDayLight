@@ -57,7 +57,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(19, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(188, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -73,9 +73,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(175, 231);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(771, 244);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -86,7 +86,7 @@
             this.btnThi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnThi.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThi.Location = new System.Drawing.Point(273, 178);
-            this.btnThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThi.Margin = new System.Windows.Forms.Padding(4);
             this.btnThi.Name = "btnThi";
             this.btnThi.Size = new System.Drawing.Size(232, 44);
             this.btnThi.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.rdbMonThi.AutoSize = true;
             this.rdbMonThi.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rdbMonThi.Location = new System.Drawing.Point(160, 134);
-            this.rdbMonThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbMonThi.Margin = new System.Windows.Forms.Padding(4);
             this.rdbMonThi.Name = "rdbMonThi";
             this.rdbMonThi.Size = new System.Drawing.Size(146, 39);
             this.rdbMonThi.TabIndex = 4;
@@ -171,10 +171,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Confirm_F";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác nhận môn thi";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Confirm_F_FormClosing);
             this.Load += new System.EventHandler(this.Confirm_F_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);

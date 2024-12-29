@@ -45,15 +45,17 @@ namespace RunningFromTheDayLight
 
                         if (loaiUser == "Admin")
                         {
-                            Frm_Admin adminForm = new Frm_Admin();
-                            adminForm.Show();
                             this.Hide();
+                            Frm_Admin adminForm = new Frm_Admin();
+                            adminForm.FormClosing += (s, args) => this.Show();
+                            adminForm.Show();
                         }
                         else if (loaiUser == "SinhVien")
                         {
-                            Confirm_F sinhVienForm = new Confirm_F();
-                            sinhVienForm.Show();
                             this.Hide();
+                            Confirm_F sinhVienForm = new Confirm_F();
+                            sinhVienForm.FormClosing += (s, args) => this.Show();
+                            sinhVienForm.Show();
                         }
                         else
                         {
@@ -75,7 +77,11 @@ namespace RunningFromTheDayLight
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
             {
                 e.Cancel = true;
             }
