@@ -53,17 +53,19 @@
             // cmbSubject
             // 
             this.cmbSubject.FormattingEnabled = true;
-            this.cmbSubject.Location = new System.Drawing.Point(297, 30);
+            this.cmbSubject.Location = new System.Drawing.Point(396, 37);
+            this.cmbSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbSubject.Name = "cmbSubject";
-            this.cmbSubject.Size = new System.Drawing.Size(253, 21);
+            this.cmbSubject.Size = new System.Drawing.Size(336, 24);
             this.cmbSubject.TabIndex = 0;
             // 
             // cmbMonHoc_DAF
             // 
             this.cmbMonHoc_DAF.AutoSize = true;
-            this.cmbMonHoc_DAF.Location = new System.Drawing.Point(234, 33);
+            this.cmbMonHoc_DAF.Location = new System.Drawing.Point(312, 41);
+            this.cmbMonHoc_DAF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cmbMonHoc_DAF.Name = "cmbMonHoc_DAF";
-            this.cmbMonHoc_DAF.Size = new System.Drawing.Size(51, 13);
+            this.cmbMonHoc_DAF.Size = new System.Drawing.Size(61, 16);
             this.cmbMonHoc_DAF.TabIndex = 1;
             this.cmbMonHoc_DAF.Text = "Môn Học";
             // 
@@ -78,9 +80,11 @@
             this.colCountExams,
             this.colThoiGianThi});
             this.dgvRamdomExams.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvRamdomExams.Location = new System.Drawing.Point(12, 104);
+            this.dgvRamdomExams.Location = new System.Drawing.Point(16, 128);
+            this.dgvRamdomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvRamdomExams.Name = "dgvRamdomExams";
-            this.dgvRamdomExams.Size = new System.Drawing.Size(776, 192);
+            this.dgvRamdomExams.RowHeadersWidth = 51;
+            this.dgvRamdomExams.Size = new System.Drawing.Size(1035, 236);
             this.dgvRamdomExams.TabIndex = 2;
             this.dgvRamdomExams.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRamdomExams_CellClick);
             // 
@@ -88,52 +92,60 @@
             // 
             this.colExamID.FillWeight = 44.24779F;
             this.colExamID.HeaderText = "Mã Đề";
+            this.colExamID.MinimumWidth = 6;
             this.colExamID.Name = "colExamID";
             // 
             // colExamName
             // 
             this.colExamName.FillWeight = 102.8827F;
             this.colExamName.HeaderText = "Tên đề";
+            this.colExamName.MinimumWidth = 6;
             this.colExamName.Name = "colExamName";
             // 
             // colCreatetionDate
             // 
             this.colCreatetionDate.FillWeight = 152.8695F;
             this.colCreatetionDate.HeaderText = "Ngày Tạo";
+            this.colCreatetionDate.MinimumWidth = 6;
             this.colCreatetionDate.Name = "colCreatetionDate";
             // 
             // colCountExams
             // 
             this.colCountExams.HeaderText = "Số câu";
+            this.colCountExams.MinimumWidth = 6;
             this.colCountExams.Name = "colCountExams";
             // 
             // colThoiGianThi
             // 
             this.colThoiGianThi.HeaderText = "Thời gian thi";
+            this.colThoiGianThi.MinimumWidth = 6;
             this.colThoiGianThi.Name = "colThoiGianThi";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(213, 68);
+            this.txtSearch.Location = new System.Drawing.Point(284, 84);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(418, 20);
+            this.txtSearch.Size = new System.Drawing.Size(556, 22);
             this.txtSearch.TabIndex = 5;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 71);
+            this.label3.Location = new System.Drawing.Point(185, 87);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(63, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Tìm Kiếm";
             // 
             // btnAddRandomExams
             // 
-            this.btnAddRandomExams.Location = new System.Drawing.Point(131, 401);
+            this.btnAddRandomExams.Location = new System.Drawing.Point(175, 494);
+            this.btnAddRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddRandomExams.Name = "btnAddRandomExams";
-            this.btnAddRandomExams.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRandomExams.Size = new System.Drawing.Size(100, 28);
             this.btnAddRandomExams.TabIndex = 7;
             this.btnAddRandomExams.Text = "Thêm Đề";
             this.btnAddRandomExams.UseVisualStyleBackColor = true;
@@ -141,9 +153,10 @@
             // 
             // btnDelRandomExams
             // 
-            this.btnDelRandomExams.Location = new System.Drawing.Point(556, 401);
+            this.btnDelRandomExams.Location = new System.Drawing.Point(741, 494);
+            this.btnDelRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelRandomExams.Name = "btnDelRandomExams";
-            this.btnDelRandomExams.Size = new System.Drawing.Size(75, 23);
+            this.btnDelRandomExams.Size = new System.Drawing.Size(100, 28);
             this.btnDelRandomExams.TabIndex = 8;
             this.btnDelRandomExams.Text = "Xóa";
             this.btnDelRandomExams.UseVisualStyleBackColor = true;
@@ -151,9 +164,10 @@
             // 
             // btnFixRandomExams
             // 
-            this.btnFixRandomExams.Location = new System.Drawing.Point(320, 401);
+            this.btnFixRandomExams.Location = new System.Drawing.Point(427, 494);
+            this.btnFixRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFixRandomExams.Name = "btnFixRandomExams";
-            this.btnFixRandomExams.Size = new System.Drawing.Size(149, 23);
+            this.btnFixRandomExams.Size = new System.Drawing.Size(199, 28);
             this.btnFixRandomExams.TabIndex = 8;
             this.btnFixRandomExams.Text = "Thêm/Sửa/Xóa câu hỏi";
             this.btnFixRandomExams.UseVisualStyleBackColor = true;
@@ -162,33 +176,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 329);
+            this.label1.Location = new System.Drawing.Point(40, 405);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "Đổi tên đề";
             // 
             // txtDoiTenDe
             // 
-            this.txtDoiTenDe.Location = new System.Drawing.Point(93, 326);
+            this.txtDoiTenDe.Location = new System.Drawing.Point(124, 401);
+            this.txtDoiTenDe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDoiTenDe.Name = "txtDoiTenDe";
-            this.txtDoiTenDe.Size = new System.Drawing.Size(192, 20);
+            this.txtDoiTenDe.Size = new System.Drawing.Size(255, 22);
             this.txtDoiTenDe.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 329);
+            this.label2.Location = new System.Drawing.Point(417, 405);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 12;
             this.label2.Text = "Sửa thời gian";
             // 
             // txtSuaThoiGian
             // 
-            this.txtSuaThoiGian.Location = new System.Drawing.Point(388, 326);
+            this.txtSuaThoiGian.Location = new System.Drawing.Point(517, 401);
+            this.txtSuaThoiGian.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSuaThoiGian.Name = "txtSuaThoiGian";
-            this.txtSuaThoiGian.Size = new System.Drawing.Size(204, 20);
+            this.txtSuaThoiGian.Size = new System.Drawing.Size(271, 22);
             this.txtSuaThoiGian.TabIndex = 11;
             // 
             // entityCommand1
@@ -201,9 +219,10 @@
             // 
             // btnSaveChange
             // 
-            this.btnSaveChange.Location = new System.Drawing.Point(621, 324);
+            this.btnSaveChange.Location = new System.Drawing.Point(828, 399);
+            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveChange.Name = "btnSaveChange";
-            this.btnSaveChange.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveChange.Size = new System.Drawing.Size(100, 28);
             this.btnSaveChange.TabIndex = 13;
             this.btnSaveChange.Text = "Lưu";
             this.btnSaveChange.UseVisualStyleBackColor = true;
@@ -211,9 +230,9 @@
             // 
             // Del_Add_Fix_RandomExams
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSuaThoiGian);
@@ -227,8 +246,9 @@
             this.Controls.Add(this.dgvRamdomExams);
             this.Controls.Add(this.cmbMonHoc_DAF);
             this.Controls.Add(this.cmbSubject);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Del_Add_Fix_RandomExams";
-            this.Text = "Del_Add_Fix_RandomExams_Form";
+            this.Text = "Danh Sách Đề Ngẫu Nhiên";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRamdomExams)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -238,7 +238,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmGiangVien";
-            this.Text = "FormGiangViencs";
+            this.Text = "Giang Viên";
             this.Load += new System.EventHandler(this.FrmGiangVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSubject)).EndInit();
             this.toolStrip2.ResumeLayout(false);
