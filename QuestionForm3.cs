@@ -16,7 +16,8 @@ namespace RunningFromTheDayLight
     {
         private readonly Model_ThiTracNghiem context;
 
-        public string SubjectCode { get; private set; }
+        public string SubjectCode { get; set; }
+
 
         public QuestionForm3(string subjectCode)
         {
@@ -233,8 +234,7 @@ namespace RunningFromTheDayLight
             this.Close();
         }
 
-
-
+        
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
              this.DialogResult = DialogResult.Cancel;

@@ -348,12 +348,11 @@ namespace WinFormApp
 
     
             string maMon = cmbTenMonHoc.SelectedValue.ToString();
+            this.Hide();
             CreateExamRandom createExamForm = new CreateExamRandom(maMon);
-            createExamForm.ShowDialog(); 
-
+            createExamForm.FormClosing += (s, args) => LoadQuestionsFromDatabase();
+            createExamForm.Show();
         }
-
-
 
         private void btnaddquestion_Click_1(object sender, EventArgs e)
         {
@@ -364,12 +363,10 @@ namespace WinFormApp
             }
 
             string subjectCode = cmbTenMonHoc.SelectedValue.ToString();
+            this.Hide();
             QuestionForm3 questionForm3 = new QuestionForm3(subjectCode);
-            if (questionForm3.ShowDialog() == DialogResult.OK)
-            {
-                
-
-            }
+            questionForm3.FormClosing += (s, args) => LoadQuestionsFromDatabase();
+            questionForm3.ShowDialog();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -428,10 +425,6 @@ namespace WinFormApp
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvCauHoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -485,8 +478,5 @@ namespace WinFormApp
         }
 
     }
-
-
-
 }
 

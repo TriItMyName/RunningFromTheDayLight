@@ -175,6 +175,7 @@
             this.Name = "Confirm_F";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xác nhận môn thi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Confirm_F_FormClosing);
             this.Load += new System.EventHandler(this.Confirm_F_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);

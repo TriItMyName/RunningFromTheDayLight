@@ -57,6 +57,13 @@ namespace RunningFromTheDayLight
                             sinhVienForm.FormClosing += (s, args) => this.Show();
                             sinhVienForm.Show();
                         }
+                        else if (loaiUser == "GiangVien")
+                        {
+                            this.Hide();
+                            FrmGiangVien giangVienForm = new FrmGiangVien();
+                            giangVienForm.FormClosing += (s, args) => this.Show();
+                            giangVienForm.Show();
+                        }
                         else
                         {
                             MessageBox.Show("Bạn không có quyền truy cập vào hệ thống.");

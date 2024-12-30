@@ -18,13 +18,12 @@ namespace RunningFromTheDayLight.Models
         [Key]
         public int MaCuocThi { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string MaMon { get; set; }
 
-        public DateTime NgayThi { get; set; }
+        public DateTime? NgayThi { get; set; }
 
-        public DateTime ThoiGianBatDau { get; set; }
+        public DateTime? ThoiGianBatDau { get; set; }
 
         [StringLength(20)]
         public string TrangThai { get; set; }

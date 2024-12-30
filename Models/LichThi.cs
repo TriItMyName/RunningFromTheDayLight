@@ -20,9 +20,9 @@ namespace RunningFromTheDayLight.Models
         [StringLength(50)]
         public string MaMon { get; set; }
 
-        public DateTime ThoiGianBatDau { get; set; }
+        public DateTime? ThoiGianBatDau { get; set; }
 
-        public int ThoiGianThi { get; set; }
+        public int? ThoiGianThi { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -71,6 +71,7 @@
             this.dgvCauHoi.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvCauHoi.Location = new System.Drawing.Point(34, 109);
             this.dgvCauHoi.Name = "dgvCauHoi";
+            this.dgvCauHoi.RowHeadersWidth = 51;
             this.dgvCauHoi.Size = new System.Drawing.Size(975, 308);
             this.dgvCauHoi.TabIndex = 1;
             this.dgvCauHoi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCauHoi_CellClick);
@@ -78,41 +79,49 @@
             // colBai
             // 
             this.colBai.HeaderText = "Bài";
+            this.colBai.MinimumWidth = 6;
             this.colBai.Name = "colBai";
             // 
             // colLoaiCauHoi
             // 
             this.colLoaiCauHoi.HeaderText = "Loại Câu Hỏi";
+            this.colLoaiCauHoi.MinimumWidth = 6;
             this.colLoaiCauHoi.Name = "colLoaiCauHoi";
             // 
             // colCauHoi
             // 
             this.colCauHoi.HeaderText = "Câu Hỏi";
+            this.colCauHoi.MinimumWidth = 6;
             this.colCauHoi.Name = "colCauHoi";
             // 
             // colDapAnA
             // 
             this.colDapAnA.HeaderText = "Đáp Án A";
+            this.colDapAnA.MinimumWidth = 6;
             this.colDapAnA.Name = "colDapAnA";
             // 
             // colDapAnB
             // 
             this.colDapAnB.HeaderText = "Đáp Án B";
+            this.colDapAnB.MinimumWidth = 6;
             this.colDapAnB.Name = "colDapAnB";
             // 
             // colDapAnC
             // 
             this.colDapAnC.HeaderText = "Đáp Án C";
+            this.colDapAnC.MinimumWidth = 6;
             this.colDapAnC.Name = "colDapAnC";
             // 
             // colDapAnD
             // 
             this.colDapAnD.HeaderText = "Đáp Án D";
+            this.colDapAnD.MinimumWidth = 6;
             this.colDapAnD.Name = "colDapAnD";
             // 
             // colDapAnDung
             // 
             this.colDapAnDung.HeaderText = "Đáp Án Đúng";
+            this.colDapAnDung.MinimumWidth = 6;
             this.colDapAnDung.Name = "colDapAnDung";
             // 
             // cmbTenMonHoc
@@ -120,7 +129,7 @@
             this.cmbTenMonHoc.FormattingEnabled = true;
             this.cmbTenMonHoc.Location = new System.Drawing.Point(365, 31);
             this.cmbTenMonHoc.Name = "cmbTenMonHoc";
-            this.cmbTenMonHoc.Size = new System.Drawing.Size(343, 21);
+            this.cmbTenMonHoc.Size = new System.Drawing.Size(343, 24);
             this.cmbTenMonHoc.TabIndex = 2;
             this.cmbTenMonHoc.SelectedIndexChanged += new System.EventHandler(this.cmbTenMonHoc_SelectedIndexChanged_1);
             // 
@@ -129,16 +138,17 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(289, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên môn học";
             // 
             // txtSoLuong
             // 
+            this.txtSoLuong.Enabled = false;
             this.txtSoLuong.Location = new System.Drawing.Point(813, 441);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.ReadOnly = true;
-            this.txtSoLuong.Size = new System.Drawing.Size(195, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(195, 22);
             this.txtSoLuong.TabIndex = 4;
             // 
             // label2
@@ -146,17 +156,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(729, 444);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Tổng số câu";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 28);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -165,13 +176,13 @@
             this.Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuThemMonHoc});
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(50, 20);
+            this.Menu.Size = new System.Drawing.Size(60, 24);
             this.Menu.Text = "Menu";
             // 
             // menuThemMonHoc
             // 
             this.menuThemMonHoc.Name = "menuThemMonHoc";
-            this.menuThemMonHoc.Size = new System.Drawing.Size(157, 22);
+            this.menuThemMonHoc.Size = new System.Drawing.Size(194, 26);
             this.menuThemMonHoc.Text = "Thêm Môn Học";
             this.menuThemMonHoc.Click += new System.EventHandler(this.menuThemMonHoc_Click_1);
             // 
@@ -219,7 +230,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(338, 74);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(370, 20);
+            this.txtSearch.Size = new System.Drawing.Size(370, 22);
             this.txtSearch.TabIndex = 23;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -228,7 +239,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(228, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
+            this.label3.Size = new System.Drawing.Size(126, 16);
             this.label3.TabIndex = 24;
             this.label3.Text = "Tìm câu hỏi theo tên";
             // 

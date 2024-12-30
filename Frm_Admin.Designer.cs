@@ -33,7 +33,7 @@
             this.toolStrip_btnHome = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnListStudent = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnTeacher = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnScore = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv_List = new System.Windows.Forms.DataGridView();
@@ -46,8 +46,9 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpFile = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbFaculty = new System.Windows.Forms.ComboBox();
             this.cmbDecntralization = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.cmbFaculty = new System.Windows.Forms.ComboBox();
+            this.btnNoSave = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -84,7 +85,7 @@
             this.toolStrip_btnHome,
             this.toolStrip_btnListStudent,
             this.toolStrip_btnTeacher,
-            this.toolStripButton5});
+            this.toolStrip_btnScore});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(171, 757);
@@ -130,17 +131,18 @@
             this.toolStrip_btnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStrip_btnTeacher.Click += new System.EventHandler(this.toolStrip_btnTeacher_Click);
             // 
-            // toolStripButton5
+            // toolStrip_btnScore
             // 
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.AutoToolTip = false;
-            this.toolStripButton5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(175, 50);
-            this.toolStripButton5.Text = "Thống Kê Điểm";
+            this.toolStrip_btnScore.AutoSize = false;
+            this.toolStrip_btnScore.AutoToolTip = false;
+            this.toolStrip_btnScore.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnScore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnScore.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnScore.Image")));
+            this.toolStrip_btnScore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnScore.Name = "toolStrip_btnScore";
+            this.toolStrip_btnScore.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnScore.Text = "Thống Kê Điểm";
+            this.toolStrip_btnScore.Click += new System.EventHandler(this.toolStrip_btnScore_Click);
             // 
             // label1
             // 
@@ -182,7 +184,7 @@
             this.dgv_List.Name = "dgv_List";
             this.dgv_List.RowHeadersWidth = 51;
             this.dgv_List.RowTemplate.Height = 24;
-            this.dgv_List.Size = new System.Drawing.Size(1159, 355);
+            this.dgv_List.Size = new System.Drawing.Size(1381, 355);
             this.dgv_List.TabIndex = 4;
             this.dgv_List.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_List_CellClick);
             // 
@@ -252,15 +254,16 @@
             this.btnUpFile.UseVisualStyleBackColor = true;
             this.btnUpFile.Click += new System.EventHandler(this.btnUpFile_Click);
             // 
-            // btnNew
+            // btnSave
             // 
-            this.btnNew.Location = new System.Drawing.Point(1011, 22);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(88, 38);
-            this.btnNew.TabIndex = 7;
-            this.btnNew.Text = "Làm Mới";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(1011, 22);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(88, 38);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox1
             // 
@@ -288,13 +291,20 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
+            // cmbFaculty
+            // 
+            this.cmbFaculty.FormattingEnabled = true;
+            this.cmbFaculty.Location = new System.Drawing.Point(473, 168);
+            this.cmbFaculty.Name = "cmbFaculty";
+            this.cmbFaculty.Size = new System.Drawing.Size(240, 24);
+            this.cmbFaculty.TabIndex = 17;
+            // 
             // cmbDecntralization
             // 
             this.cmbDecntralization.FormattingEnabled = true;
             this.cmbDecntralization.Items.AddRange(new object[] {
             "SinhVien",
-            "GiangVien",
-            ""});
+            "GiangVien"});
             this.cmbDecntralization.Location = new System.Drawing.Point(473, 232);
             this.cmbDecntralization.Name = "cmbDecntralization";
             this.cmbDecntralization.Size = new System.Drawing.Size(240, 24);
@@ -478,25 +488,29 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // cmbFaculty
+            // btnNoSave
             // 
-            this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(473, 168);
-            this.cmbFaculty.Name = "cmbFaculty";
-            this.cmbFaculty.Size = new System.Drawing.Size(240, 24);
-            this.cmbFaculty.TabIndex = 17;
+            this.btnNoSave.Enabled = false;
+            this.btnNoSave.Location = new System.Drawing.Point(1148, 22);
+            this.btnNoSave.Name = "btnNoSave";
+            this.btnNoSave.Size = new System.Drawing.Size(88, 38);
+            this.btnNoSave.TabIndex = 14;
+            this.btnNoSave.Text = "K.Lưu";
+            this.btnNoSave.UseVisualStyleBackColor = true;
+            this.btnNoSave.Click += new System.EventHandler(this.btnNoSave_Click);
             // 
             // Frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 757);
+            this.ClientSize = new System.Drawing.Size(1580, 757);
+            this.Controls.Add(this.btnNoSave);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpFile);
             this.Controls.Add(this.dgv_List);
             this.Controls.Add(this.txtSearch);
@@ -526,7 +540,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgv_List;
         private System.Windows.Forms.Button btnUpFile;
-        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNameID;
         private System.Windows.Forms.Label label3;
@@ -548,7 +562,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnScore;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -558,5 +572,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.ComboBox cmbFaculty;
+        private System.Windows.Forms.Button btnNoSave;
     }       
 }

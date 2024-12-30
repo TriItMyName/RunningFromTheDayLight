@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using RunningFromTheDayLight.Models;
 
@@ -27,6 +29,13 @@ namespace RunningFromTheDayLight
                     return;
                 }
 
+                var existingMon = context.Mons.FirstOrDefault(m => m.MaMon == maMon);
+                if (existingMon != null)
+                {
+                    MessageBox.Show("Mã môn học đã tồn tại. Vui lòng nhập mã khác.");
+                    return;
+                }
+
                 var monHoc = new Mon
                 {
                     MaMon = maMon,
@@ -42,6 +51,30 @@ namespace RunningFromTheDayLight
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm môn học: " + ex.Message);
+            }
+        }
+
+        private void AddSubjecc_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Mon> mons = context.Mons.ToList();
+                BindGird(mons);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu môn học: " + ex.Message);
+            }
+        }
+
+        private void BindGird(List<Mon> listMon)
+        {
+            dgvListMon.Rows.Clear();
+            foreach (var mon in listMon)
+            {
+                int index = dgvListMon.Rows.Add();
+                dgvListMon.Rows[index].Cells[0].Value = mon.MaMon;
+                dgvListMon.Rows[index].Cells[1].Value = mon.TenMon;
             }
         }
     }

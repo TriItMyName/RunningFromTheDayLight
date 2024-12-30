@@ -4,6 +4,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows.Forms;
 using RunningFromTheDayLight.Models;
+using WinFormApp;
 
 namespace RunningFromTheDayLight
 {
@@ -39,11 +40,11 @@ namespace RunningFromTheDayLight
                 }
 
                 List<ComboBox> comboBoxes = new List<ComboBox>
-                {
-                    cmbPhan1, cmbPhan2, cmbPhan3, cmbPhan4,
-                    cmbPhan5, cmbPhan6, cmbPhan7, cmbPhan8,
-                    cmbPhan9, cmbPhan10
-                };
+                    {
+                        cmbPhan1, cmbPhan2, cmbPhan3, cmbPhan4,
+                        cmbPhan5, cmbPhan6, cmbPhan7, cmbPhan8,
+                        cmbPhan9, cmbPhan10
+                    };
 
                 foreach (var comboBox in comboBoxes)
                 {
@@ -174,18 +175,18 @@ namespace RunningFromTheDayLight
             int totalQuestions = 0;
 
             List<ComboBox> comboBoxes = new List<ComboBox>
-            {
-                cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1,
-                cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2,
-                cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3,
-                cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4,
-                cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5,
-                cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6,
-                cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7,
-                cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8,
-                cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9,
-                cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10,
-            };
+                {
+                    cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1,
+                    cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2,
+                    cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3,
+                    cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4,
+                    cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5,
+                    cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6,
+                    cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7,
+                    cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8,
+                    cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9,
+                    cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10,
+                };
 
             foreach (var comboBox in comboBoxes)
             {
@@ -309,20 +310,20 @@ namespace RunningFromTheDayLight
                 {
                     List<TracNghiem> cauHoiDuocChon = new List<TracNghiem>();
                     List<(ComboBox cmbPhan, ComboBox cmbNhanBiet, ComboBox cmbThongHieu, ComboBox cmbVanDung, ComboBox cmbVanDungCao)> phanList = new List<(ComboBox, ComboBox, ComboBox, ComboBox, ComboBox)>
-            {
-                (cmbPhan1, cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1),
-                (cmbPhan2, cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2),
-                (cmbPhan3, cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3),
-                (cmbPhan4, cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4),
-                (cmbPhan5, cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5),
-                (cmbPhan6, cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6),
-                (cmbPhan7, cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7),
-                (cmbPhan8, cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8),
-                (cmbPhan9, cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9),
-                (cmbPhan10, cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10),
-            };
+                {
+                    (cmbPhan1, cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1),
+                    (cmbPhan2, cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2),
+                    (cmbPhan3, cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3),
+                    (cmbPhan4, cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4),
+                    (cmbPhan5, cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5),
+                    (cmbPhan6, cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6),
+                    (cmbPhan7, cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7),
+                    (cmbPhan8, cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8),
+                    (cmbPhan9, cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9),
+                    (cmbPhan10, cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10),
+                };
 
-      
+
                     foreach (var (cmbPhan, cmbNhanBiet, cmbThongHieu, cmbVanDung, cmbVanDungCao) in phanList)
                     {
                         string tenBaiHoc = cmbPhan.SelectedItem?.ToString();
@@ -362,13 +363,13 @@ namespace RunningFromTheDayLight
                         MaMon = maMon,
                         NgayTao = DateTime.Now,
                         CacCauHoi = string.Join(",", cauHoiDuocChon.Select(c => c.ID)),
-                        ThoiGianThi = thoiGianLamBai 
+                        ThoiGianThi = thoiGianLamBai
                     };
 
                     context.DeThiNgauNhiens.Add(deThi);
                 }
 
-                context.SaveChanges(); 
+                context.SaveChanges();
                 MessageBox.Show($"Đã tạo {soDeThi} đề thi ngẫu nhiên thành công!");
             }
             catch (DbEntityValidationException dbEx)
@@ -388,14 +389,41 @@ namespace RunningFromTheDayLight
         }
 
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                Readfile readfile = new Readfile();
+                readfile.FormClosing += (s, ev) => this.Show();
+                readfile.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi khi tải danh sách đề thi: {ex.Message}");
+            }
+        }
 
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var examID = context.DeThiNgauNhiens
+                    .Where(ex => ex.MaMon == maMon)
+                    .Select(ex => ex.MaDeNgauNhien)
+                    .FirstOrDefault();
 
+                this.Hide();
+                Add_Fix_Del_Qestions addFixDelQestions = new Add_Fix_Del_Qestions(examID,maMon);
+                addFixDelQestions.FormClosing += (s, ev) => this.Show();
+                addFixDelQestions.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi khi tải danh sách đề thi: {ex.Message}");
+
+            }
+        }
     }
-
-
-
-
-
-
 }
 

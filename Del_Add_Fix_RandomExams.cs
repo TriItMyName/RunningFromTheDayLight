@@ -133,8 +133,12 @@ namespace RunningFromTheDayLight
 
             if (!string.IsNullOrEmpty(selectedSubject))
             {
-
+                this.Hide();
                 var createExamForm = new CreateExamRandom(selectedSubject);
+                createExamForm.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                };
                 createExamForm.ShowDialog(); 
 
                 LoadRandomExams();

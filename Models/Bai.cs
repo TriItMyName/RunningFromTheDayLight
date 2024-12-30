@@ -18,7 +18,6 @@ namespace RunningFromTheDayLight.Models
         [Key]
         public int MaBai { get; set; }
 
-        [Required]
         [StringLength(200)]
         public string TenBai { get; set; }
 
