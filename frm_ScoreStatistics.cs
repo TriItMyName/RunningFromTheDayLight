@@ -52,7 +52,7 @@ namespace RunningFromTheDayLight
             {
                 if (cmbSubject.SelectedValue == null)
                 {
-                    MessageBox.Show("Please select a subject.");
+                    MessageBox.Show("Vui lòng chọn một môn học.");
                     return;
                 }
 
@@ -60,6 +60,7 @@ namespace RunningFromTheDayLight
                 DateTime selectedDate = dtpDate.Value;
                 DateTime startDate = new DateTime(selectedDate.Year, selectedDate.Month, 1);
                 DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+
 
                 var results = context.KetQuaThis
                     .Where(kq => kq.CuocThi.MaMon == maMon && kq.NgayThi >= startDate && kq.NgayThi <= endDate)
@@ -113,6 +114,7 @@ namespace RunningFromTheDayLight
                     double? diem = (double?)result.Diem;
                     chartBar.Series["Điểm"].Points.AddXY(userName, diem);
                 }
+
             }
             catch (Exception ex)
             {
@@ -135,8 +137,9 @@ namespace RunningFromTheDayLight
                 {
                     lbl_ID2.Text = $"{fastestStudent.UserName}";
                 }
+                Console.WriteLine("Top students displayed.");
             }
-            catch (Exception ex)        
+            catch (Exception ex)
             {
                 MessageBox.Show($"Đã xảy ra lỗi khi hiển thị sinh viên: {ex.Message}");
             }

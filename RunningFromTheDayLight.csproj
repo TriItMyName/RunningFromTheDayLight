@@ -138,11 +138,23 @@
     <Compile Include="FrmGiangVien.Designer.cs">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_AddContest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_AddContest.Designer.cs">
+      <DependentUpon>Frm_AddContest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_Admin.Designer.cs">
       <DependentUpon>Frm_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_ExamSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_ExamSchedule.Designer.cs">
+      <DependentUpon>Frm_ExamSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ScoreStatistics.cs">
       <SubType>Form</SubType>
@@ -204,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGiangVien.resx">
       <DependentUpon>FrmGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_AddContest.resx">
+      <DependentUpon>Frm_AddContest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Admin.resx">
       <DependentUpon>Frm_Admin.cs</DependentUpon>

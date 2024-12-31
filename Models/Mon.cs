@@ -21,6 +21,7 @@ namespace RunningFromTheDayLight.Models
         [StringLength(50)]
         public string MaMon { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string TenMon { get; set; }
 

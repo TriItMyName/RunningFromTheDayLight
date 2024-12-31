@@ -62,9 +62,9 @@ namespace RunningFromTheDayLight
                 MessageBox.Show($"Không có đề thi nào cho môn: {Subjectcode}");
                 return;
             }
-            timeDoExam = deThiNgauNhien.ThoiGianThi * 60;
-            // Đặt thời gian thi (ThoiGianThi) từ cơ sở dữ liệu, chuyển đổi thành giây
-            remainingTime = deThiNgauNhien.ThoiGianThi * 60;
+            timeDoExam = deThiNgauNhien.ThoiGianThi.HasValue ? deThiNgauNhien.ThoiGianThi.Value * 60 : 0;
+            remainingTime = deThiNgauNhien.ThoiGianThi.HasValue ? deThiNgauNhien.ThoiGianThi.Value * 60 : 0;
+
             StartTimer();
 
             // Lấy danh sách câu hỏi từ đề thi đã chọn

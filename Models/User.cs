@@ -20,22 +20,27 @@ namespace RunningFromTheDayLight.Models
         [StringLength(10)]
         public string UserID { get; set; }
 
+        [Required]
         [StringLength(10)]
         public string UserName { get; set; }
 
         [Column("_Password")]
+        [Required]
         [StringLength(256)]
         public string C_Password { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string HoTen { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
+        [Required]
         [StringLength(10)]
         public string GioiTinh { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string LoaiUser { get; set; }
 

@@ -70,6 +70,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNoSave = new System.Windows.Forms.Button();
+            this.toolStrip_btnAddExaSchedule = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnExam = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -85,6 +87,8 @@
             this.toolStrip_btnHome,
             this.toolStrip_btnListStudent,
             this.toolStrip_btnTeacher,
+            this.toolStrip_btnExam,
+            this.toolStrip_btnAddExaSchedule,
             this.toolStrip_btnScore});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -141,7 +145,7 @@
             this.toolStrip_btnScore.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStrip_btnScore.Name = "toolStrip_btnScore";
             this.toolStrip_btnScore.Size = new System.Drawing.Size(175, 50);
-            this.toolStrip_btnScore.Text = "Thống Kê Điểm";
+            this.toolStrip_btnScore.Text = "Thống kê điểm";
             this.toolStrip_btnScore.Click += new System.EventHandler(this.toolStrip_btnScore_Click);
             // 
             // label1
@@ -499,6 +503,32 @@
             this.btnNoSave.UseVisualStyleBackColor = true;
             this.btnNoSave.Click += new System.EventHandler(this.btnNoSave_Click);
             // 
+            // toolStrip_btnAddExaSchedule
+            // 
+            this.toolStrip_btnAddExaSchedule.AutoSize = false;
+            this.toolStrip_btnAddExaSchedule.AutoToolTip = false;
+            this.toolStrip_btnAddExaSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnAddExaSchedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnAddExaSchedule.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnAddExaSchedule.Image")));
+            this.toolStrip_btnAddExaSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnAddExaSchedule.Name = "toolStrip_btnAddExaSchedule";
+            this.toolStrip_btnAddExaSchedule.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnAddExaSchedule.Text = "Thêm lịch thi";
+            this.toolStrip_btnAddExaSchedule.Click += new System.EventHandler(this.toolStrip_btnAddExaSchedule_Click);
+            // 
+            // toolStrip_btnExam
+            // 
+            this.toolStrip_btnExam.AutoSize = false;
+            this.toolStrip_btnExam.AutoToolTip = false;
+            this.toolStrip_btnExam.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnExam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnExam.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnExam.Image")));
+            this.toolStrip_btnExam.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnExam.Name = "toolStrip_btnExam";
+            this.toolStrip_btnExam.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnExam.Text = "Thêm cuộc thi";
+            this.toolStrip_btnExam.Click += new System.EventHandler(this.toolStrip_btnAddExam_Click);
+            // 
             // Frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -573,5 +603,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.ComboBox cmbFaculty;
         private System.Windows.Forms.Button btnNoSave;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnAddExaSchedule;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnExam;
     }       
 }

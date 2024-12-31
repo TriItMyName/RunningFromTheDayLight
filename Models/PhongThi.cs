@@ -19,6 +19,7 @@ namespace RunningFromTheDayLight.Models
         [StringLength(50)]
         public string MaPhong { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string TenPhong { get; set; }
 

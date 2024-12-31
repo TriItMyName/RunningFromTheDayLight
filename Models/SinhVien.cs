@@ -20,6 +20,7 @@ namespace RunningFromTheDayLight.Models
         [StringLength(10)]
         public string MaSV { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Lop { get; set; }
 

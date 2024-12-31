@@ -737,6 +737,36 @@ namespace RunningFromTheDayLight
             }
         }
 
+        private void toolStrip_btnAddExaSchedule_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                this.Hide();
+                Frm_ExamSchedule frmAddContest = new Frm_ExamSchedule();
+                frmAddContest.FormClosing += (s, ev) => this.Show();
+                frmAddContest.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStrip_btnAddExam_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                Frm_AddContest frmAddContest = new Frm_AddContest();
+                frmAddContest.FormClosing += (s, ev) => this.Show();
+                frmAddContest.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void FrmScore_FormClosing(object sender, FormClosingEventArgs e)
         {
             throw new NotImplementedException();
@@ -775,5 +805,6 @@ namespace RunningFromTheDayLight
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

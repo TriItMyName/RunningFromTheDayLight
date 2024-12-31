@@ -11,19 +11,26 @@ namespace RunningFromTheDayLight.Models
     {
         public int ID { get; set; }
 
+        [Required]
         public string NoiDung { get; set; }
 
+        [Required]
         public string DapAnA { get; set; }
 
+        [Required]
         public string DapAnB { get; set; }
 
+        [Required]
         public string DapAnC { get; set; }
 
+        [Required]
         public string DapAnD { get; set; }
 
+        [Required]
         [StringLength(1)]
         public string DapAnDung { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string LoaiCauHoi { get; set; }
 

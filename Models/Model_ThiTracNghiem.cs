@@ -59,6 +59,11 @@ namespace RunningFromTheDayLight.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Mon>()
+                .HasMany(e => e.CuocThis)
+                .WithRequired(e => e.Mon)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Mon>()
                 .HasMany(e => e.LichThis)
                 .WithRequired(e => e.Mon)
                 .WillCascadeOnDelete(false);

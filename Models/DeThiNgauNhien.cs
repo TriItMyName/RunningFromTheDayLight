@@ -12,6 +12,7 @@ namespace RunningFromTheDayLight.Models
         [Key]
         public int MaDeNgauNhien { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string TenDe { get; set; }
 
@@ -19,10 +20,11 @@ namespace RunningFromTheDayLight.Models
         [StringLength(50)]
         public string MaMon { get; set; }
 
-        public DateTime NgayTao { get; set; }
+        public DateTime? NgayTao { get; set; }
 
+        [Required]
         public string CacCauHoi { get; set; }
 
-        public int ThoiGianThi { get; set; }
+        public int? ThoiGianThi { get; set; }
     }
 }
