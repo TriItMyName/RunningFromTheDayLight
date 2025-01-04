@@ -912,6 +912,11 @@
             this.label3.TabIndex = 122;
             this.label3.Text = "Thời gian làm bài (Phút)";
             // 
+            // toolStrip_btnHome
+            // 
+            this.toolStrip_btnHome.Name = "toolStrip_btnHome";
+            this.toolStrip_btnHome.Size = new System.Drawing.Size(169, 4);
+            // 
             // toolStripButton2
             // 
             this.toolStripButton2.AutoSize = false;
@@ -1042,6 +1047,7 @@
             this.Controls.Add(this.cmbPhan1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateExamRandom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo đề ngẫu nhiên";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.toolStrip2.ResumeLayout(false);

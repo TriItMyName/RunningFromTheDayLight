@@ -254,6 +254,7 @@
             this.Controls.Add(this.dgv_ListContest);
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_AddContest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm cuộc thi";
             this.Load += new System.EventHandler(this.Frm_AddContest_Load);
             this.groupBox1.ResumeLayout(false);

@@ -34,13 +34,11 @@ namespace RunningFromTheDayLight
             {
                 using (var dbContext = new Model_ThiTracNghiem())
                 {
-
                     var user = dbContext.Users
-                        .FirstOrDefault(u => u.UserName == username && u.C_Password == password);
+                        .FirstOrDefault(u => u.UserName == username);
 
-                    if (user != null)
+                    if (user != null && user.C_Password == password)
                     {
-
                         string loaiUser = user.LoaiUser;
 
                         if (loaiUser == "Admin")
@@ -86,7 +84,7 @@ namespace RunningFromTheDayLight
             DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Application.Exit();
             }
             else
             {

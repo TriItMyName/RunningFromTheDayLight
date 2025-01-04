@@ -31,6 +31,8 @@ namespace RunningFromTheDayLight
         {
             this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlEdit = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblQuestionTitle = new System.Windows.Forms.Label();
             this.txtQuestion = new System.Windows.Forms.TextBox();
             this.lblOptionA = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@ namespace RunningFromTheDayLight
             this.cboCorrectAnswer = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.pnlEdit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,9 +57,10 @@ namespace RunningFromTheDayLight
             this.flpQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpQuestions.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpQuestions.Location = new System.Drawing.Point(0, 0);
+            this.flpQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flpQuestions.Name = "flpQuestions";
-            this.flpQuestions.Padding = new System.Windows.Forms.Padding(10);
-            this.flpQuestions.Size = new System.Drawing.Size(800, 450);
+            this.flpQuestions.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.flpQuestions.Size = new System.Drawing.Size(1067, 554);
             this.flpQuestions.TabIndex = 0;
             this.flpQuestions.WrapContents = false;
             // 
@@ -83,99 +84,141 @@ namespace RunningFromTheDayLight
             this.pnlEdit.Controls.Add(this.btnDelete);
             this.pnlEdit.Controls.Add(this.btnEdit);
             this.pnlEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlEdit.Location = new System.Drawing.Point(0, 450);
+            this.pnlEdit.Location = new System.Drawing.Point(0, 554);
+            this.pnlEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlEdit.Name = "pnlEdit";
-            this.pnlEdit.Size = new System.Drawing.Size(800, 200);
+            this.pnlEdit.Size = new System.Drawing.Size(1067, 246);
             this.pnlEdit.TabIndex = 1;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Blue;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(521, 185);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(100, 37);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(653, 185);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 37);
+            this.btnAdd.TabIndex = 15;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblQuestionTitle
             // 
             this.lblQuestionTitle.AutoSize = true;
             this.lblQuestionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblQuestionTitle.Location = new System.Drawing.Point(12, 15);
+            this.lblQuestionTitle.Location = new System.Drawing.Point(16, 18);
+            this.lblQuestionTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuestionTitle.Name = "lblQuestionTitle";
-            this.lblQuestionTitle.Size = new System.Drawing.Size(60, 15);
+            this.lblQuestionTitle.Size = new System.Drawing.Size(71, 18);
             this.lblQuestionTitle.TabIndex = 0;
             this.lblQuestionTitle.Text = "Câu hỏi:";
             // 
             // txtQuestion
             // 
-            this.txtQuestion.Location = new System.Drawing.Point(79, 12);
+            this.txtQuestion.Location = new System.Drawing.Point(105, 15);
+            this.txtQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
-            this.txtQuestion.Size = new System.Drawing.Size(709, 50);
+            this.txtQuestion.Size = new System.Drawing.Size(944, 61);
             this.txtQuestion.TabIndex = 1;
             // 
             // lblOptionA
             // 
             this.lblOptionA.AutoSize = true;
-            this.lblOptionA.Location = new System.Drawing.Point(12, 73);
+            this.lblOptionA.Location = new System.Drawing.Point(16, 90);
+            this.lblOptionA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOptionA.Name = "lblOptionA";
-            this.lblOptionA.Size = new System.Drawing.Size(55, 13);
+            this.lblOptionA.Size = new System.Drawing.Size(65, 16);
             this.lblOptionA.TabIndex = 2;
             this.lblOptionA.Text = "Đáp án A:";
             // 
             // txtOptionA
             // 
-            this.txtOptionA.Location = new System.Drawing.Point(79, 70);
+            this.txtOptionA.Location = new System.Drawing.Point(105, 86);
+            this.txtOptionA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOptionA.Name = "txtOptionA";
-            this.txtOptionA.Size = new System.Drawing.Size(300, 20);
+            this.txtOptionA.Size = new System.Drawing.Size(399, 22);
             this.txtOptionA.TabIndex = 3;
             // 
             // lblOptionB
             // 
             this.lblOptionB.AutoSize = true;
-            this.lblOptionB.Location = new System.Drawing.Point(388, 73);
+            this.lblOptionB.Location = new System.Drawing.Point(517, 90);
+            this.lblOptionB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOptionB.Name = "lblOptionB";
-            this.lblOptionB.Size = new System.Drawing.Size(55, 13);
+            this.lblOptionB.Size = new System.Drawing.Size(65, 16);
             this.lblOptionB.TabIndex = 4;
             this.lblOptionB.Text = "Đáp án B:";
             // 
             // txtOptionB
             // 
-            this.txtOptionB.Location = new System.Drawing.Point(455, 70);
+            this.txtOptionB.Location = new System.Drawing.Point(607, 86);
+            this.txtOptionB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOptionB.Name = "txtOptionB";
-            this.txtOptionB.Size = new System.Drawing.Size(300, 20);
+            this.txtOptionB.Size = new System.Drawing.Size(399, 22);
             this.txtOptionB.TabIndex = 5;
             // 
             // lblOptionC
             // 
             this.lblOptionC.AutoSize = true;
-            this.lblOptionC.Location = new System.Drawing.Point(12, 103);
+            this.lblOptionC.Location = new System.Drawing.Point(16, 127);
+            this.lblOptionC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOptionC.Name = "lblOptionC";
-            this.lblOptionC.Size = new System.Drawing.Size(55, 13);
+            this.lblOptionC.Size = new System.Drawing.Size(65, 16);
             this.lblOptionC.TabIndex = 6;
             this.lblOptionC.Text = "Đáp án C:";
             // 
             // txtOptionC
             // 
-            this.txtOptionC.Location = new System.Drawing.Point(79, 100);
+            this.txtOptionC.Location = new System.Drawing.Point(105, 123);
+            this.txtOptionC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOptionC.Name = "txtOptionC";
-            this.txtOptionC.Size = new System.Drawing.Size(300, 20);
+            this.txtOptionC.Size = new System.Drawing.Size(399, 22);
             this.txtOptionC.TabIndex = 7;
             // 
             // lblOptionD
             // 
             this.lblOptionD.AutoSize = true;
-            this.lblOptionD.Location = new System.Drawing.Point(388, 103);
+            this.lblOptionD.Location = new System.Drawing.Point(517, 127);
+            this.lblOptionD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOptionD.Name = "lblOptionD";
-            this.lblOptionD.Size = new System.Drawing.Size(56, 13);
+            this.lblOptionD.Size = new System.Drawing.Size(66, 16);
             this.lblOptionD.TabIndex = 8;
             this.lblOptionD.Text = "Đáp án D:";
             // 
             // txtOptionD
             // 
-            this.txtOptionD.Location = new System.Drawing.Point(455, 100);
+            this.txtOptionD.Location = new System.Drawing.Point(607, 123);
+            this.txtOptionD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOptionD.Name = "txtOptionD";
-            this.txtOptionD.Size = new System.Drawing.Size(300, 20);
+            this.txtOptionD.Size = new System.Drawing.Size(399, 22);
             this.txtOptionD.TabIndex = 9;
             // 
             // lblCorrectAnswer
             // 
             this.lblCorrectAnswer.AutoSize = true;
-            this.lblCorrectAnswer.Location = new System.Drawing.Point(12, 133);
+            this.lblCorrectAnswer.Location = new System.Drawing.Point(16, 164);
+            this.lblCorrectAnswer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorrectAnswer.Name = "lblCorrectAnswer";
-            this.lblCorrectAnswer.Size = new System.Drawing.Size(73, 13);
+            this.lblCorrectAnswer.Size = new System.Drawing.Size(86, 16);
             this.lblCorrectAnswer.TabIndex = 10;
             this.lblCorrectAnswer.Text = "Đáp án đúng:";
             // 
@@ -188,9 +231,10 @@ namespace RunningFromTheDayLight
             "B",
             "C",
             "D"});
-            this.cboCorrectAnswer.Location = new System.Drawing.Point(104, 130);
+            this.cboCorrectAnswer.Location = new System.Drawing.Point(139, 160);
+            this.cboCorrectAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCorrectAnswer.Name = "cboCorrectAnswer";
-            this.cboCorrectAnswer.Size = new System.Drawing.Size(100, 21);
+            this.cboCorrectAnswer.Size = new System.Drawing.Size(132, 24);
             this.cboCorrectAnswer.TabIndex = 11;
             // 
             // btnDelete
@@ -199,9 +243,10 @@ namespace RunningFromTheDayLight
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(680, 150);
+            this.btnDelete.Location = new System.Drawing.Point(907, 185);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 30);
+            this.btnDelete.Size = new System.Drawing.Size(100, 37);
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -213,50 +258,25 @@ namespace RunningFromTheDayLight
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(588, 150);
+            this.btnEdit.Location = new System.Drawing.Point(784, 185);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 30);
+            this.btnEdit.Size = new System.Drawing.Size(100, 37);
             this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(490, 150);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 30);
-            this.btnAdd.TabIndex = 15;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Blue;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(391, 150);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 30);
-            this.btnClear.TabIndex = 16;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // Add_Fix_Del_Qestions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 650);
+            this.ClientSize = new System.Drawing.Size(1067, 800);
             this.Controls.Add(this.flpQuestions);
             this.Controls.Add(this.pnlEdit);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Add_Fix_Del_Qestions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý câu hỏi";
             this.pnlEdit.ResumeLayout(false);
             this.pnlEdit.PerformLayout();

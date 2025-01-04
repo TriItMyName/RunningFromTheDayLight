@@ -158,7 +158,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(703, 32);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 33);
@@ -238,6 +237,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmGiangVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giang Viên";
             this.Load += new System.EventHandler(this.FrmGiangVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSubject)).EndInit();

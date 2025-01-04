@@ -273,6 +273,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Readfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo câu hỏi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCauHoi)).EndInit();
             this.menuStrip1.ResumeLayout(false);

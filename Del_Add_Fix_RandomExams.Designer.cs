@@ -54,7 +54,7 @@
             // 
             this.cmbSubject.FormattingEnabled = true;
             this.cmbSubject.Location = new System.Drawing.Point(396, 37);
-            this.cmbSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSubject.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSubject.Name = "cmbSubject";
             this.cmbSubject.Size = new System.Drawing.Size(336, 24);
             this.cmbSubject.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.colThoiGianThi});
             this.dgvRamdomExams.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvRamdomExams.Location = new System.Drawing.Point(16, 128);
-            this.dgvRamdomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvRamdomExams.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRamdomExams.Name = "dgvRamdomExams";
             this.dgvRamdomExams.RowHeadersWidth = 51;
             this.dgvRamdomExams.Size = new System.Drawing.Size(1035, 236);
@@ -124,7 +124,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(284, 84);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(556, 22);
             this.txtSearch.TabIndex = 5;
@@ -143,7 +143,7 @@
             // btnAddRandomExams
             // 
             this.btnAddRandomExams.Location = new System.Drawing.Point(175, 494);
-            this.btnAddRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddRandomExams.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddRandomExams.Name = "btnAddRandomExams";
             this.btnAddRandomExams.Size = new System.Drawing.Size(100, 28);
             this.btnAddRandomExams.TabIndex = 7;
@@ -154,7 +154,7 @@
             // btnDelRandomExams
             // 
             this.btnDelRandomExams.Location = new System.Drawing.Point(741, 494);
-            this.btnDelRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelRandomExams.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelRandomExams.Name = "btnDelRandomExams";
             this.btnDelRandomExams.Size = new System.Drawing.Size(100, 28);
             this.btnDelRandomExams.TabIndex = 8;
@@ -165,7 +165,7 @@
             // btnFixRandomExams
             // 
             this.btnFixRandomExams.Location = new System.Drawing.Point(427, 494);
-            this.btnFixRandomExams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFixRandomExams.Margin = new System.Windows.Forms.Padding(4);
             this.btnFixRandomExams.Name = "btnFixRandomExams";
             this.btnFixRandomExams.Size = new System.Drawing.Size(199, 28);
             this.btnFixRandomExams.TabIndex = 8;
@@ -186,7 +186,7 @@
             // txtDoiTenDe
             // 
             this.txtDoiTenDe.Location = new System.Drawing.Point(124, 401);
-            this.txtDoiTenDe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDoiTenDe.Margin = new System.Windows.Forms.Padding(4);
             this.txtDoiTenDe.Name = "txtDoiTenDe";
             this.txtDoiTenDe.Size = new System.Drawing.Size(255, 22);
             this.txtDoiTenDe.TabIndex = 9;
@@ -204,7 +204,7 @@
             // txtSuaThoiGian
             // 
             this.txtSuaThoiGian.Location = new System.Drawing.Point(517, 401);
-            this.txtSuaThoiGian.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSuaThoiGian.Margin = new System.Windows.Forms.Padding(4);
             this.txtSuaThoiGian.Name = "txtSuaThoiGian";
             this.txtSuaThoiGian.Size = new System.Drawing.Size(271, 22);
             this.txtSuaThoiGian.TabIndex = 11;
@@ -220,7 +220,7 @@
             // btnSaveChange
             // 
             this.btnSaveChange.Location = new System.Drawing.Point(828, 399);
-            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(100, 28);
             this.btnSaveChange.TabIndex = 13;
@@ -246,8 +246,9 @@
             this.Controls.Add(this.dgvRamdomExams);
             this.Controls.Add(this.cmbMonHoc_DAF);
             this.Controls.Add(this.cmbSubject);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Del_Add_Fix_RandomExams";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Sách Đề Ngẫu Nhiên";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRamdomExams)).EndInit();
             this.ResumeLayout(false);
