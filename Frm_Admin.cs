@@ -36,6 +36,7 @@ namespace RunningFromTheDayLight
         {
             try
             {
+                setGridViewStyle(dgv_ListUser);
                 List<User> users = context.Users.ToList();
                 List<SinhVien> sinhViens = context.SinhViens.ToList();
                 List<GiangVien> giangViens = context.GiangViens.ToList();
@@ -61,27 +62,37 @@ namespace RunningFromTheDayLight
 
         private void BindGrid(List<User> users)
         {
-            dgv_List.Rows.Clear();
+            dgv_ListUser.Rows.Clear();
             foreach (var user in context.Users)
             {
                 if (user.LoaiUser == "Admin")
                 {
                     continue;
                 }
-                int index = dgv_List.Rows.Add();
-                dgv_List.Rows[index].Cells[0].Value = user.UserID;
-                dgv_List.Rows[index].Cells[1].Value = user.UserName;
-                dgv_List.Rows[index].Cells[2].Value = user.C_Password;
-                dgv_List.Rows[index].Cells[3].Value = user.HoTen;
-                dgv_List.Rows[index].Cells[4].Value = user.NgaySinh;
-                dgv_List.Rows[index].Cells[5].Value = user.GioiTinh;
+                int index = dgv_ListUser.Rows.Add();
+                dgv_ListUser.Rows[index].Cells[0].Value = user.UserID;
+                dgv_ListUser.Rows[index].Cells[1].Value = user.UserName;
+                dgv_ListUser.Rows[index].Cells[2].Value = user.C_Password;
+                dgv_ListUser.Rows[index].Cells[3].Value = user.HoTen;
+                dgv_ListUser.Rows[index].Cells[4].Value = user.NgaySinh;
+                dgv_ListUser.Rows[index].Cells[5].Value = user.GioiTinh;
                 var sinhVien = context.SinhViens.FirstOrDefault(sv => sv.UserID == user.UserID);
                 var giangVien = context.GiangViens.FirstOrDefault(gv => gv.UserID == user.UserID);
                 string facultyName = sinhVien?.Khoa?.TenKhoa ?? giangVien?.Khoa?.TenKhoa ?? "N/A";
 
-                dgv_List.Rows[index].Cells[6].Value = facultyName;
-                dgv_List.Rows[index].Cells[7].Value = user.LoaiUser;
+                dgv_ListUser.Rows[index].Cells[6].Value = facultyName;
+                dgv_ListUser.Rows[index].Cells[7].Value = user.LoaiUser;
             }
+        }
+
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = System.Drawing.Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void ClearData()
@@ -250,7 +261,7 @@ namespace RunningFromTheDayLight
                     {
                         MessageBox.Show("Không thể đọc dữ liệu từ file.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    dgv_List.Refresh();
+                    dgv_ListUser.Refresh();
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -312,7 +323,7 @@ namespace RunningFromTheDayLight
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgv_List.Rows[e.RowIndex];
+                DataGridViewRow row = dgv_ListUser.Rows[e.RowIndex];
 
                 txtID.Text = row.Cells[0].Value?.ToString().Trim() ?? string.Empty;
                 txtNameID.Text = row.Cells[1].Value?.ToString().Trim() ?? string.Empty;
@@ -638,7 +649,7 @@ namespace RunningFromTheDayLight
         {
             if (string.IsNullOrWhiteSpace(searchText) || searchText == DefaultSearchText)
             {
-                foreach (DataGridViewRow row in dgv_List.Rows)
+                foreach (DataGridViewRow row in dgv_ListUser.Rows)
                 {
                     row.Visible = true;
                 }
@@ -647,7 +658,7 @@ namespace RunningFromTheDayLight
 
             string lowerSearchText = searchText.ToLower();
 
-            foreach (DataGridViewRow row in dgv_List.Rows)
+            foreach (DataGridViewRow row in dgv_ListUser.Rows)
             {
                 if (row.IsNewRow) continue;
 
@@ -673,7 +684,7 @@ namespace RunningFromTheDayLight
 
         private void toolStrip_btnListStudent_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgv_List.Rows)
+            foreach (DataGridViewRow row in dgv_ListUser.Rows)
             {
                 if (row.IsNewRow)
                 {
@@ -693,7 +704,7 @@ namespace RunningFromTheDayLight
 
         private void toolStrip_btnTeacher_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgv_List.Rows)
+            foreach (DataGridViewRow row in dgv_ListUser.Rows)
             {
                 if (row.IsNewRow)
                 {
@@ -713,7 +724,7 @@ namespace RunningFromTheDayLight
 
         private void toolStrip_btnHome_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgv_List.Rows)
+            foreach (DataGridViewRow row in dgv_ListUser.Rows)
             {
                 if (!row.IsNewRow)
                 {
@@ -765,8 +776,21 @@ namespace RunningFromTheDayLight
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        } 
+        private void toolStrip_btnAddMajor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                AddMajor addMajor = new AddMajor();
+                addMajor.FormClosing += (s, ev) => this.Show();
+                addMajor.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void FrmScore_FormClosing(object sender, FormClosingEventArgs e)
         {
             throw new NotImplementedException();
@@ -805,6 +829,7 @@ namespace RunningFromTheDayLight
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
     }
 }

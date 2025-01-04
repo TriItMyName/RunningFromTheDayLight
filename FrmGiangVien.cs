@@ -31,7 +31,7 @@ namespace RunningFromTheDayLight
             try
             {
                 this.Hide();
-                AddSubjecc addSubjecc = new AddSubjecc();
+                AddSubject addSubjecc = new AddSubject();
                 addSubjecc.FormClosing += (s, args) =>
                 {
                     this.Show();
@@ -109,12 +109,23 @@ namespace RunningFromTheDayLight
         {
             try
             {
+                setGridViewStyle(dgvListSubject);
                 RefreshSubjectList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = System.Drawing.Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void RefreshSubjectList()
@@ -188,6 +199,7 @@ namespace RunningFromTheDayLight
         private void ProcessLines(string[] lines, DataTable dt)
         {
             string currentBai = string.Empty;
+
             for (int i = 0; i < lines.Length; i++)
             {
                 if (string.IsNullOrWhiteSpace(lines[i]))
@@ -253,6 +265,9 @@ namespace RunningFromTheDayLight
         {
             foreach (DataRow row in dt.Rows)
             {
+                string tenBai = row["Bài"].ToString();
+                int? maBai = AddOrUpdateBai(tenBai);
+
                 var cauHoi = new TracNghiem
                 {
                     NoiDung = row["Câu hỏi"].ToString(),
@@ -261,13 +276,33 @@ namespace RunningFromTheDayLight
                     DapAnC = row["Đáp án C"].ToString(),
                     DapAnD = row["Đáp án D"].ToString(),
                     DapAnDung = row["Đáp án đúng"].ToString(),
-                    LoaiCauHoi = row["Loại câu hỏi"].ToString()
+                    LoaiCauHoi = row["Loại câu hỏi"].ToString(),
+                    MaBai = maBai
                 };
 
                 context.TracNghiems.Add(cauHoi);
             }
 
             context.SaveChanges();
+        }
+
+        private int? AddOrUpdateBai(string tenBai)
+        {
+            var existingBai = context.Bais.FirstOrDefault(b => b.TenBai == tenBai);
+            if (existingBai != null)
+            {
+                return existingBai.MaBai;
+            }
+
+            var newBai = new Bai
+            {
+                TenBai = tenBai,
+                MaMon = cmbsubjects.SelectedValue.ToString()
+            };
+
+            context.Bais.Add(newBai);
+            context.SaveChanges();
+            return newBai.MaBai;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -312,6 +347,21 @@ namespace RunningFromTheDayLight
             cmbsubjects.SelectedIndex = -1;
         }
 
-
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataTable != null)
+                {
+                    dataTable.Clear();
+                    dgvListSubject.DataSource = dataTable;
+                    txtCount.Text = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

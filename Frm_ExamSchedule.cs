@@ -25,6 +25,7 @@ namespace RunningFromTheDayLight
         {
             try
             {
+                setGridViewStyle(dgvListExam);
                 List<SinhVien> sinhViens = context.SinhViens.ToList();
                 List<Mon> monHocs = context.Mons.ToList();
                 List<PhongThi> phongThis = context.PhongThis.ToList();
@@ -103,9 +104,9 @@ namespace RunningFromTheDayLight
 
         public int GetSelectionRow(string ID)
         {
-            for (int i = 0; i < dgvListExaam.Rows.Count; i++)
+            for (int i = 0; i < dgvListExam.Rows.Count; i++)
             {
-                var cellValue = dgvListExaam.Rows[i].Cells[1].Value;
+                var cellValue = dgvListExam.Rows[i].Cells[1].Value;
                 if (cellValue != null && cellValue.ToString() == ID)
                 {
                     return i;
@@ -114,11 +115,21 @@ namespace RunningFromTheDayLight
             return -1;
         }
 
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void dgvListExaam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvListExaam.Rows[e.RowIndex];
+                DataGridViewRow row = dgvListExam.Rows[e.RowIndex];
 
                 txtExaScheduleID.Text = row.Cells[0].Value?.ToString();
                 cmbStudentID.SelectedValue = row.Cells[1].Value?.ToString();
@@ -140,16 +151,16 @@ namespace RunningFromTheDayLight
         {
             try
             {
-                dgvListExaam.Rows.Clear();
+                dgvListExam.Rows.Clear();
                 foreach (var lichthi in context.LichThis)
                 {
-                    int index = dgvListExaam.Rows.Add();
-                    dgvListExaam.Rows[index].Cells[0].Value = lichthi.MaLichThi;
-                    dgvListExaam.Rows[index].Cells[1].Value = lichthi.MaSV;
-                    dgvListExaam.Rows[index].Cells[2].Value = lichthi.MaMon;
-                    dgvListExaam.Rows[index].Cells[3].Value = lichthi.ThoiGianBatDau;
-                    dgvListExaam.Rows[index].Cells[4].Value = lichthi.ThoiGianThi;
-                    dgvListExaam.Rows[index].Cells[5].Value = lichthi.MaPhong;
+                    int index = dgvListExam.Rows.Add();
+                    dgvListExam.Rows[index].Cells[0].Value = lichthi.MaLichThi;
+                    dgvListExam.Rows[index].Cells[1].Value = lichthi.MaSV;
+                    dgvListExam.Rows[index].Cells[2].Value = lichthi.MaMon;
+                    dgvListExam.Rows[index].Cells[3].Value = lichthi.ThoiGianBatDau;
+                    dgvListExam.Rows[index].Cells[4].Value = lichthi.ThoiGianThi;
+                    dgvListExam.Rows[index].Cells[5].Value = lichthi.MaPhong;
                 }
             }
             catch (Exception ex)

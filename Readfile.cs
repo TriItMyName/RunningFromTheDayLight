@@ -43,10 +43,22 @@ namespace WinFormApp
             }
         }
 
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = System.Drawing.Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
         private void LoadQuestionsFromDatabase()
         {
             try
             {
+                setGridViewStyle(dgvCauHoi);
+
                 if (cmbTenMonHoc.SelectedValue == null)
                 {
                     MessageBox.Show("Vui lòng chọn môn học.");
@@ -206,7 +218,7 @@ namespace WinFormApp
 
         private void menuThemMonHoc_Click_1(object sender, EventArgs e)
         {
-            AddSubjecc addMonHocForm = new AddSubjecc();
+            AddSubject addMonHocForm = new AddSubject();
             addMonHocForm.ShowDialog();
             LoadMonHocToComboBox(); 
         }

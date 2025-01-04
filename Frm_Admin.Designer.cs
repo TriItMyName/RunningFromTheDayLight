@@ -33,10 +33,13 @@
             this.toolStrip_btnHome = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnListStudent = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnTeacher = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnAddMajor = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnExam = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnAddExaSchedule = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnScore = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgv_List = new System.Windows.Forms.DataGridView();
+            this.dgv_ListUser = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +73,8 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNoSave = new System.Windows.Forms.Button();
-            this.toolStrip_btnAddExaSchedule = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_btnExam = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListUser)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +88,7 @@
             this.toolStrip_btnHome,
             this.toolStrip_btnListStudent,
             this.toolStrip_btnTeacher,
+            this.toolStrip_btnAddMajor,
             this.toolStrip_btnExam,
             this.toolStrip_btnAddExaSchedule,
             this.toolStrip_btnScore});
@@ -135,6 +137,45 @@
             this.toolStrip_btnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStrip_btnTeacher.Click += new System.EventHandler(this.toolStrip_btnTeacher_Click);
             // 
+            // toolStrip_btnAddMajor
+            // 
+            this.toolStrip_btnAddMajor.AutoSize = false;
+            this.toolStrip_btnAddMajor.AutoToolTip = false;
+            this.toolStrip_btnAddMajor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnAddMajor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnAddMajor.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnAddMajor.Image")));
+            this.toolStrip_btnAddMajor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnAddMajor.Name = "toolStrip_btnAddMajor";
+            this.toolStrip_btnAddMajor.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnAddMajor.Text = "Thêm ngành học";
+            this.toolStrip_btnAddMajor.Click += new System.EventHandler(this.toolStrip_btnAddMajor_Click);
+            // 
+            // toolStrip_btnExam
+            // 
+            this.toolStrip_btnExam.AutoSize = false;
+            this.toolStrip_btnExam.AutoToolTip = false;
+            this.toolStrip_btnExam.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnExam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnExam.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnExam.Image")));
+            this.toolStrip_btnExam.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnExam.Name = "toolStrip_btnExam";
+            this.toolStrip_btnExam.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnExam.Text = "Thêm cuộc thi";
+            this.toolStrip_btnExam.Click += new System.EventHandler(this.toolStrip_btnAddExam_Click);
+            // 
+            // toolStrip_btnAddExaSchedule
+            // 
+            this.toolStrip_btnAddExaSchedule.AutoSize = false;
+            this.toolStrip_btnAddExaSchedule.AutoToolTip = false;
+            this.toolStrip_btnAddExaSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnAddExaSchedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnAddExaSchedule.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnAddExaSchedule.Image")));
+            this.toolStrip_btnAddExaSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnAddExaSchedule.Name = "toolStrip_btnAddExaSchedule";
+            this.toolStrip_btnAddExaSchedule.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnAddExaSchedule.Text = "Thêm lịch thi";
+            this.toolStrip_btnAddExaSchedule.Click += new System.EventHandler(this.toolStrip_btnAddExaSchedule_Click);
+            // 
             // toolStrip_btnScore
             // 
             this.toolStrip_btnScore.AutoSize = false;
@@ -172,10 +213,10 @@
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
-            // dgv_List
+            // dgv_ListUser
             // 
-            this.dgv_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_List.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_ListUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ListUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -184,13 +225,13 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
-            this.dgv_List.Location = new System.Drawing.Point(187, 66);
-            this.dgv_List.Name = "dgv_List";
-            this.dgv_List.RowHeadersWidth = 51;
-            this.dgv_List.RowTemplate.Height = 24;
-            this.dgv_List.Size = new System.Drawing.Size(1381, 355);
-            this.dgv_List.TabIndex = 4;
-            this.dgv_List.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_List_CellClick);
+            this.dgv_ListUser.Location = new System.Drawing.Point(187, 66);
+            this.dgv_ListUser.Name = "dgv_ListUser";
+            this.dgv_ListUser.RowHeadersWidth = 51;
+            this.dgv_ListUser.RowTemplate.Height = 24;
+            this.dgv_ListUser.Size = new System.Drawing.Size(1381, 355);
+            this.dgv_ListUser.TabIndex = 4;
+            this.dgv_ListUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_List_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -503,32 +544,6 @@
             this.btnNoSave.UseVisualStyleBackColor = true;
             this.btnNoSave.Click += new System.EventHandler(this.btnNoSave_Click);
             // 
-            // toolStrip_btnAddExaSchedule
-            // 
-            this.toolStrip_btnAddExaSchedule.AutoSize = false;
-            this.toolStrip_btnAddExaSchedule.AutoToolTip = false;
-            this.toolStrip_btnAddExaSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStrip_btnAddExaSchedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_btnAddExaSchedule.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnAddExaSchedule.Image")));
-            this.toolStrip_btnAddExaSchedule.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_btnAddExaSchedule.Name = "toolStrip_btnAddExaSchedule";
-            this.toolStrip_btnAddExaSchedule.Size = new System.Drawing.Size(175, 50);
-            this.toolStrip_btnAddExaSchedule.Text = "Thêm lịch thi";
-            this.toolStrip_btnAddExaSchedule.Click += new System.EventHandler(this.toolStrip_btnAddExaSchedule_Click);
-            // 
-            // toolStrip_btnExam
-            // 
-            this.toolStrip_btnExam.AutoSize = false;
-            this.toolStrip_btnExam.AutoToolTip = false;
-            this.toolStrip_btnExam.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStrip_btnExam.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_btnExam.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnExam.Image")));
-            this.toolStrip_btnExam.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_btnExam.Name = "toolStrip_btnExam";
-            this.toolStrip_btnExam.Size = new System.Drawing.Size(175, 50);
-            this.toolStrip_btnExam.Text = "Thêm cuộc thi";
-            this.toolStrip_btnExam.Click += new System.EventHandler(this.toolStrip_btnAddExam_Click);
-            // 
             // Frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -542,7 +557,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpFile);
-            this.Controls.Add(this.dgv_List);
+            this.Controls.Add(this.dgv_ListUser);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
@@ -552,7 +567,7 @@
             this.Load += new System.EventHandler(this.Frm_Admin_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_List)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ListUser)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -568,7 +583,7 @@
         private System.Windows.Forms.ToolStripButton toolStrip_btnTeacher;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgv_List;
+        private System.Windows.Forms.DataGridView dgv_ListUser;
         private System.Windows.Forms.Button btnUpFile;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -605,5 +620,6 @@
         private System.Windows.Forms.Button btnNoSave;
         private System.Windows.Forms.ToolStripButton toolStrip_btnAddExaSchedule;
         private System.Windows.Forms.ToolStripButton toolStrip_btnExam;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnAddMajor;
     }       
 }

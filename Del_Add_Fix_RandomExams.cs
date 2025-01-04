@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RunningFromTheDayLight
@@ -37,8 +38,9 @@ namespace RunningFromTheDayLight
    
         private void LoadRandomExams()
         {
-            var selectedSubject = cmbSubject.SelectedValue?.ToString(); 
+            setGridViewStyle(dgvRamdomExams);
 
+            var selectedSubject = cmbSubject.SelectedValue?.ToString(); 
 
             if (!string.IsNullOrEmpty(selectedSubject))
             {
@@ -82,27 +84,50 @@ namespace RunningFromTheDayLight
 
         private void dgvRamdomExams_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 var selectedRow = dgvRamdomExams.Rows[e.RowIndex];
 
-    
-                var examID = (int)selectedRow.Cells["colExamID"].Value;
-                SelectedExamID = examID;
+                var examIDCell = selectedRow.Cells["colExamID"].Value;
+                if (examIDCell != null)
+                {
+                    var examID = (int)examIDCell;
+                    SelectedExamID = examID;
+                }
+                else
+                {
+                    MessageBox.Show("Mã đề thi chưa được thiết lập.");
+                    return;
+                }
 
+                var examNameCell = selectedRow.Cells["colExamName"].Value;
+                var examDurationCell = selectedRow.Cells["colThoiGianThi"].Value;
 
-                var examName = selectedRow.Cells["colExamName"].Value.ToString();
-                var examDuration = selectedRow.Cells["colThoiGianThi"].Value.ToString();
+                if (examNameCell != null && examDurationCell != null)
+                {
+                    var examName = examNameCell.ToString();
+                    var examDuration = examDurationCell.ToString();
 
-         
-                txtDoiTenDe.Text = examName;
-                txtSuaThoiGian.Text = examDuration;
+                    txtDoiTenDe.Text = examName;
+                    txtSuaThoiGian.Text = examDuration;
+                }
+                else
+                {
+                    MessageBox.Show("Tên đề thi hoặc thời gian thi chưa được thiết lập.");
+                }
             }
         }
 
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
 
-  
         private int SelectedExamID { get; set; } = -1; 
 
         private void btnDelRandomExams_Click(object sender, EventArgs e)

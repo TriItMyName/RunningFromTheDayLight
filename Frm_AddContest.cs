@@ -26,6 +26,7 @@ namespace RunningFromTheDayLight
         {
             try
             { 
+                setGridViewStyle(dgv_ListContest);
                 List<Mon> monHocs = context.Mons.ToList();
                 List<CuocThi> cuocThis = context.CuocThis.ToList();
                 FillFindSubject(monHocs);
@@ -65,6 +66,16 @@ namespace RunningFromTheDayLight
                 dgv_ListContest.Rows[index].Cells[3].Value = cuocthis.ThoiGianBatDau;
                 dgv_ListContest.Rows[index].Cells[4].Value = cuocthis.TrangThai;
             }
+        }
+
+        public void setGridViewStyle(DataGridView dgview)
+        {
+            dgview.BorderStyle = BorderStyle.None;
+            dgview.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgview.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.BackgroundColor = Color.White;
+            dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         public int GetSelectionRow(string ID)
