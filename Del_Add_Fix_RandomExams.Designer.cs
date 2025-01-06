@@ -62,12 +62,13 @@
             // cmbMonHoc_DAF
             // 
             this.cmbMonHoc_DAF.AutoSize = true;
-            this.cmbMonHoc_DAF.Location = new System.Drawing.Point(312, 41);
+            this.cmbMonHoc_DAF.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMonHoc_DAF.Location = new System.Drawing.Point(312, 40);
             this.cmbMonHoc_DAF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cmbMonHoc_DAF.Name = "cmbMonHoc_DAF";
-            this.cmbMonHoc_DAF.Size = new System.Drawing.Size(61, 16);
+            this.cmbMonHoc_DAF.Size = new System.Drawing.Size(76, 16);
             this.cmbMonHoc_DAF.TabIndex = 1;
-            this.cmbMonHoc_DAF.Text = "Môn Học";
+            this.cmbMonHoc_DAF.Text = "Môn Học :";
             // 
             // dgvRamdomExams
             // 
@@ -133,12 +134,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(185, 87);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 16);
+            this.label3.Size = new System.Drawing.Size(79, 16);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Tìm Kiếm";
+            this.label3.Text = "Tìm Kiếm :";
             // 
             // btnAddRandomExams
             // 
@@ -176,12 +178,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 405);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 405);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Đổi tên đề";
+            this.label1.Text = "Đổi tên đề :";
             // 
             // txtDoiTenDe
             // 
@@ -194,12 +197,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 405);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(404, 405);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Sửa thời gian";
+            this.label2.Text = "Sửa thời gian :";
             // 
             // txtSuaThoiGian
             // 

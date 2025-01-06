@@ -21,10 +21,10 @@
             this.lblMaMon = new System.Windows.Forms.Label();
             this.lblTenMon = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.dgvListSubject = new System.Windows.Forms.DataGridView();
             this.MaMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListSubject)).BeginInit();
             this.SuspendLayout();
@@ -57,18 +57,20 @@
             // lblMaMon
             // 
             this.lblMaMon.AutoSize = true;
+            this.lblMaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaMon.Location = new System.Drawing.Point(19, 63);
             this.lblMaMon.Name = "lblMaMon";
-            this.lblMaMon.Size = new System.Drawing.Size(74, 20);
+            this.lblMaMon.Size = new System.Drawing.Size(81, 20);
             this.lblMaMon.TabIndex = 3;
             this.lblMaMon.Text = "Mã Môn:";
             // 
             // lblTenMon
             // 
             this.lblTenMon.AutoSize = true;
-            this.lblTenMon.Location = new System.Drawing.Point(19, 113);
+            this.lblTenMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMon.Location = new System.Drawing.Point(13, 113);
             this.lblTenMon.Name = "lblTenMon";
-            this.lblTenMon.Size = new System.Drawing.Size(79, 20);
+            this.lblTenMon.Size = new System.Drawing.Size(87, 20);
             this.lblTenMon.TabIndex = 4;
             this.lblTenMon.Text = "Tên Môn:";
             // 
@@ -87,6 +89,17 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin môn học";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(233, 187);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(81, 35);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvListSubject
             // 
@@ -114,17 +127,6 @@
             this.TenKhoa.MinimumWidth = 6;
             this.TenKhoa.Name = "TenKhoa";
             this.TenKhoa.Width = 125;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(233, 187);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(81, 35);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // AddSubject
             // 

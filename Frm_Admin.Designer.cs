@@ -73,6 +73,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNoSave = new System.Windows.Forms.Button();
+            this.toolStrip_btnSuject = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListUser)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,6 +90,7 @@
             this.toolStrip_btnListStudent,
             this.toolStrip_btnTeacher,
             this.toolStrip_btnAddMajor,
+            this.toolStrip_btnSuject,
             this.toolStrip_btnExam,
             this.toolStrip_btnAddExaSchedule,
             this.toolStrip_btnScore});
@@ -192,10 +194,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(359, 30);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(349, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(97, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tìm kiếm :";
             // 
@@ -205,9 +207,9 @@
             this.txtSearch.ForeColor = System.Drawing.Color.Gray;
             this.txtSearch.Location = new System.Drawing.Point(452, 27);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(297, 27);
+            this.txtSearch.Size = new System.Drawing.Size(360, 27);
             this.txtSearch.TabIndex = 2;
-            this.txtSearch.Text = "Tìm kiếm tên/id";
+            this.txtSearch.Text = "Tìm kiếm theo Tên/Username/UserID";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
@@ -544,6 +546,19 @@
             this.btnNoSave.UseVisualStyleBackColor = true;
             this.btnNoSave.Click += new System.EventHandler(this.btnNoSave_Click);
             // 
+            // toolStrip_btnSuject
+            // 
+            this.toolStrip_btnSuject.AutoSize = false;
+            this.toolStrip_btnSuject.AutoToolTip = false;
+            this.toolStrip_btnSuject.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnSuject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnSuject.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnSuject.Image")));
+            this.toolStrip_btnSuject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnSuject.Name = "toolStrip_btnSuject";
+            this.toolStrip_btnSuject.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnSuject.Text = "họcThêm môn ";
+            this.toolStrip_btnSuject.Click += new System.EventHandler(this.toolStrip_btnSuject_Click);
+            // 
             // Frm_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -621,5 +636,6 @@
         private System.Windows.Forms.ToolStripButton toolStrip_btnAddExaSchedule;
         private System.Windows.Forms.ToolStripButton toolStrip_btnExam;
         private System.Windows.Forms.ToolStripButton toolStrip_btnAddMajor;
+        private System.Windows.Forms.ToolStripButton toolStrip_btnSuject;
     }       
 }

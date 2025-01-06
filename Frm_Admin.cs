@@ -21,7 +21,7 @@ namespace RunningFromTheDayLight
 {
     public partial class Frm_Admin : Form
     {
-        private string DefaultSearchText = "Tìm kiếm tên/id";
+        private string DefaultSearchText = "Tìm kiếm theo Tên/Username/UserID";
         private string currentFilePath;
         private Model_ThiTracNghiem context;
 
@@ -776,7 +776,23 @@ namespace RunningFromTheDayLight
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
+
+        private void toolStrip_btnSuject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                AddSubject frmSubject = new AddSubject();
+                frmSubject.FormClosing += (s, ev) => this.Show();
+                frmSubject.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void toolStrip_btnAddMajor_Click(object sender, EventArgs e)
         {
             try
@@ -829,7 +845,5 @@ namespace RunningFromTheDayLight
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

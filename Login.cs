@@ -13,10 +13,15 @@ namespace RunningFromTheDayLight
 {
     public partial class Login : Form
     {
-
+        
         public Login()
         {
             InitializeComponent();
+        }
+
+        public class ThongTin
+        {
+            static public string mssv, pass;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -35,7 +40,7 @@ namespace RunningFromTheDayLight
                 using (var dbContext = new Model_ThiTracNghiem())
                 {
                     var user = dbContext.Users
-                        .FirstOrDefault(u => u.UserName == username);
+                        .FirstOrDefault(u => u.UserName == username && u.C_Password == password);
 
                     if (user != null && user.C_Password == password)
                     {
@@ -45,21 +50,23 @@ namespace RunningFromTheDayLight
                         {
                             this.Hide();
                             Frm_Admin adminForm = new Frm_Admin();
-                            adminForm.FormClosing += (s, args) => this.Show();
+                            adminForm.ShowDialog();
                             adminForm.Show();
                         }
                         else if (loaiUser == "SinhVien")
                         {
                             this.Hide();
+                            ThongTin.mssv = username;
+                            ThongTin.pass = password;
                             Confirm_F sinhVienForm = new Confirm_F();
-                            sinhVienForm.FormClosing += (s, args) => this.Show();
+                            sinhVienForm.ShowDialog();
                             sinhVienForm.Show();
                         }
                         else if (loaiUser == "GiangVien")
                         {
                             this.Hide();
                             FrmGiangVien giangVienForm = new FrmGiangVien();
-                            giangVienForm.FormClosing += (s, args) => this.Show();
+                            giangVienForm.ShowDialog();
                             giangVienForm.Show();
                         }
                         else

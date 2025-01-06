@@ -100,18 +100,20 @@
             // lblMaMon
             // 
             this.lblMaMon.AutoSize = true;
-            this.lblMaMon.Location = new System.Drawing.Point(19, 63);
+            this.lblMaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaMon.Location = new System.Drawing.Point(13, 63);
             this.lblMaMon.Name = "lblMaMon";
-            this.lblMaMon.Size = new System.Drawing.Size(90, 20);
+            this.lblMaMon.Size = new System.Drawing.Size(94, 20);
             this.lblMaMon.TabIndex = 3;
-            this.lblMaMon.Text = "Tên Khoa :";
+            this.lblMaMon.Text = "Mã Khoa :";
             // 
             // lblTenMon
             // 
             this.lblTenMon.AutoSize = true;
-            this.lblTenMon.Location = new System.Drawing.Point(19, 113);
+            this.lblTenMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMon.Location = new System.Drawing.Point(13, 113);
             this.lblTenMon.Name = "lblTenMon";
-            this.lblTenMon.Size = new System.Drawing.Size(90, 20);
+            this.lblTenMon.Size = new System.Drawing.Size(100, 20);
             this.lblTenMon.TabIndex = 4;
             this.lblTenMon.Text = "Tên Khoa :";
             // 

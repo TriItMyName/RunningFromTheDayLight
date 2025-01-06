@@ -4,16 +4,16 @@ using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace RunningFromTheDayLight
 {
     public partial class Confirm_F : Form
     {
-        private string username = "2280600285";
-        private string password = "2280600285";
+        private string username;
+        private string password;
         private string SubjectCode;
         private string StudentCode;
         private string StudentName;
-        //private string MaMon;
         private DateTime TGBD;
         private readonly Model_ThiTracNghiem Context;
         private bool Flag = false;
@@ -23,6 +23,8 @@ namespace RunningFromTheDayLight
         {
             InitializeComponent();
             Context = new Model_ThiTracNghiem();
+            username = Login.ThongTin.mssv;
+            password = Login.ThongTin.mssv;
         }
 
         private void Confirm_F_Load(object sender, EventArgs e)

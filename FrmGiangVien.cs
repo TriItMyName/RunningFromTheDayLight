@@ -253,6 +253,7 @@ namespace RunningFromTheDayLight
             if (dataTable != null)
             {
                 SaveToDatabase(dataTable);
+                context.SaveChanges();
                 MessageBox.Show("Dữ liệu đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -282,7 +283,6 @@ namespace RunningFromTheDayLight
 
                 context.TracNghiems.Add(cauHoi);
             }
-
             context.SaveChanges();
         }
 
