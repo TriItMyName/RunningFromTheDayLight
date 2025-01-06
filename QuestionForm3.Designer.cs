@@ -41,13 +41,15 @@ namespace RunningFromTheDayLight
             this.rdoQuestionC = new System.Windows.Forms.RadioButton();
             this.rdoQuestionD = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rboAudio = new System.Windows.Forms.RadioButton();
+            this.txtFileNameAudio = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtQuestion
             // 
             this.txtQuestion.Location = new System.Drawing.Point(72, 63);
-            this.txtQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
             this.txtQuestion.Size = new System.Drawing.Size(979, 74);
@@ -56,7 +58,7 @@ namespace RunningFromTheDayLight
             // txtQuestionA
             // 
             this.txtQuestionA.Location = new System.Drawing.Point(101, 167);
-            this.txtQuestionA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestionA.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestionA.Multiline = true;
             this.txtQuestionA.Name = "txtQuestionA";
             this.txtQuestionA.Size = new System.Drawing.Size(897, 56);
@@ -65,7 +67,7 @@ namespace RunningFromTheDayLight
             // txtQuestionB
             // 
             this.txtQuestionB.Location = new System.Drawing.Point(101, 250);
-            this.txtQuestionB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestionB.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestionB.Multiline = true;
             this.txtQuestionB.Name = "txtQuestionB";
             this.txtQuestionB.Size = new System.Drawing.Size(897, 54);
@@ -74,7 +76,7 @@ namespace RunningFromTheDayLight
             // txtQuestionC
             // 
             this.txtQuestionC.Location = new System.Drawing.Point(101, 343);
-            this.txtQuestionC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestionC.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestionC.Multiline = true;
             this.txtQuestionC.Name = "txtQuestionC";
             this.txtQuestionC.Size = new System.Drawing.Size(897, 52);
@@ -83,7 +85,7 @@ namespace RunningFromTheDayLight
             // txtQuestionD
             // 
             this.txtQuestionD.Location = new System.Drawing.Point(101, 426);
-            this.txtQuestionD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestionD.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestionD.Multiline = true;
             this.txtQuestionD.Name = "txtQuestionD";
             this.txtQuestionD.Size = new System.Drawing.Size(897, 54);
@@ -92,7 +94,7 @@ namespace RunningFromTheDayLight
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(407, 497);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(143, 43);
             this.btnOk.TabIndex = 5;
@@ -103,7 +105,7 @@ namespace RunningFromTheDayLight
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(595, 497);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(127, 43);
             this.btnCancel.TabIndex = 6;
@@ -170,7 +172,7 @@ namespace RunningFromTheDayLight
             // 
             this.cmbBai.FormattingEnabled = true;
             this.cmbBai.Location = new System.Drawing.Point(721, 30);
-            this.cmbBai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbBai.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBai.Name = "cmbBai";
             this.cmbBai.Size = new System.Drawing.Size(356, 24);
             this.cmbBai.TabIndex = 12;
@@ -200,7 +202,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoThongHieu.AutoSize = true;
             this.rdoThongHieu.Location = new System.Drawing.Point(8, 12);
-            this.rdoThongHieu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoThongHieu.Margin = new System.Windows.Forms.Padding(4);
             this.rdoThongHieu.Name = "rdoThongHieu";
             this.rdoThongHieu.Size = new System.Drawing.Size(95, 20);
             this.rdoThongHieu.TabIndex = 16;
@@ -212,7 +214,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoNhanBiet.AutoSize = true;
             this.rdoNhanBiet.Location = new System.Drawing.Point(136, 12);
-            this.rdoNhanBiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoNhanBiet.Margin = new System.Windows.Forms.Padding(4);
             this.rdoNhanBiet.Name = "rdoNhanBiet";
             this.rdoNhanBiet.Size = new System.Drawing.Size(85, 20);
             this.rdoNhanBiet.TabIndex = 17;
@@ -224,7 +226,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoVanDung.AutoSize = true;
             this.rdoVanDung.Location = new System.Drawing.Point(252, 12);
-            this.rdoVanDung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoVanDung.Margin = new System.Windows.Forms.Padding(4);
             this.rdoVanDung.Name = "rdoVanDung";
             this.rdoVanDung.Size = new System.Drawing.Size(85, 20);
             this.rdoVanDung.TabIndex = 18;
@@ -236,7 +238,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoVanDungCao.AutoSize = true;
             this.rdoVanDungCao.Location = new System.Drawing.Point(369, 12);
-            this.rdoVanDungCao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoVanDungCao.Margin = new System.Windows.Forms.Padding(4);
             this.rdoVanDungCao.Name = "rdoVanDungCao";
             this.rdoVanDungCao.Size = new System.Drawing.Size(111, 20);
             this.rdoVanDungCao.TabIndex = 19;
@@ -248,7 +250,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoQuestionA.AutoSize = true;
             this.rdoQuestionA.Location = new System.Drawing.Point(1024, 187);
-            this.rdoQuestionA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoQuestionA.Margin = new System.Windows.Forms.Padding(4);
             this.rdoQuestionA.Name = "rdoQuestionA";
             this.rdoQuestionA.Size = new System.Drawing.Size(17, 16);
             this.rdoQuestionA.TabIndex = 20;
@@ -259,7 +261,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoQuestionB.AutoSize = true;
             this.rdoQuestionB.Location = new System.Drawing.Point(1024, 268);
-            this.rdoQuestionB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoQuestionB.Margin = new System.Windows.Forms.Padding(4);
             this.rdoQuestionB.Name = "rdoQuestionB";
             this.rdoQuestionB.Size = new System.Drawing.Size(17, 16);
             this.rdoQuestionB.TabIndex = 21;
@@ -270,7 +272,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoQuestionC.AutoSize = true;
             this.rdoQuestionC.Location = new System.Drawing.Point(1024, 359);
-            this.rdoQuestionC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoQuestionC.Margin = new System.Windows.Forms.Padding(4);
             this.rdoQuestionC.Name = "rdoQuestionC";
             this.rdoQuestionC.Size = new System.Drawing.Size(17, 16);
             this.rdoQuestionC.TabIndex = 22;
@@ -281,7 +283,7 @@ namespace RunningFromTheDayLight
             // 
             this.rdoQuestionD.AutoSize = true;
             this.rdoQuestionD.Location = new System.Drawing.Point(1024, 444);
-            this.rdoQuestionD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoQuestionD.Margin = new System.Windows.Forms.Padding(4);
             this.rdoQuestionD.Name = "rdoQuestionD";
             this.rdoQuestionD.Size = new System.Drawing.Size(17, 16);
             this.rdoQuestionD.TabIndex = 23;
@@ -290,23 +292,44 @@ namespace RunningFromTheDayLight
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFileNameAudio);
+            this.groupBox1.Controls.Add(this.rboAudio);
             this.groupBox1.Controls.Add(this.rdoThongHieu);
             this.groupBox1.Controls.Add(this.rdoNhanBiet);
             this.groupBox1.Controls.Add(this.rdoVanDung);
             this.groupBox1.Controls.Add(this.rdoVanDungCao);
             this.groupBox1.Location = new System.Drawing.Point(277, 559);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(555, 41);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(842, 41);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
+            // 
+            // rboAudio
+            // 
+            this.rboAudio.AutoSize = true;
+            this.rboAudio.Location = new System.Drawing.Point(518, 12);
+            this.rboAudio.Margin = new System.Windows.Forms.Padding(4);
+            this.rboAudio.Name = "rboAudio";
+            this.rboAudio.Size = new System.Drawing.Size(63, 20);
+            this.rboAudio.TabIndex = 20;
+            this.rboAudio.TabStop = true;
+            this.rboAudio.Text = "Audio";
+            this.rboAudio.UseVisualStyleBackColor = true;
+            // 
+            // txtFileNameAudio
+            // 
+            this.txtFileNameAudio.Location = new System.Drawing.Point(588, 12);
+            this.txtFileNameAudio.Name = "txtFileNameAudio";
+            this.txtFileNameAudio.Size = new System.Drawing.Size(231, 22);
+            this.txtFileNameAudio.TabIndex = 25;
             // 
             // QuestionForm3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 641);
+            this.ClientSize = new System.Drawing.Size(1132, 623);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rdoQuestionD);
             this.Controls.Add(this.rdoQuestionC);
@@ -327,7 +350,7 @@ namespace RunningFromTheDayLight
             this.Controls.Add(this.txtQuestionB);
             this.Controls.Add(this.txtQuestionA);
             this.Controls.Add(this.txtQuestion);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuestionForm3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập câu hỏi";
@@ -363,5 +386,7 @@ namespace RunningFromTheDayLight
         private System.Windows.Forms.RadioButton rdoQuestionC;
         private System.Windows.Forms.RadioButton rdoQuestionD;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rboAudio;
+        private System.Windows.Forms.TextBox txtFileNameAudio;
     }
 }

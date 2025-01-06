@@ -34,6 +34,8 @@ namespace RunningFromTheDayLight.Models
         [StringLength(50)]
         public string LoaiCauHoi { get; set; }
 
+        public string AudioFileName { get; set; }
+
         public int? MaBai { get; set; }
 
         public virtual Bai Bai { get; set; }

@@ -136,7 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 34);
+            this.label1.Location = new System.Drawing.Point(269, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 3;
@@ -167,7 +167,7 @@
             this.Menu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1038, 28);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -237,7 +237,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 77);
+            this.label3.Location = new System.Drawing.Point(206, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 16);
             this.label3.TabIndex = 24;
@@ -256,7 +256,7 @@
             // Readfile
             // 
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1008, 490);
+            this.ClientSize = new System.Drawing.Size(1038, 490);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSearch);

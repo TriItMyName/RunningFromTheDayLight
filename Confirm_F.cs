@@ -98,7 +98,7 @@ namespace RunningFromTheDayLight
             DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Dispose();
             }
             else
             {

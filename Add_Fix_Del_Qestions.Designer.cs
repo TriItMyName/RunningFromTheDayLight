@@ -47,6 +47,8 @@ namespace RunningFromTheDayLight
             this.cboCorrectAnswer = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.txtAudioFileName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlEdit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,16 +59,18 @@ namespace RunningFromTheDayLight
             this.flpQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpQuestions.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpQuestions.Location = new System.Drawing.Point(0, 0);
-            this.flpQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flpQuestions.Margin = new System.Windows.Forms.Padding(4);
             this.flpQuestions.Name = "flpQuestions";
             this.flpQuestions.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.flpQuestions.Size = new System.Drawing.Size(1067, 554);
+            this.flpQuestions.Size = new System.Drawing.Size(1067, 516);
             this.flpQuestions.TabIndex = 0;
             this.flpQuestions.WrapContents = false;
             // 
             // pnlEdit
             // 
             this.pnlEdit.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlEdit.Controls.Add(this.label1);
+            this.pnlEdit.Controls.Add(this.txtAudioFileName);
             this.pnlEdit.Controls.Add(this.btnClear);
             this.pnlEdit.Controls.Add(this.btnAdd);
             this.pnlEdit.Controls.Add(this.lblQuestionTitle);
@@ -84,10 +88,10 @@ namespace RunningFromTheDayLight
             this.pnlEdit.Controls.Add(this.btnDelete);
             this.pnlEdit.Controls.Add(this.btnEdit);
             this.pnlEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlEdit.Location = new System.Drawing.Point(0, 554);
-            this.pnlEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEdit.Location = new System.Drawing.Point(0, 516);
+            this.pnlEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEdit.Name = "pnlEdit";
-            this.pnlEdit.Size = new System.Drawing.Size(1067, 246);
+            this.pnlEdit.Size = new System.Drawing.Size(1067, 284);
             this.pnlEdit.TabIndex = 1;
             // 
             // btnClear
@@ -96,8 +100,8 @@ namespace RunningFromTheDayLight
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(521, 185);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Location = new System.Drawing.Point(563, 234);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 37);
             this.btnClear.TabIndex = 16;
@@ -111,8 +115,8 @@ namespace RunningFromTheDayLight
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(653, 185);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(695, 234);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 37);
             this.btnAdd.TabIndex = 15;
@@ -134,7 +138,7 @@ namespace RunningFromTheDayLight
             // txtQuestion
             // 
             this.txtQuestion.Location = new System.Drawing.Point(105, 15);
-            this.txtQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
             this.txtQuestion.Size = new System.Drawing.Size(944, 61);
@@ -153,7 +157,7 @@ namespace RunningFromTheDayLight
             // txtOptionA
             // 
             this.txtOptionA.Location = new System.Drawing.Point(105, 86);
-            this.txtOptionA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOptionA.Margin = new System.Windows.Forms.Padding(4);
             this.txtOptionA.Name = "txtOptionA";
             this.txtOptionA.Size = new System.Drawing.Size(399, 22);
             this.txtOptionA.TabIndex = 3;
@@ -171,7 +175,7 @@ namespace RunningFromTheDayLight
             // txtOptionB
             // 
             this.txtOptionB.Location = new System.Drawing.Point(607, 86);
-            this.txtOptionB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOptionB.Margin = new System.Windows.Forms.Padding(4);
             this.txtOptionB.Name = "txtOptionB";
             this.txtOptionB.Size = new System.Drawing.Size(399, 22);
             this.txtOptionB.TabIndex = 5;
@@ -189,7 +193,7 @@ namespace RunningFromTheDayLight
             // txtOptionC
             // 
             this.txtOptionC.Location = new System.Drawing.Point(105, 123);
-            this.txtOptionC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOptionC.Margin = new System.Windows.Forms.Padding(4);
             this.txtOptionC.Name = "txtOptionC";
             this.txtOptionC.Size = new System.Drawing.Size(399, 22);
             this.txtOptionC.TabIndex = 7;
@@ -207,7 +211,7 @@ namespace RunningFromTheDayLight
             // txtOptionD
             // 
             this.txtOptionD.Location = new System.Drawing.Point(607, 123);
-            this.txtOptionD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOptionD.Margin = new System.Windows.Forms.Padding(4);
             this.txtOptionD.Name = "txtOptionD";
             this.txtOptionD.Size = new System.Drawing.Size(399, 22);
             this.txtOptionD.TabIndex = 9;
@@ -232,7 +236,7 @@ namespace RunningFromTheDayLight
             "C",
             "D"});
             this.cboCorrectAnswer.Location = new System.Drawing.Point(139, 160);
-            this.cboCorrectAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCorrectAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.cboCorrectAnswer.Name = "cboCorrectAnswer";
             this.cboCorrectAnswer.Size = new System.Drawing.Size(132, 24);
             this.cboCorrectAnswer.TabIndex = 11;
@@ -243,8 +247,8 @@ namespace RunningFromTheDayLight
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(907, 185);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(949, 234);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 37);
             this.btnDelete.TabIndex = 13;
@@ -258,14 +262,32 @@ namespace RunningFromTheDayLight
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(784, 185);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Location = new System.Drawing.Point(826, 234);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 37);
             this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // txtAudioFileName
+            // 
+            this.txtAudioFileName.Location = new System.Drawing.Point(607, 160);
+            this.txtAudioFileName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAudioFileName.Name = "txtAudioFileName";
+            this.txtAudioFileName.Size = new System.Drawing.Size(399, 22);
+            this.txtAudioFileName.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(478, 163);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "AudioFileName:";
             // 
             // Add_Fix_Del_Qestions
             // 
@@ -274,7 +296,7 @@ namespace RunningFromTheDayLight
             this.ClientSize = new System.Drawing.Size(1067, 800);
             this.Controls.Add(this.flpQuestions);
             this.Controls.Add(this.pnlEdit);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Add_Fix_Del_Qestions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý câu hỏi";
@@ -303,5 +325,7 @@ namespace RunningFromTheDayLight
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAudioFileName;
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
+using NAudio.Wave;
 namespace RunningFromTheDayLight
 {
     public partial class Add_Fix_Del_Qestions : Form
@@ -12,6 +12,8 @@ namespace RunningFromTheDayLight
         private int selectedExamID;
         private string selectedSubjectID;
         private TracNghiem selectedQuestion;
+        private IWavePlayer waveOutDevice;
+        private AudioFileReader audioFileReader;
 
         public Add_Fix_Del_Qestions(int examID, string subjectID)
         {
@@ -61,7 +63,7 @@ namespace RunningFromTheDayLight
                 Panel questionPanel = new Panel
                 {
                     Width = flpQuestions.Width - 25,
-                    Height = 150,
+                    Height = 200,
                     BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(3, 3, 3, 10)
                 };
@@ -76,10 +78,38 @@ namespace RunningFromTheDayLight
                 };
                 questionPanel.Controls.Add(lblContent);
 
+                if (!string.IsNullOrEmpty(question.AudioFileName))
+                {
+                    try
+                    {
+                        Button btnPlay = new Button
+                        {
+                            Text = "Play",
+                            Location = new Point(10, 40),
+                            Width = 75
+                        };
+                        btnPlay.Click += (s, e) => PlayAudio(question.AudioFileName);
+                        questionPanel.Controls.Add(btnPlay);
+
+                        Button btnStop = new Button
+                        {
+                            Text = "Stop",
+                            Location = new Point(90, 40),
+                            Width = 75
+                        };
+                        btnStop.Click += (s, e) => StopAudio();
+                        questionPanel.Controls.Add(btnStop);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi tải tệp phương tiện: {ex.Message}");
+                    }
+                }
+
                 RadioButton rdoA = new RadioButton
                 {
                     Text = "A. " + question.DapAnA,
-                    Location = new Point(10, 40),
+                    Location = new Point(10, 90),
                     Width = questionPanel.Width - 20,
                     Enabled = false
                 };
@@ -88,7 +118,7 @@ namespace RunningFromTheDayLight
                 RadioButton rdoB = new RadioButton
                 {
                     Text = "B. " + question.DapAnB,
-                    Location = new Point(10, 65),
+                    Location = new Point(10, 115),
                     Width = questionPanel.Width - 20,
                     Enabled = false
                 };
@@ -97,7 +127,7 @@ namespace RunningFromTheDayLight
                 RadioButton rdoC = new RadioButton
                 {
                     Text = "C. " + question.DapAnC,
-                    Location = new Point(10, 90),
+                    Location = new Point(10, 140),
                     Width = questionPanel.Width - 20,
                     Enabled = false
                 };
@@ -106,7 +136,7 @@ namespace RunningFromTheDayLight
                 RadioButton rdoD = new RadioButton
                 {
                     Text = "D. " + question.DapAnD,
-                    Location = new Point(10, 115),
+                    Location = new Point(10, 165),
                     Width = questionPanel.Width - 20,
                     Enabled = false
                 };
@@ -132,6 +162,36 @@ namespace RunningFromTheDayLight
             }
         }
 
+        private void PlayAudio(string fileName)
+        {
+            try
+            {
+                waveOutDevice = new WaveOut();
+                audioFileReader = new AudioFileReader(fileName);
+                waveOutDevice.Init(audioFileReader);
+                waveOutDevice.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi phát tệp âm thanh: {ex.Message}");
+            }
+        }
+
+        private void StopAudio()
+        {
+            if (waveOutDevice != null)
+            {
+                waveOutDevice.Stop();
+                waveOutDevice.Dispose();
+                waveOutDevice = null;
+            }
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+                audioFileReader = null;
+            }
+        }
+
         private void SelectQuestion(TracNghiem question)
         {
             selectedQuestion = question;
@@ -141,6 +201,7 @@ namespace RunningFromTheDayLight
             txtOptionC.Text = question.DapAnC;
             txtOptionD.Text = question.DapAnD;
             cboCorrectAnswer.SelectedItem = question.DapAnDung;
+            txtAudioFileName.Text = question.AudioFileName;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -152,7 +213,9 @@ namespace RunningFromTheDayLight
                 DapAnB = txtOptionB.Text,
                 DapAnC = txtOptionC.Text,
                 DapAnD = txtOptionD.Text,
-                DapAnDung = cboCorrectAnswer.SelectedItem.ToString()
+                DapAnDung = cboCorrectAnswer.SelectedItem.ToString(),
+                LoaiCauHoi = "AU",
+                AudioFileName = txtAudioFileName.Text
             };
 
             context.TracNghiems.Add(newQuestion);
@@ -164,14 +227,13 @@ namespace RunningFromTheDayLight
 
             if (exam != null)
             {
-
                 if (string.IsNullOrEmpty(exam.CacCauHoi))
                 {
-                    exam.CacCauHoi = newQuestionID.ToString();  
+                    exam.CacCauHoi = newQuestionID.ToString();
                 }
                 else
                 {
-                    exam.CacCauHoi += "," + newQuestionID;  
+                    exam.CacCauHoi += "," + newQuestionID;
                 }
 
                 context.SaveChanges();
@@ -187,8 +249,6 @@ namespace RunningFromTheDayLight
             }
         }
 
-
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (selectedQuestion != null)
@@ -199,6 +259,7 @@ namespace RunningFromTheDayLight
                 selectedQuestion.DapAnC = txtOptionC.Text;
                 selectedQuestion.DapAnD = txtOptionD.Text;
                 selectedQuestion.DapAnDung = cboCorrectAnswer.SelectedItem.ToString();
+                selectedQuestion.AudioFileName = txtAudioFileName.Text;
 
                 context.SaveChanges();
                 LoadQuestions();
@@ -239,8 +300,9 @@ namespace RunningFromTheDayLight
             txtOptionB.Clear();
             txtOptionC.Clear();
             txtOptionD.Clear();
-            cboCorrectAnswer.SelectedIndex = -1; // Reset ComboBox
-            selectedQuestion = null; // Reset câu hỏi đã chọn
+            cboCorrectAnswer.SelectedIndex = -1;
+            txtAudioFileName.Clear();
+            selectedQuestion = null;
         }
     }
 }

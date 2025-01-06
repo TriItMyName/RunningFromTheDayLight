@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
 using RunningFromTheDayLight.Models;
+using NAudio.Wave;
+
 
 namespace RunningFromTheDayLight
 {
@@ -11,14 +13,17 @@ namespace RunningFromTheDayLight
     {
         private readonly Model_ThiTracNghiem context;
         private List<Question> loadedQuestions;
-        private System.Windows.Forms.Timer countdownTimer; // Timer đếm ngược
-        private int remainingTime; // Thời gian còn lại (tính bằng giây)
+        private System.Windows.Forms.Timer countdownTimer;
+        private int remainingTime;
         private string Subjectcode;
         private string StudentName;
         private string StudentCode;
         private int timeDoExam;
         private DateTime TGBD;
         private String RoomID;
+        private IWavePlayer waveOutDevice;
+        private AudioFileReader audioFileReader;
+
         public DoExams(string Subjectcode, string StudentName, string StudentCode, DateTime TGBD, string roomID)
         {
             context = new Model_ThiTracNghiem();
@@ -29,9 +34,6 @@ namespace RunningFromTheDayLight
             this.StudentCode = StudentCode;
             this.TGBD = TGBD;
             RoomID = roomID;
-
-
-
         }
 
         // Lớp đại diện cho một câu hỏi
@@ -44,14 +46,14 @@ namespace RunningFromTheDayLight
             public string OptionC { get; set; }
             public string OptionD { get; set; }
             public string CorrectAnswer { get; set; }
+            public string AudioFileName { get; set; }
         }
 
         // Lấy đề thi ngẫu nhiên và tải các câu hỏi
         private void LoadRandomExam()
         {
-
-
-            lbStudentCode.Text = StudentCode; lbStudentName.Text = StudentName;
+            lbStudentCode.Text = StudentCode;
+            lbStudentName.Text = StudentName;
             var deThiNgauNhien = context.DeThiNgauNhiens
                 .Where(d => d.MaMon == Subjectcode)
                 .OrderBy(r => Guid.NewGuid())
@@ -67,7 +69,6 @@ namespace RunningFromTheDayLight
 
             StartTimer();
 
-            // Lấy danh sách câu hỏi từ đề thi đã chọn
             var questionIds = deThiNgauNhien.CacCauHoi.Split(',').Select(int.Parse).ToList();
             loadedQuestions = context.TracNghiems
                 .Where(q => questionIds.Contains(q.ID))
@@ -79,7 +80,8 @@ namespace RunningFromTheDayLight
                     OptionB = q.DapAnB,
                     OptionC = q.DapAnC,
                     OptionD = q.DapAnD,
-                    CorrectAnswer = q.DapAnDung
+                    CorrectAnswer = q.DapAnDung,
+                    AudioFileName = q.AudioFileName
                 })
                 .ToList();
 
@@ -105,29 +107,30 @@ namespace RunningFromTheDayLight
                 int seconds = remainingTime % 60;
                 lblTimer.Text = $"{minutes:D2}:{seconds:D2}";
 
-                if (remainingTime == 300) 
+                if (remainingTime == 300)
                 {
                     MessageBox.Show("Còn 5 phút! Hãy kiểm tra bài làm của bạn!");
                 }
             }
             else
             {
-                countdownTimer.Stop(); 
+                countdownTimer.Stop();
                 MessageBox.Show("Hết thời gian làm bài!");
                 SubmitExam();
             }
         }
 
+        // Inside the DisplayQuestions method
         private void DisplayQuestions()
         {
-            flpQuestions.Controls.Clear(); 
+            flpQuestions.Controls.Clear();
 
             foreach (var question in loadedQuestions)
             {
                 Panel questionPanel = new Panel
                 {
                     Width = flpQuestions.Width - 25,
-                    Height = 150,
+                    Height = 200,
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
@@ -140,19 +143,49 @@ namespace RunningFromTheDayLight
                 };
                 questionPanel.Controls.Add(lblContent);
 
+                // Thêm NAudio nếu có file âm thanh
+                if (!string.IsNullOrEmpty(question.AudioFileName))
+                {
+                    try
+                    {
+                        Button btnPlay = new Button
+                        {
+                            Text = "Play",
+                            Location = new Point(10, 40),
+                            Width = 75
+                        };
+                        btnPlay.Click += (s, e) => PlayAudio(question.AudioFileName);
+                        questionPanel.Controls.Add(btnPlay);
+
+                        Button btnStop = new Button
+                        {
+                            Text = "Stop",
+                            Location = new Point(90, 40),
+                            Width = 75
+                        };
+                        btnStop.Click += (s, e) => StopAudio();
+                        questionPanel.Controls.Add(btnStop);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi tải tệp phương tiện: {ex.Message}");
+                    }
+                }
+
+                // Tạo các RadioButton cho đáp án
                 RadioButton rdoA = new RadioButton
                 {
                     Text = "A. " + question.OptionA,
-                    Location = new Point(10, 40),
+                    Location = new Point(10, 90),
                     Width = questionPanel.Width - 20,
-                    Tag = "A"  
+                    Tag = "A"
                 };
                 questionPanel.Controls.Add(rdoA);
 
                 RadioButton rdoB = new RadioButton
                 {
                     Text = "B. " + question.OptionB,
-                    Location = new Point(10, 60),
+                    Location = new Point(10, 110),
                     Width = questionPanel.Width - 20,
                     Tag = "B"
                 };
@@ -161,7 +194,7 @@ namespace RunningFromTheDayLight
                 RadioButton rdoC = new RadioButton
                 {
                     Text = "C. " + question.OptionC,
-                    Location = new Point(10, 80),
+                    Location = new Point(10, 130),
                     Width = questionPanel.Width - 20,
                     Tag = "C"
                 };
@@ -170,17 +203,20 @@ namespace RunningFromTheDayLight
                 RadioButton rdoD = new RadioButton
                 {
                     Text = "D. " + question.OptionD,
-                    Location = new Point(10, 100),
+                    Location = new Point(10, 150),
                     Width = questionPanel.Width - 20,
                     Tag = "D"
                 };
                 questionPanel.Controls.Add(rdoD);
 
+                // Gán đối tượng câu hỏi vào Tag của Panel để sử dụng sau
                 questionPanel.Tag = question;
+
+                // Thêm Panel câu hỏi vào FlowLayoutPanel
                 flpQuestions.Controls.Add(questionPanel);
             }
 
-
+            // Thêm nút "Nộp bài" ở cuối danh sách câu hỏi
             Button btnSubmit = new Button
             {
                 Text = "Nộp bài",
@@ -192,18 +228,54 @@ namespace RunningFromTheDayLight
             flpQuestions.Controls.Add(btnSubmit);
         }
 
+        private void PlayAudio(string fileName)
+        {
+            try
+            {
+                waveOutDevice = new WaveOut();
+                audioFileReader = new AudioFileReader(fileName);
+                waveOutDevice.Init(audioFileReader);
+                waveOutDevice.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi phát tệp âm thanh: {ex.Message}");
+            }
+        }
+
+        private void StopAudio()
+        {
+            if (waveOutDevice != null)
+            {
+                waveOutDevice.Stop();
+                waveOutDevice.Dispose();
+                waveOutDevice = null;
+            }
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+                audioFileReader = null;
+            }
+        }
+
         // Tính điểm khi bấm Nộp bài
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {
-            float score = SubmitExam();
-            if (float.IsNaN(score) || float.IsInfinity(score))
+            using (var confirmForm = new Confirm_F())
             {
-                MessageBox.Show("Invalid score value.");
-                return;
-            }
+                if (confirmForm.ShowDialog() == DialogResult.OK)
+                {
+                    float score = SubmitExam();
+                    if (float.IsNaN(score) || float.IsInfinity(score))
+                    {
+                        MessageBox.Show("Invalid score value.");
+                        return;
+                    }
 
-            int ThoiGianLamBai = timeDoExam - remainingTime;
-            savetodb(score, ThoiGianLamBai);
+                    int ThoiGianLamBai = timeDoExam - remainingTime;
+                    savetodb(score, ThoiGianLamBai);
+                }
+            }
         }
 
         private void savetodb(float score, int thoiGianLamBai)
@@ -235,8 +307,6 @@ namespace RunningFromTheDayLight
             Application.Exit();
         }
 
-
-
         // Hàm nộp bài và tính điểm
         private float SubmitExam()
         {
@@ -266,10 +336,8 @@ namespace RunningFromTheDayLight
             return finalScore;
         }
 
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             // Nơi lưu trữ các câu trả lời của sinh viên nếu cần
         }
 
@@ -288,7 +356,5 @@ namespace RunningFromTheDayLight
             lblSubjectName.Text = $"Môn học: {Subjectcode}";
             lblSubjectName.Font = new Font("Arial", 12, FontStyle.Bold);
         }
-
-
     }
 }

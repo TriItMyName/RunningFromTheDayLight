@@ -117,6 +117,17 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.cmbAudioP10 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP9 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP8 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP7 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP6 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP5 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP4 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP3 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP2 = new System.Windows.Forms.ComboBox();
+            this.cmbAudioP1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -771,7 +782,7 @@
             // btnXoaP5
             // 
             this.btnXoaP5.Enabled = false;
-            this.btnXoaP5.Location = new System.Drawing.Point(1228, 262);
+            this.btnXoaP5.Location = new System.Drawing.Point(1393, 259);
             this.btnXoaP5.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP5.Name = "btnXoaP5";
             this.btnXoaP5.Size = new System.Drawing.Size(99, 28);
@@ -783,7 +794,7 @@
             // btnXoaP4
             // 
             this.btnXoaP4.Enabled = false;
-            this.btnXoaP4.Location = new System.Drawing.Point(1228, 219);
+            this.btnXoaP4.Location = new System.Drawing.Point(1393, 216);
             this.btnXoaP4.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP4.Name = "btnXoaP4";
             this.btnXoaP4.Size = new System.Drawing.Size(99, 28);
@@ -795,7 +806,7 @@
             // btnXoaP3
             // 
             this.btnXoaP3.Enabled = false;
-            this.btnXoaP3.Location = new System.Drawing.Point(1228, 166);
+            this.btnXoaP3.Location = new System.Drawing.Point(1393, 163);
             this.btnXoaP3.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP3.Name = "btnXoaP3";
             this.btnXoaP3.Size = new System.Drawing.Size(99, 28);
@@ -807,7 +818,7 @@
             // btnXoaP2
             // 
             this.btnXoaP2.Enabled = false;
-            this.btnXoaP2.Location = new System.Drawing.Point(1228, 120);
+            this.btnXoaP2.Location = new System.Drawing.Point(1393, 117);
             this.btnXoaP2.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP2.Name = "btnXoaP2";
             this.btnXoaP2.Size = new System.Drawing.Size(99, 28);
@@ -819,7 +830,7 @@
             // btnXoaP1
             // 
             this.btnXoaP1.Enabled = false;
-            this.btnXoaP1.Location = new System.Drawing.Point(1228, 70);
+            this.btnXoaP1.Location = new System.Drawing.Point(1393, 67);
             this.btnXoaP1.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP1.Name = "btnXoaP1";
             this.btnXoaP1.Size = new System.Drawing.Size(99, 28);
@@ -831,7 +842,7 @@
             // btnXoaP6
             // 
             this.btnXoaP6.Enabled = false;
-            this.btnXoaP6.Location = new System.Drawing.Point(1228, 312);
+            this.btnXoaP6.Location = new System.Drawing.Point(1393, 309);
             this.btnXoaP6.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP6.Name = "btnXoaP6";
             this.btnXoaP6.Size = new System.Drawing.Size(99, 28);
@@ -843,7 +854,7 @@
             // btnXoaP7
             // 
             this.btnXoaP7.Enabled = false;
-            this.btnXoaP7.Location = new System.Drawing.Point(1228, 365);
+            this.btnXoaP7.Location = new System.Drawing.Point(1393, 362);
             this.btnXoaP7.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP7.Name = "btnXoaP7";
             this.btnXoaP7.Size = new System.Drawing.Size(99, 28);
@@ -855,7 +866,7 @@
             // btnXoaP8
             // 
             this.btnXoaP8.Enabled = false;
-            this.btnXoaP8.Location = new System.Drawing.Point(1228, 417);
+            this.btnXoaP8.Location = new System.Drawing.Point(1393, 414);
             this.btnXoaP8.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP8.Name = "btnXoaP8";
             this.btnXoaP8.Size = new System.Drawing.Size(99, 28);
@@ -867,7 +878,7 @@
             // btnXoaP9
             // 
             this.btnXoaP9.Enabled = false;
-            this.btnXoaP9.Location = new System.Drawing.Point(1228, 459);
+            this.btnXoaP9.Location = new System.Drawing.Point(1393, 456);
             this.btnXoaP9.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP9.Name = "btnXoaP9";
             this.btnXoaP9.Size = new System.Drawing.Size(99, 28);
@@ -879,7 +890,7 @@
             // btnXoaP10
             // 
             this.btnXoaP10.Enabled = false;
-            this.btnXoaP10.Location = new System.Drawing.Point(1228, 512);
+            this.btnXoaP10.Location = new System.Drawing.Point(1393, 509);
             this.btnXoaP10.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaP10.Name = "btnXoaP10";
             this.btnXoaP10.Size = new System.Drawing.Size(99, 28);
@@ -957,11 +968,122 @@
             this.toolStrip2.TabIndex = 123;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // cmbAudioP10
+            // 
+            this.cmbAudioP10.FormattingEnabled = true;
+            this.cmbAudioP10.Location = new System.Drawing.Point(1251, 514);
+            this.cmbAudioP10.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP10.Name = "cmbAudioP10";
+            this.cmbAudioP10.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP10.TabIndex = 133;
+            // 
+            // cmbAudioP9
+            // 
+            this.cmbAudioP9.FormattingEnabled = true;
+            this.cmbAudioP9.Location = new System.Drawing.Point(1251, 463);
+            this.cmbAudioP9.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP9.Name = "cmbAudioP9";
+            this.cmbAudioP9.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP9.TabIndex = 132;
+            // 
+            // cmbAudioP8
+            // 
+            this.cmbAudioP8.FormattingEnabled = true;
+            this.cmbAudioP8.Location = new System.Drawing.Point(1251, 420);
+            this.cmbAudioP8.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP8.Name = "cmbAudioP8";
+            this.cmbAudioP8.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP8.TabIndex = 131;
+            // 
+            // cmbAudioP7
+            // 
+            this.cmbAudioP7.FormattingEnabled = true;
+            this.cmbAudioP7.Location = new System.Drawing.Point(1251, 370);
+            this.cmbAudioP7.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP7.Name = "cmbAudioP7";
+            this.cmbAudioP7.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP7.TabIndex = 130;
+            // 
+            // cmbAudioP6
+            // 
+            this.cmbAudioP6.FormattingEnabled = true;
+            this.cmbAudioP6.Location = new System.Drawing.Point(1251, 317);
+            this.cmbAudioP6.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP6.Name = "cmbAudioP6";
+            this.cmbAudioP6.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP6.TabIndex = 129;
+            // 
+            // cmbAudioP5
+            // 
+            this.cmbAudioP5.FormattingEnabled = true;
+            this.cmbAudioP5.Location = new System.Drawing.Point(1251, 266);
+            this.cmbAudioP5.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP5.Name = "cmbAudioP5";
+            this.cmbAudioP5.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP5.TabIndex = 128;
+            // 
+            // cmbAudioP4
+            // 
+            this.cmbAudioP4.FormattingEnabled = true;
+            this.cmbAudioP4.Location = new System.Drawing.Point(1251, 221);
+            this.cmbAudioP4.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP4.Name = "cmbAudioP4";
+            this.cmbAudioP4.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP4.TabIndex = 127;
+            // 
+            // cmbAudioP3
+            // 
+            this.cmbAudioP3.FormattingEnabled = true;
+            this.cmbAudioP3.Location = new System.Drawing.Point(1251, 170);
+            this.cmbAudioP3.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP3.Name = "cmbAudioP3";
+            this.cmbAudioP3.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP3.TabIndex = 126;
+            // 
+            // cmbAudioP2
+            // 
+            this.cmbAudioP2.FormattingEnabled = true;
+            this.cmbAudioP2.Location = new System.Drawing.Point(1251, 125);
+            this.cmbAudioP2.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP2.Name = "cmbAudioP2";
+            this.cmbAudioP2.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP2.TabIndex = 125;
+            // 
+            // cmbAudioP1
+            // 
+            this.cmbAudioP1.FormattingEnabled = true;
+            this.cmbAudioP1.Location = new System.Drawing.Point(1251, 74);
+            this.cmbAudioP1.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAudioP1.Name = "cmbAudioP1";
+            this.cmbAudioP1.Size = new System.Drawing.Size(112, 24);
+            this.cmbAudioP1.TabIndex = 124;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1248, 52);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 16);
+            this.label4.TabIndex = 134;
+            this.label4.Text = "Audio";
+            // 
             // CreateExamRandom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 620);
+            this.ClientSize = new System.Drawing.Size(1523, 620);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbAudioP10);
+            this.Controls.Add(this.cmbAudioP9);
+            this.Controls.Add(this.cmbAudioP8);
+            this.Controls.Add(this.cmbAudioP7);
+            this.Controls.Add(this.cmbAudioP6);
+            this.Controls.Add(this.cmbAudioP5);
+            this.Controls.Add(this.cmbAudioP4);
+            this.Controls.Add(this.cmbAudioP3);
+            this.Controls.Add(this.cmbAudioP2);
+            this.Controls.Add(this.cmbAudioP1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtThoiGianLamBai);
@@ -1147,5 +1269,16 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ComboBox cmbAudioP10;
+        private System.Windows.Forms.ComboBox cmbAudioP9;
+        private System.Windows.Forms.ComboBox cmbAudioP8;
+        private System.Windows.Forms.ComboBox cmbAudioP7;
+        private System.Windows.Forms.ComboBox cmbAudioP6;
+        private System.Windows.Forms.ComboBox cmbAudioP5;
+        private System.Windows.Forms.ComboBox cmbAudioP4;
+        private System.Windows.Forms.ComboBox cmbAudioP3;
+        private System.Windows.Forms.ComboBox cmbAudioP2;
+        private System.Windows.Forms.ComboBox cmbAudioP1;
+        private System.Windows.Forms.Label label4;
     }
 }

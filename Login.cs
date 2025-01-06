@@ -50,8 +50,7 @@ namespace RunningFromTheDayLight
                         {
                             this.Hide();
                             Frm_Admin adminForm = new Frm_Admin();
-                            adminForm.ShowDialog();
-                            adminForm.Show();
+                            adminForm.FormClosing += (s, args) => { this.ShowDialog(); };
                         }
                         else if (loaiUser == "SinhVien")
                         {
@@ -59,15 +58,13 @@ namespace RunningFromTheDayLight
                             ThongTin.mssv = username;
                             ThongTin.pass = password;
                             Confirm_F sinhVienForm = new Confirm_F();
-                            sinhVienForm.ShowDialog();
-                            sinhVienForm.Show();
+                            sinhVienForm.FormClosing += (s, args) => { this.ShowDialog(); };
                         }
                         else if (loaiUser == "GiangVien")
                         {
                             this.Hide();
                             FrmGiangVien giangVienForm = new FrmGiangVien();
-                            giangVienForm.ShowDialog();
-                            giangVienForm.Show();
+                            giangVienForm.FormClosing += (s, args) => { this.ShowDialog(); };
                         }
                         else
                         {

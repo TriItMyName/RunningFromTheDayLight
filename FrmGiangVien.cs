@@ -19,11 +19,13 @@ namespace RunningFromTheDayLight
     {
         private readonly Model_ThiTracNghiem context;
         private DataTable dataTable;
+        private Dictionary<string, string> audioFiles;
 
         public FrmGiangVien()
         {
             InitializeComponent();
             context = new Model_ThiTracNghiem();
+            audioFiles = new Dictionary<string, string>();
         }
 
         private void toolStrip_btnAddMon_Click(object sender, EventArgs e)
@@ -44,6 +46,7 @@ namespace RunningFromTheDayLight
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void toolStrip_btnAddQuestion_Click(object sender, EventArgs e)
         {
             try
@@ -53,12 +56,15 @@ namespace RunningFromTheDayLight
                     string subjectCode = cmbsubjects.SelectedValue.ToString();
                     this.Hide();
                     QuestionForm3 questionForm3 = new QuestionForm3(subjectCode);
+                    questionForm3.FormClosing += (s, args) =>
+                    {
+                        this.ShowDialog();
+                    };
                     questionForm3.ShowDialog();
-                    questionForm3.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Please select a subject first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn môn học.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -76,12 +82,15 @@ namespace RunningFromTheDayLight
                     string subjectCode = cmbsubjects.SelectedValue.ToString();
                     this.Hide();
                     CreateExamRandom createExamForm = new CreateExamRandom(subjectCode);
+                    createExamForm.FormClosing += (s, args) =>
+                    {
+                        this.ShowDialog();
+                    };
                     createExamForm.ShowDialog();
-                    createExamForm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Please select a subject first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn môn học.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -96,7 +105,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Del_Add_Fix_RandomExams del_Add_Fix_RandomExams = new Del_Add_Fix_RandomExams();
-                del_Add_Fix_RandomExams.ShowDialog();
+                del_Add_Fix_RandomExams.FormClosing += (s, args) =>
+                {
+                    this.ShowDialog();
+                };
                 del_Add_Fix_RandomExams.Show();
             }
             catch (Exception ex)
@@ -122,8 +134,7 @@ namespace RunningFromTheDayLight
         {
             dgview.BorderStyle = BorderStyle.None;
             dgview.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dgview.CellBorderStyle =
-            DataGridViewCellBorderStyle.SingleHorizontal;
+            dgview.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgview.BackgroundColor = System.Drawing.Color.White;
             dgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
@@ -165,6 +176,7 @@ namespace RunningFromTheDayLight
                     dataTable.Columns.Add("Đáp án C");
                     dataTable.Columns.Add("Đáp án D");
                     dataTable.Columns.Add("Đáp án đúng");
+                    dataTable.Columns.Add("AudioFileName");
 
                     if (Path.GetExtension(filePath).ToLower() == ".txt")
                     {
@@ -220,6 +232,17 @@ namespace RunningFromTheDayLight
                     string answerC = lines[i + 3].Trim();
                     string answerD = lines[i + 4].Trim();
                     string correctAnswer = string.Empty;
+                    string audioFileName = string.Empty;
+
+                    if (loaiCauHoi == "AU"  )
+                    {
+                        audioFileName = lines[i + 1].Split(new[] { ':' }, 2)[1].Trim();
+                        answerA = lines[i + 2].Trim();
+                        answerB = lines[i + 3].Trim();
+                        answerC = lines[i + 4].Trim();
+                        answerD = lines[i + 5].Trim();
+                        i++;
+                    }
 
                     if (answerA.StartsWith("*"))
                     {
@@ -242,23 +265,15 @@ namespace RunningFromTheDayLight
                         answerD = answerD.Substring(1).Trim();
                     }
 
-                    dt.Rows.Add(currentBai, loaiCauHoi, question, answerA, answerB, answerC, answerD, correctAnswer);
+                    dt.Rows.Add(currentBai, loaiCauHoi, question, answerA, answerB, answerC, answerD, correctAnswer, audioFileName);
+
+                    if (!string.IsNullOrEmpty(audioFileName))
+                    {
+                        audioFiles.Add(question, audioFileName);
+                    }
+
                     i += 5;
                 }
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (dataTable != null)
-            {
-                SaveToDatabase(dataTable);
-                context.SaveChanges();
-                MessageBox.Show("Dữ liệu đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Không có dữ liệu để lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -278,12 +293,27 @@ namespace RunningFromTheDayLight
                     DapAnD = row["Đáp án D"].ToString(),
                     DapAnDung = row["Đáp án đúng"].ToString(),
                     LoaiCauHoi = row["Loại câu hỏi"].ToString(),
-                    MaBai = maBai
+                    MaBai = maBai,
+                    AudioFileName = row["AudioFileName"].ToString()
                 };
 
                 context.TracNghiems.Add(cauHoi);
             }
             context.SaveChanges();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (dataTable != null)
+            {
+                SaveToDatabase(dataTable);
+                context.SaveChanges();
+                MessageBox.Show("Dữ liệu đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private int? AddOrUpdateBai(string tenBai)

@@ -64,6 +64,7 @@ namespace RunningFromTheDayLight
                 string loaiCauHoi = rdoNhanBiet.Checked ? "NB" :
                                     rdoThongHieu.Checked ? "TH" :
                                     rdoVanDung.Checked ? "VB" : "VDC";
+                string audioFileName = rboAudio.Checked ? txtFileNameAudio.Text : null;
 
                 int? maBai = null;
                 if (cmbBai.SelectedValue != null && int.TryParse(cmbBai.SelectedValue.ToString(), out int maBaiValue))
@@ -86,7 +87,8 @@ namespace RunningFromTheDayLight
                     DapAnD = dapAnD,
                     DapAnDung = dapAnDung.ToUpper(),
                     LoaiCauHoi = loaiCauHoi,
-                    MaBai = maBai 
+                    MaBai = maBai,
+                    AudioFileName = audioFileName
                 };
 
                 questionsToSave.Add(cauHoiObj);
@@ -150,40 +152,35 @@ namespace RunningFromTheDayLight
                 string loaiCauHoi = rdoNhanBiet.Checked ? "NB" :
                                     rdoThongHieu.Checked ? "TH" :
                                     rdoVanDung.Checked ? "VB" : "VDC";
+                string audioFileName = rboAudio.Checked ? txtFileNameAudio.Text : null;
 
                 int? maBai = null;
-
- 
                 if (cmbBai.SelectedValue != null && int.TryParse(cmbBai.SelectedValue.ToString(), out int maBaiValue))
                 {
                     maBai = maBaiValue;
                 }
                 else
                 {
- 
-                    string tenBai = cmbBai.Text; 
-
+                    string tenBai = cmbBai.Text;
                     var existingBai = context.Bais.FirstOrDefault(b => b.TenBai.Equals(tenBai, StringComparison.OrdinalIgnoreCase) && b.MaMon == SubjectCode);
                     if (existingBai != null)
                     {
-                        maBai = existingBai.MaBai; 
+                        maBai = existingBai.MaBai;
                     }
                     else
                     {
-       
                         Bai newBai = new Bai
                         {
                             TenBai = tenBai,
-                            MaMon = SubjectCode 
+                            MaMon = SubjectCode
                         };
 
                         context.Bais.Add(newBai);
-                        context.SaveChanges(); 
-                        maBai = newBai.MaBai; 
+                        context.SaveChanges();
+                        maBai = newBai.MaBai;
                     }
                 }
 
-            
                 if (string.IsNullOrWhiteSpace(cauHoi) || string.IsNullOrWhiteSpace(dapAnDung) || string.IsNullOrWhiteSpace(loaiCauHoi) || maBai == null)
                 {
                     MessageBox.Show("Một số trường bắt buộc đang trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -199,7 +196,8 @@ namespace RunningFromTheDayLight
                     DapAnD = dapAnD,
                     DapAnDung = dapAnDung.ToUpper(),
                     LoaiCauHoi = loaiCauHoi,
-                    MaBai = maBai 
+                    MaBai = maBai,
+                    AudioFileName = audioFileName
                 };
 
                 questionsToSave.Add(cauHoiObj);

@@ -96,54 +96,56 @@ namespace RunningFromTheDayLight
                 .GroupBy(q => q.LoaiCauHoi)
                 .Select(g => new { LoaiCauHoi = g.Key, Count = g.Count() })
                 .ToDictionary(x => x.LoaiCauHoi, x => x.Count);
+
             if (cmbPhan == cmbPhan1)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1, cmbAudioP1, questionCounts);
             }
             else if (cmbPhan == cmbPhan2)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2, cmbAudioP2, questionCounts);
             }
             else if (cmbPhan == cmbPhan3)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3, cmbAudioP3, questionCounts);
             }
             else if (cmbPhan == cmbPhan4)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4, cmbAudioP4, questionCounts);
             }
             else if (cmbPhan == cmbPhan5)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5, cmbAudioP5, questionCounts);
             }
             else if (cmbPhan == cmbPhan6)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6, cmbAudioP6, questionCounts);
             }
             else if (cmbPhan == cmbPhan7)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7, cmbAudioP7, questionCounts);
             }
             else if (cmbPhan == cmbPhan8)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8, cmbAudioP8, questionCounts);
             }
             else if (cmbPhan == cmbPhan9)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9, cmbAudioP9, questionCounts);
             }
             else if (cmbPhan == cmbPhan10)
             {
-                UpdateQuestionComboBoxes(cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10, questionCounts);
+                UpdateQuestionComboBoxes(cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10, cmbAudioP10, questionCounts);
             }
         }
 
-        private void UpdateQuestionComboBoxes(ComboBox cmbNhanBiet, ComboBox cmbThongHieu, ComboBox cmbVanDung, ComboBox cmbVanDungCao, Dictionary<string, int> questionCounts)
+        private void UpdateQuestionComboBoxes(ComboBox cmbNhanBiet, ComboBox cmbThongHieu, ComboBox cmbVanDung, ComboBox cmbVanDungCao, ComboBox cmbAudio, Dictionary<string, int> questionCounts)
         {
             UpdateComboBox(cmbNhanBiet, questionCounts, "NB");
             UpdateComboBox(cmbThongHieu, questionCounts, "TH");
             UpdateComboBox(cmbVanDung, questionCounts, "VD");
             UpdateComboBox(cmbVanDungCao, questionCounts, "VDC");
+            UpdateComboBox(cmbAudio, questionCounts, "AU");
         }
 
         private void UpdateComboBox(ComboBox comboBox, Dictionary<string, int> questionCounts, string loaiCauHoi)
@@ -289,14 +291,12 @@ namespace RunningFromTheDayLight
         {
             try
             {
-
                 int soDeThi;
                 if (!int.TryParse(txtSoDeNgauNhien.Text, out soDeThi) || soDeThi <= 0)
                 {
                     MessageBox.Show("Vui lòng nhập số lượng đề thi hợp lệ.");
                     return;
                 }
-
 
                 int thoiGianLamBai;
                 if (!int.TryParse(txtThoiGianLamBai.Text, out thoiGianLamBai) || thoiGianLamBai <= 0)
@@ -305,26 +305,24 @@ namespace RunningFromTheDayLight
                     return;
                 }
 
-
                 for (int i = 0; i < soDeThi; i++)
                 {
                     List<TracNghiem> cauHoiDuocChon = new List<TracNghiem>();
-                    List<(ComboBox cmbPhan, ComboBox cmbNhanBiet, ComboBox cmbThongHieu, ComboBox cmbVanDung, ComboBox cmbVanDungCao)> phanList = new List<(ComboBox, ComboBox, ComboBox, ComboBox, ComboBox)>
-                {
-                    (cmbPhan1, cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1),
-                    (cmbPhan2, cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2),
-                    (cmbPhan3, cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3),
-                    (cmbPhan4, cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4),
-                    (cmbPhan5, cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5),
-                    (cmbPhan6, cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6),
-                    (cmbPhan7, cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7),
-                    (cmbPhan8, cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8),
-                    (cmbPhan9, cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9),
-                    (cmbPhan10, cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10),
-                };
+                    List<(ComboBox cmbPhan, ComboBox cmbNhanBiet, ComboBox cmbThongHieu, ComboBox cmbVanDung, ComboBox cmbVanDungCao, ComboBox cmbAudio)> phanList = new List<(ComboBox, ComboBox, ComboBox, ComboBox, ComboBox, ComboBox)>
+                    {
+                        (cmbPhan1, cmbNhanBietP1, cmbThongHieuP1, cmbVanDungP1, cmbVanDungCaoP1, cmbAudioP1),
+                        (cmbPhan2, cmbNhanBietP2, cmbThongHieuP2, cmbVanDungP2, cmbVanDungCaoP2, cmbAudioP2),
+                        (cmbPhan3, cmbNhanBietP3, cmbThongHieuP3, cmbVanDungP3, cmbVanDungCaoP3, cmbAudioP3),
+                        (cmbPhan4, cmbNhanBietP4, cmbThongHieuP4, cmbVanDungP4, cmbVanDungCaoP4, cmbAudioP4),
+                        (cmbPhan5, cmbNhanBietP5, cmbThongHieuP5, cmbVanDungP5, cmbVanDungCaoP5, cmbAudioP5),
+                        (cmbPhan6, cmbNhanBietP6, cmbThongHieuP6, cmbVanDungP6, cmbVanDungCaoP6, cmbAudioP6),
+                        (cmbPhan7, cmbNhanBietP7, cmbThongHieuP7, cmbVanDungP7, cmbVanDungCaoP7, cmbAudioP7),
+                        (cmbPhan8, cmbNhanBietP8, cmbThongHieuP8, cmbVanDungP8, cmbVanDungCaoP8, cmbAudioP8),
+                        (cmbPhan9, cmbNhanBietP9, cmbThongHieuP9, cmbVanDungP9, cmbVanDungCaoP9, cmbAudioP9),
+                        (cmbPhan10, cmbNhanBietP10, cmbThongHieuP10, cmbVanDungP10, cmbVanDungCaoP10, cmbAudioP10),
+                    };
 
-
-                    foreach (var (cmbPhan, cmbNhanBiet, cmbThongHieu, cmbVanDung, cmbVanDungCao) in phanList)
+                    foreach (var (cmbPhan, cmbNhanBiet, cmbThongHieu, cmbVanDung, cmbVanDungCao, cmbAudio) in phanList)
                     {
                         string tenBaiHoc = cmbPhan.SelectedItem?.ToString();
                         if (string.IsNullOrEmpty(tenBaiHoc))
@@ -334,6 +332,7 @@ namespace RunningFromTheDayLight
                         int soLuongThongHieu = LayGiaTriComboBox(cmbThongHieu.Name);
                         int soLuongVanDung = LayGiaTriComboBox(cmbVanDung.Name);
                         int soLuongVanDungCao = LayGiaTriComboBox(cmbVanDungCao.Name);
+                        int soLuongAudio = LayGiaTriComboBox(cmbAudio.Name);
 
                         var dsCauHoi = context.TracNghiems
                             .Where(q => q.Bai.TenBai == tenBaiHoc && q.Bai.MaMon == maMon)
@@ -343,11 +342,13 @@ namespace RunningFromTheDayLight
                         var cauHoiThongHieu = dsCauHoi.Where(q => q.LoaiCauHoi == "TH").OrderBy(r => Guid.NewGuid()).Take(soLuongThongHieu);
                         var cauHoiVanDung = dsCauHoi.Where(q => q.LoaiCauHoi == "VD").OrderBy(r => Guid.NewGuid()).Take(soLuongVanDung);
                         var cauHoiVanDungCao = dsCauHoi.Where(q => q.LoaiCauHoi == "VDC").OrderBy(r => Guid.NewGuid()).Take(soLuongVanDungCao);
+                        var cauHoiAudio = dsCauHoi.Where(q => q.LoaiCauHoi == "AU").OrderBy(r => Guid.NewGuid()).Take(soLuongAudio);
 
                         cauHoiDuocChon.AddRange(cauHoiNhanBiet);
                         cauHoiDuocChon.AddRange(cauHoiThongHieu);
                         cauHoiDuocChon.AddRange(cauHoiVanDung);
                         cauHoiDuocChon.AddRange(cauHoiVanDungCao);
+                        cauHoiDuocChon.AddRange(cauHoiAudio);
                     }
 
                     var tenDeThi = $"Đề thi - {maMon} - {i + 1}";

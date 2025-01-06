@@ -739,7 +739,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 frm_ScoreStatistics frmScore = new frm_ScoreStatistics();
-                frmScore.ShowDialog();
+                frmScore.FormClosing += (s, args) =>
+                {
+                    this.ShowDialog();
+                };
                 frmScore.Show();
             }
             catch (Exception ex)
@@ -754,7 +757,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Frm_ExamSchedule frmAddContest = new Frm_ExamSchedule();
-                frmAddContest.ShowDialog();
+                frmAddContest.FormClosing += (s, args) => 
+                { 
+                    this.ShowDialog(); 
+                };
                 frmAddContest.Show();
             }
             catch (Exception ex)
@@ -769,7 +775,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Frm_AddContest frmAddContest = new Frm_AddContest();
-                frmAddContest.ShowDialog();
+                frmAddContest.FormClosing += (s, args) => 
+                { 
+                    this.ShowDialog(); 
+                };
                 frmAddContest.Show();
             }
             catch (Exception ex)
@@ -784,7 +793,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 AddSubject frmSubject = new AddSubject();
-                frmSubject.ShowDialog();
+                frmSubject.FormClosing += (s, args) => 
+                { 
+                    this.ShowDialog();
+                };
                 frmSubject.ShowDialog();
             }
             catch (Exception ex)
@@ -799,7 +811,10 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 AddMajor addMajor = new AddMajor();
-                addMajor.ShowDialog();
+                addMajor.FormClosing += (s, args) =>
+                {
+                    this.ShowDialog();
+                };
                 addMajor.Show();
             }
             catch (Exception ex)
