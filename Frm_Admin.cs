@@ -739,7 +739,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 frm_ScoreStatistics frmScore = new frm_ScoreStatistics();
-                frmScore.FormClosing += (s, ev) => this.Show();
+                frmScore.ShowDialog();
                 frmScore.Show();
             }
             catch (Exception ex)
@@ -754,7 +754,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Frm_ExamSchedule frmAddContest = new Frm_ExamSchedule();
-                frmAddContest.FormClosing += (s, ev) => this.Show();
+                frmAddContest.ShowDialog();
                 frmAddContest.Show();
             }
             catch (Exception ex)
@@ -769,7 +769,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Frm_AddContest frmAddContest = new Frm_AddContest();
-                frmAddContest.FormClosing += (s, ev) => this.Show();
+                frmAddContest.ShowDialog();
                 frmAddContest.Show();
             }
             catch (Exception ex)
@@ -784,7 +784,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 AddSubject frmSubject = new AddSubject();
-                frmSubject.FormClosing += (s, ev) => this.Show();
+                frmSubject.ShowDialog();
                 frmSubject.ShowDialog();
             }
             catch (Exception ex)
@@ -799,7 +799,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 AddMajor addMajor = new AddMajor();
-                addMajor.FormClosing += (s, ev) => this.Show();
+                addMajor.ShowDialog();
                 addMajor.Show();
             }
             catch (Exception ex)

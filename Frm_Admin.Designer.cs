@@ -34,6 +34,7 @@
             this.toolStrip_btnListStudent = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnTeacher = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnAddMajor = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_btnSuject = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnExam = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnAddExaSchedule = new System.Windows.Forms.ToolStripButton();
             this.toolStrip_btnScore = new System.Windows.Forms.ToolStripButton();
@@ -73,7 +74,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNoSave = new System.Windows.Forms.Button();
-            this.toolStrip_btnSuject = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ListUser)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -151,6 +151,19 @@
             this.toolStrip_btnAddMajor.Size = new System.Drawing.Size(175, 50);
             this.toolStrip_btnAddMajor.Text = "Thêm ngành học";
             this.toolStrip_btnAddMajor.Click += new System.EventHandler(this.toolStrip_btnAddMajor_Click);
+            // 
+            // toolStrip_btnSuject
+            // 
+            this.toolStrip_btnSuject.AutoSize = false;
+            this.toolStrip_btnSuject.AutoToolTip = false;
+            this.toolStrip_btnSuject.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip_btnSuject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_btnSuject.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnSuject.Image")));
+            this.toolStrip_btnSuject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_btnSuject.Name = "toolStrip_btnSuject";
+            this.toolStrip_btnSuject.Size = new System.Drawing.Size(175, 50);
+            this.toolStrip_btnSuject.Text = "Thêm môn học";
+            this.toolStrip_btnSuject.Click += new System.EventHandler(this.toolStrip_btnSuject_Click);
             // 
             // toolStrip_btnExam
             // 
@@ -545,19 +558,6 @@
             this.btnNoSave.Text = "K.Lưu";
             this.btnNoSave.UseVisualStyleBackColor = true;
             this.btnNoSave.Click += new System.EventHandler(this.btnNoSave_Click);
-            // 
-            // toolStrip_btnSuject
-            // 
-            this.toolStrip_btnSuject.AutoSize = false;
-            this.toolStrip_btnSuject.AutoToolTip = false;
-            this.toolStrip_btnSuject.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStrip_btnSuject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStrip_btnSuject.Image = ((System.Drawing.Image)(resources.GetObject("toolStrip_btnSuject.Image")));
-            this.toolStrip_btnSuject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStrip_btnSuject.Name = "toolStrip_btnSuject";
-            this.toolStrip_btnSuject.Size = new System.Drawing.Size(175, 50);
-            this.toolStrip_btnSuject.Text = "họcThêm môn ";
-            this.toolStrip_btnSuject.Click += new System.EventHandler(this.toolStrip_btnSuject_Click);
             // 
             // Frm_Admin
             // 

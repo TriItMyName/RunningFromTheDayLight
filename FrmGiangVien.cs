@@ -34,7 +34,7 @@ namespace RunningFromTheDayLight
                 AddSubject addSubjecc = new AddSubject();
                 addSubjecc.FormClosing += (s, args) =>
                 {
-                    this.Show();
+                    this.ShowDialog();
                     RefreshSubjectList();
                 };
                 addSubjecc.Show();
@@ -53,7 +53,7 @@ namespace RunningFromTheDayLight
                     string subjectCode = cmbsubjects.SelectedValue.ToString();
                     this.Hide();
                     QuestionForm3 questionForm3 = new QuestionForm3(subjectCode);
-                    questionForm3.FormClosing += (s, args) => this.Show();
+                    questionForm3.ShowDialog();
                     questionForm3.Show();
                 }
                 else
@@ -76,7 +76,7 @@ namespace RunningFromTheDayLight
                     string subjectCode = cmbsubjects.SelectedValue.ToString();
                     this.Hide();
                     CreateExamRandom createExamForm = new CreateExamRandom(subjectCode);
-                    createExamForm.FormClosing += (s, args) => this.Show();
+                    createExamForm.ShowDialog();
                     createExamForm.Show();
                 }
                 else
@@ -96,7 +96,7 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Del_Add_Fix_RandomExams del_Add_Fix_RandomExams = new Del_Add_Fix_RandomExams();
-                del_Add_Fix_RandomExams.FormClosing += (s, args) => this.Show();
+                del_Add_Fix_RandomExams.ShowDialog();
                 del_Add_Fix_RandomExams.Show();
             }
             catch (Exception ex)

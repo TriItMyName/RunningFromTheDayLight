@@ -176,19 +176,16 @@ namespace RunningFromTheDayLight
 
         private void btnSaveChange_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem có đề thi nào được chọn để sửa không
             if (SelectedExamID != -1)
             {
-                // Tìm đề thi ngẫu nhiên cần sửa theo ID
                 var examToUpdate = context.DeThiNgauNhiens.FirstOrDefault(de => de.MaDeNgauNhien == SelectedExamID);
 
                 if (examToUpdate != null)
                 {
-                    // Lấy dữ liệu từ TextBox và cập nhật vào các thuộc tính của đề thi
-                    examToUpdate.TenDe = txtDoiTenDe.Text; // Cập nhật tên đề thi
+                    examToUpdate.TenDe = txtDoiTenDe.Text;
                     if (int.TryParse(txtSuaThoiGian.Text, out int examDuration))
                     {
-                        examToUpdate.ThoiGianThi = examDuration; // Cập nhật thời gian thi nếu giá trị hợp lệ
+                        examToUpdate.ThoiGianThi = examDuration;
                     }
                     else
                     {
@@ -196,10 +193,8 @@ namespace RunningFromTheDayLight
                         return;
                     }
 
-                    // Lưu thay đổi vào cơ sở dữ liệu
                     context.SaveChanges();
 
-                    // Tải lại danh sách đề thi ngẫu nhiên để cập nhật giao diện
                     LoadRandomExams();
 
                     MessageBox.Show("Cập nhật đề thi thành công!");
@@ -215,18 +210,15 @@ namespace RunningFromTheDayLight
             }
         }
 
-        // Sự kiện TextChanged của txtSearch
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            var searchQuery = txtSearch.Text.Trim().ToLower(); // Lấy nội dung tìm kiếm và chuyển về chữ thường để so sánh không phân biệt chữ hoa/chữ thường
-            var selectedSubject = cmbSubject.SelectedValue?.ToString(); // Lấy mã môn học đã chọn
+            var searchQuery = txtSearch.Text.Trim().ToLower();
+            var selectedSubject = cmbSubject.SelectedValue?.ToString(); 
 
-            // Kiểm tra xem có môn học nào được chọn hay không
             if (!string.IsNullOrEmpty(selectedSubject))
             {
-                // Lọc danh sách đề thi ngẫu nhiên dựa trên từ khóa tìm kiếm
                 var filteredExams = context.DeThiNgauNhiens
-                    .Where(de => de.MaMon == selectedSubject && de.TenDe.ToLower().Contains(searchQuery)) // Lọc theo mã môn và tên đề
+                    .Where(de => de.MaMon == selectedSubject && de.TenDe.ToLower().Contains(searchQuery)) 
                     .ToList()
                     .Select(de => new
                     {
@@ -240,10 +232,8 @@ namespace RunningFromTheDayLight
                     })
                     .ToList();
 
-                // Xóa tất cả dữ liệu cũ trong DataGridView
                 dgvRamdomExams.Rows.Clear();
 
-                // Thêm dữ liệu đã lọc vào DataGridView
                 foreach (var item in filteredExams)
                 {
                     dgvRamdomExams.Rows.Add(item.ExamID, item.ExamName, item.CreationDate, item.CountQuestions, item.ExamDuration);
@@ -251,7 +241,6 @@ namespace RunningFromTheDayLight
             }
             else
             {
-                // Nếu không có môn học nào được chọn, xóa danh sách trong DataGridView
                 dgvRamdomExams.Rows.Clear();
             }
         }
@@ -260,14 +249,12 @@ namespace RunningFromTheDayLight
         {
             if (SelectedExamID != -1)
             {
-                var selectedSubject = cmbSubject.SelectedValue?.ToString(); // Lấy mã môn học đã chọn
+                var selectedSubject = cmbSubject.SelectedValue?.ToString();
                 if (!string.IsNullOrEmpty(selectedSubject))
                 {
-                    // Mở form Add_Fix_Del_Qestions với mã môn học và mã đề ngẫu nhiên đã chọn
                     var fixQuestionsForm = new Add_Fix_Del_Qestions(SelectedExamID, selectedSubject);
-                    fixQuestionsForm.ShowDialog(); // Hiển thị form như một dialog
+                    fixQuestionsForm.ShowDialog();
 
-                    // Sau khi form được đóng, tải lại danh sách đề thi ngẫu nhiên nếu cần
                     LoadRandomExams();
                 }
                 else
@@ -280,7 +267,5 @@ namespace RunningFromTheDayLight
                 MessageBox.Show("Vui lòng chọn một đề thi để sửa câu hỏi.");
             }
         }
-
-
     }
 }
