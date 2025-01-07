@@ -252,6 +252,7 @@ namespace RunningFromTheDayLight
                 var selectedSubject = cmbSubject.SelectedValue?.ToString();
                 if (!string.IsNullOrEmpty(selectedSubject))
                 {
+                    this.Hide();
                     var fixQuestionsForm = new Add_Fix_Del_Qestions(SelectedExamID, selectedSubject);
                     fixQuestionsForm.ShowDialog();
 

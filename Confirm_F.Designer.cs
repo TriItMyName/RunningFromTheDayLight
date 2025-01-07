@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnThi = new System.Windows.Forms.Button();
             this.rdbMonThi = new System.Windows.Forms.RadioButton();
@@ -38,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,16 +51,6 @@
             this.label1.Size = new System.Drawing.Size(831, 135);
             this.label1.TabIndex = 0;
             this.label1.Text = "THI CUỐI KỲ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(19, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -169,7 +157,6 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Confirm_F";
@@ -177,7 +164,6 @@
             this.Text = "Xác nhận môn thi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Confirm_F_FormClosing);
             this.Load += new System.EventHandler(this.Confirm_F_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -188,7 +174,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbMSSV;

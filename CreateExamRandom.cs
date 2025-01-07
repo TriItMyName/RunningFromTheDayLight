@@ -396,8 +396,8 @@ namespace RunningFromTheDayLight
             {
                 this.Hide();
                 Readfile readfile = new Readfile();
+                readfile.FormClosing += (s, ev) => this.Show();
                 readfile.ShowDialog();
-                readfile.Show();
             }
             catch (Exception ex)
             {
@@ -416,14 +416,19 @@ namespace RunningFromTheDayLight
 
                 this.Hide();
                 Add_Fix_Del_Qestions addFixDelQestions = new Add_Fix_Del_Qestions(examID,maMon);
+                addFixDelQestions.FormClosing += (s, ev) => this.Show();
                 addFixDelQestions.ShowDialog();
-                addFixDelQestions.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Có lỗi khi tải danh sách đề thi: {ex.Message}");
 
             }
+        }
+
+        private void AddFixDelQestions_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

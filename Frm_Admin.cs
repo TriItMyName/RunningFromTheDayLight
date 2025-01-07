@@ -741,9 +741,9 @@ namespace RunningFromTheDayLight
                 frm_ScoreStatistics frmScore = new frm_ScoreStatistics();
                 frmScore.FormClosing += (s, args) =>
                 {
-                    this.ShowDialog();
+                    this.Show();
                 };
-                frmScore.Show();
+                frmScore.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -759,9 +759,9 @@ namespace RunningFromTheDayLight
                 Frm_ExamSchedule frmAddContest = new Frm_ExamSchedule();
                 frmAddContest.FormClosing += (s, args) => 
                 { 
-                    this.ShowDialog(); 
+                    this.Show(); 
                 };
-                frmAddContest.Show();
+                frmAddContest.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -777,9 +777,9 @@ namespace RunningFromTheDayLight
                 Frm_AddContest frmAddContest = new Frm_AddContest();
                 frmAddContest.FormClosing += (s, args) => 
                 { 
-                    this.ShowDialog(); 
+                    this.Show(); 
                 };
-                frmAddContest.Show();
+                frmAddContest.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -795,7 +795,7 @@ namespace RunningFromTheDayLight
                 AddSubject frmSubject = new AddSubject();
                 frmSubject.FormClosing += (s, args) => 
                 { 
-                    this.ShowDialog();
+                    this.Show();
                 };
                 frmSubject.ShowDialog();
             }
@@ -813,9 +813,9 @@ namespace RunningFromTheDayLight
                 AddMajor addMajor = new AddMajor();
                 addMajor.FormClosing += (s, args) =>
                 {
-                    this.ShowDialog();
+                    this.Show();
                 };
-                addMajor.Show();
+                addMajor.ShowDialog();
             }
             catch (Exception ex)
             {

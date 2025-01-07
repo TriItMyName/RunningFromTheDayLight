@@ -89,8 +89,9 @@ namespace RunningFromTheDayLight
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             DoExams exam = new DoExams(SubjectCode, StudentName, StudentCode, TGBD, RoomID);
-            exam.Show();
+            exam.ShowDialog();
         }
 
         private void Confirm_F_FormClosing(object sender, FormClosingEventArgs e)

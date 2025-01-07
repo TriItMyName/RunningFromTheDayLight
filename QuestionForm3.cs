@@ -63,8 +63,9 @@ namespace RunningFromTheDayLight
                                    rdoQuestionC.Checked ? "C" : "D";
                 string loaiCauHoi = rdoNhanBiet.Checked ? "NB" :
                                     rdoThongHieu.Checked ? "TH" :
-                                    rdoVanDung.Checked ? "VB" : "VDC";
-                string audioFileName = rboAudio.Checked ? txtFileNameAudio.Text : null;
+                                    rdoVanDung.Checked ? "VB" :
+                                    rdoVanDungCao.Checked ? "VDC" : "AU";
+                string audioFileName = rdoAudio.Checked ? txtFileNameAudio.Text : null;
 
                 int? maBai = null;
                 if (cmbBai.SelectedValue != null && int.TryParse(cmbBai.SelectedValue.ToString(), out int maBaiValue))
@@ -152,7 +153,7 @@ namespace RunningFromTheDayLight
                 string loaiCauHoi = rdoNhanBiet.Checked ? "NB" :
                                     rdoThongHieu.Checked ? "TH" :
                                     rdoVanDung.Checked ? "VB" : "VDC";
-                string audioFileName = rboAudio.Checked ? txtFileNameAudio.Text : null;
+                string audioFileName = rdoAudio.Checked ? txtFileNameAudio.Text : null;
 
                 int? maBai = null;
                 if (cmbBai.SelectedValue != null && int.TryParse(cmbBai.SelectedValue.ToString(), out int maBaiValue))

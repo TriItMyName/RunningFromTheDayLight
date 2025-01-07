@@ -143,19 +143,19 @@ namespace RunningFromTheDayLight
                 };
                 questionPanel.Controls.Add(lblContent);
 
-                // Thêm NAudio nếu có file âm thanh
                 if (!string.IsNullOrEmpty(question.AudioFileName))
                 {
                     try
                     {
+                        int playCount = 0;
+                        int stopCount = 0;
+
                         Button btnPlay = new Button
                         {
                             Text = "Play",
                             Location = new Point(10, 40),
                             Width = 75
                         };
-                        btnPlay.Click += (s, e) => PlayAudio(question.AudioFileName);
-                        questionPanel.Controls.Add(btnPlay);
 
                         Button btnStop = new Button
                         {
@@ -163,7 +163,37 @@ namespace RunningFromTheDayLight
                             Location = new Point(90, 40),
                             Width = 75
                         };
-                        btnStop.Click += (s, e) => StopAudio();
+
+                        btnPlay.Click += (s, e) =>
+                        {
+                            if (playCount <= 5)
+                            {
+                                PlayAudio(question.AudioFileName);
+                                playCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Bạn đã đạt đến số lần phát tối đa (5).");
+                                btnPlay.Enabled = false;
+                                btnStop.Enabled = false;
+                            }
+                        };
+                        questionPanel.Controls.Add(btnPlay);
+
+                        btnStop.Click += (s, e) =>
+                        {
+                            if (stopCount <= 5)
+                            {
+                                StopAudio();
+                                stopCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Bạn đã đạt đến số lần dừng tối đa (5).");
+                                btnPlay.Enabled = false;
+                                btnStop.Enabled = false;
+                            }
+                        };
                         questionPanel.Controls.Add(btnStop);
                     }
                     catch (Exception ex)
@@ -172,7 +202,6 @@ namespace RunningFromTheDayLight
                     }
                 }
 
-                // Tạo các RadioButton cho đáp án
                 RadioButton rdoA = new RadioButton
                 {
                     Text = "A. " + question.OptionA,
@@ -209,14 +238,11 @@ namespace RunningFromTheDayLight
                 };
                 questionPanel.Controls.Add(rdoD);
 
-                // Gán đối tượng câu hỏi vào Tag của Panel để sử dụng sau
                 questionPanel.Tag = question;
 
-                // Thêm Panel câu hỏi vào FlowLayoutPanel
                 flpQuestions.Controls.Add(questionPanel);
             }
 
-            // Thêm nút "Nộp bài" ở cuối danh sách câu hỏi
             Button btnSubmit = new Button
             {
                 Text = "Nộp bài",
@@ -355,6 +381,15 @@ namespace RunningFromTheDayLight
 
             lblSubjectName.Text = $"Môn học: {Subjectcode}";
             lblSubjectName.Font = new Font("Arial", 12, FontStyle.Bold);
+        }
+
+        private void DoExams_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

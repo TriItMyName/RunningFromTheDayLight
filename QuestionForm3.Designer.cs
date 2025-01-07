@@ -41,8 +41,8 @@ namespace RunningFromTheDayLight
             this.rdoQuestionC = new System.Windows.Forms.RadioButton();
             this.rdoQuestionD = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rboAudio = new System.Windows.Forms.RadioButton();
             this.txtFileNameAudio = new System.Windows.Forms.TextBox();
+            this.rdoAudio = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -293,7 +293,7 @@ namespace RunningFromTheDayLight
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtFileNameAudio);
-            this.groupBox1.Controls.Add(this.rboAudio);
+            this.groupBox1.Controls.Add(this.rdoAudio);
             this.groupBox1.Controls.Add(this.rdoThongHieu);
             this.groupBox1.Controls.Add(this.rdoNhanBiet);
             this.groupBox1.Controls.Add(this.rdoVanDung);
@@ -306,24 +306,24 @@ namespace RunningFromTheDayLight
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             // 
-            // rboAudio
-            // 
-            this.rboAudio.AutoSize = true;
-            this.rboAudio.Location = new System.Drawing.Point(518, 12);
-            this.rboAudio.Margin = new System.Windows.Forms.Padding(4);
-            this.rboAudio.Name = "rboAudio";
-            this.rboAudio.Size = new System.Drawing.Size(63, 20);
-            this.rboAudio.TabIndex = 20;
-            this.rboAudio.TabStop = true;
-            this.rboAudio.Text = "Audio";
-            this.rboAudio.UseVisualStyleBackColor = true;
-            // 
             // txtFileNameAudio
             // 
             this.txtFileNameAudio.Location = new System.Drawing.Point(588, 12);
             this.txtFileNameAudio.Name = "txtFileNameAudio";
             this.txtFileNameAudio.Size = new System.Drawing.Size(231, 22);
             this.txtFileNameAudio.TabIndex = 25;
+            // 
+            // rdoAudio
+            // 
+            this.rdoAudio.AutoSize = true;
+            this.rdoAudio.Location = new System.Drawing.Point(518, 12);
+            this.rdoAudio.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoAudio.Name = "rdoAudio";
+            this.rdoAudio.Size = new System.Drawing.Size(63, 20);
+            this.rdoAudio.TabIndex = 20;
+            this.rdoAudio.TabStop = true;
+            this.rdoAudio.Text = "Audio";
+            this.rdoAudio.UseVisualStyleBackColor = true;
             // 
             // QuestionForm3
             // 
@@ -386,7 +386,7 @@ namespace RunningFromTheDayLight
         private System.Windows.Forms.RadioButton rdoQuestionC;
         private System.Windows.Forms.RadioButton rdoQuestionD;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rboAudio;
+        private System.Windows.Forms.RadioButton rdoAudio;
         private System.Windows.Forms.TextBox txtFileNameAudio;
     }
 }
